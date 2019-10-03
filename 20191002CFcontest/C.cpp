@@ -46,4 +46,3 @@ int main() {
 		ans = ans * H(n, prime.second) % mod;
 	} cout << ans << endl;
 }
-close
