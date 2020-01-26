@@ -22,8 +22,6 @@ signed main()
 {
     ios::sync_with_stdio(0);
     cin.tie(0);
-#ifdef DEBUG
-    freopen("in", "r", stdin);
-#endif
+    //freopen("in", "r", stdin);
     return 0;
 }
