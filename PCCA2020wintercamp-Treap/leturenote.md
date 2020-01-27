@@ -1,14 +1,15 @@
 ---
+
 title: Treap presentation for NCTU PCCA wintercamp 2020
 tags: presentation, PCCA, 2020
 author : maxwill lin, yan-tong lin
-description : my first md/draw.io slides from scratch
+description : my first md/latex/draw.io slides from scratch
 slideOptions:  
   theme: sky
   transition: slide
   hash : true
   history: true
-  linkColor : black
+  
 ---
 
 # Treap
