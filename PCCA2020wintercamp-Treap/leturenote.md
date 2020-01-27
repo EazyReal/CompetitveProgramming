@@ -2,7 +2,7 @@
 title: Treap presentation for NCTU PCCA wintercamp 2020
 tags: presentation, PCCA, 2020
 author : maxwill lin, yan-tong lin
-description : my first md slides from scratch
+description : my first md/draw.io slides from scratch
 slideOptions:  
   theme: sky
   transition: slide
@@ -12,6 +12,8 @@ slideOptions:
 ---
 
 # Treap
+
+![](https://i.imgur.com/se9payR.png)
 
 ---
 
@@ -45,23 +47,25 @@ Note:
 - insert, delete, search for element 
 - $O(\text{height})$
 - problem : degenerate(退化)
-![](https://i.imgur.com/XxmHOAI.png =70%x)
+![](https://i.imgur.com/lJXx8QV.png)
+
 
 
 ----
 
 ### degenerate BST
 - this tree is inserted  with in the order of 
-  [8, 9, 10, 11, 12]
+  [5, 6, 7, 8, 9]
 - degenerate to linked list, $O(\text{height}) = O(n)$
 
-![](https://i.imgur.com/ZIpvhN3.png =50%x)
+![](https://i.imgur.com/uVk5fD4.png =30%x)
+
 
 ----
 
 ### Heap
 - $\mathrm{parent > children \quad \forall nodes}$
-![](https://i.imgur.com/4Adlz6m.png =80%x)
+![](https://i.imgur.com/2dNL8pK.png)
 
 ----
 
@@ -72,19 +76,22 @@ Note:
     - $\mathrm{key_{left\ child} < key_{parent} < key_{right\ child} \quad\forall nodes}$
 - priority : heap
     - $\mathrm{priority_{parent} > priority_{children} \quad\forall\ nodes}$
-![](https://i.imgur.com/DvK8HzU.png =70%x)
+![](https://i.imgur.com/sLSqGvz.png)
+
 
 ----
 
 ### A simple proof for balance property
-- Observation : Keys + priorities can uniquely decide a tree
-- View as a BST whose insertion order is decided by priorities(larger-> earlier)
-- <span>why? <!-- .element: class="fragment" data-fragment-index="1" --></span>
+
+- <span> Observation : root is inserted before children <!-- .element: class="fragment" data-fragment-index="1" --></span> 
 - <span> $\mathrm{priority_{parent} > priority_{children} \quad \forall nodes}$ <!-- .element: class="fragment" data-fragment-index="2" --></span>
-- <span> priority is given randomly $\implies$ is balanced on average<!-- .element: class="fragment" data-fragment-index="3" --></span>
+- <span> View as a BST whose insertion order is decided by priorities(larger-> earlier)<!-- .element: class="fragment" data-fragment-index="3" --></span>
+- <span>why balance? <!-- .element: class="fragment" data-fragment-index="4" --></span>
+- <span> priority is given randomly $\implies$ is balanced on average<!-- .element: class="fragment" data-fragment-index="5" --></span>
 
 Note:
 - insertion is decided by piority, larger priority -> inserted earlier
+- emphasize priority decide insertion order if view tree as final tree
 - randomized BST
 - size as probability weight implementation
     - when merge, $\Pr(a ~\text{as root}) = \frac{\text{size}(a)}{\text{size}(a)+\text{size}(b)}$
@@ -107,20 +114,32 @@ Note:
 
 ### Implicit Treap 
 - idea : index as key
-- implementation : record subtree size
-- split by $k$-th and merge as usual
+- blanced array
+- text-editor (rope)
+
+![](https://i.imgur.com/se9payR.png)
+
+Note:
+- when implement, record size instead of index
 
 ----
 
 ### Treap as interval tree
 - implicit treap with extra information
-- mentain interval sum/max/min
-- any operation with *associative law* (結合律)
+- interval(subtree) min/max/sum
+- interval fold  with *associative law* (結合律)
   $G(S,*)~\text{s.t.}~\forall a, b, c\in S,\ a*b*c\ =\ (a*b)*c\ =\ a*(b*c)$
-- lazy mark (interval update)
-- support more!
+- lazy mark (support nterval update)
+- more!
     - delete interval
     - insert interval
+
+----
+
+### Interval Treap
+
+![](https://i.imgur.com/yrFpWod.png)
+
 
 ---
 
@@ -135,9 +154,8 @@ Note:
     - insert, delete (combine merge and split to achieve)
     - pull, push (like in interval tree)
 
-Note:
-(Not neccesary to talk about in camp)
-We use merge-split treap most of the time
+Note:(can mention a little)
+- We use merge-split treap most of the time
 - advantages:
     - easy to code (~iterval tree)
     - more powerful (merge and split supported)
@@ -150,19 +168,21 @@ We use merge-split treap most of the time
 ``` cpp
 struct Node
 {
-  int pri, sz, val;
-  int mark; //optional, lazy mark
+  int pri, key, sz, val;
   Node *lc, *rc;
   Node(){};
   //syntax sugar
-  Node(int val) : pri(rand()), sz(1), val(val), mark(0) {};
+  Node(int val, int key) :pri(rand()), key(key), sz(1), val(val), mark(0) {};
+  Node(int val) :pri(rand()), sz(1), val(val), mark(0) {};
 }
 ```
 - hint : without `srand(time(NULL))` sometimes get TLE
+- Node means subTreap
 
 Note:
 - if no srand, rand() result is predictible by problem setter
 - and problem setter can 搞你
+- Node in merge-split Treap can be seen as subtree rooted at that Node 
 
 ----
 
@@ -173,27 +193,37 @@ Note:
 - split
     - split treap C to treap A and treap B by key value **k**
     - $\text{key}_a \leqslant k < \text{key}_b \quad \forall a \in A,\ b \in B$ 
-- both expected $O(\log(n))$
-- they are inverse operations for each other
-- other operation related to tree structure can be achieved by merge+split
+- inverse operations, both are $O(\log(n))$ in expectation
+- merge + split combinations
 
 ----
 
 #### Merge
 - priority大的當根, 剩下交給子樹處理
-- 想像一下若6的priority比4的priority大的情況
-![](https://i.imgur.com/QRFTczW.png)
+![](https://i.imgur.com/yiPBAi2.png)
+
 
 ----
 
-#### Merge
+![](https://i.imgur.com/I1hEKoe.png)
 
-- 比較複雜的情況 (這個圖用的是min heap)
-- 每次呼叫的root是 (5, 11) (7, 11) (7, 10) (10, 8), (8, 9)
+----
+
+![](https://i.imgur.com/P1sMtmW.png)
+
+
+
+----
+
+![](https://i.imgur.com/easQ86C.png)
+
+
+----
+
 - 很清楚的是$O(\log(n))$
-- 9應該要在8的右子樹
+- 注意到左右永不混雜
 
-![](https://i.imgur.com/qJfNbO4.png =50%x)
+![](https://i.imgur.com/Wfb5fSq.png)
 
 ----
 
@@ -201,6 +231,8 @@ Note:
 
 - merge trees rooted at a and b, return merged tree root
 - $\text{key}_a < \text{key}_b \quad \forall a \in A, b \in B$ 
+- <span>implicit treap?<!-- .element: class="fragment" data-fragment-index="1" --></span>
+- <span>No Change, why?<!-- .element: class="fragment" data-fragment-index="2" --></span>
 ```cpp
 Node* merge(Node* a, Node* b) //key a < key b
 {
@@ -215,8 +247,9 @@ Node* merge(Node* a, Node* b) //key a < key b
     b−>l = merge(a, b−>l); //key a smaller => merge a and lc of b
     return b;
 }
-
 ```
+Note:
+- Merge preserve BST order, so when still work on implicit key
 
 ----
 
@@ -225,16 +258,32 @@ Node* merge(Node* a, Node* b) //key a < key b
 - 如果當前的根的key $\leq$ k
 - 根及左子樹都屬於A, 右邊再討論
 - 遞迴右邊的結果要接回根當前根的右邊
-  ![](https://i.imgur.com/JK6t5ar.png)
+![](https://i.imgur.com/f92jQxv.png)
 
+----
 
+![](https://i.imgur.com/pljVxbF.png)
 
+----
+
+![](https://i.imgur.com/2QEVgnP.png)
+
+----
+
+![](https://i.imgur.com/w8vUy0B.png)
+
+----
+
+![](https://i.imgur.com/L3ZiwTH.png)
+
+----
+
+![](https://i.imgur.com/yFe5akE.png)
 
 ----
 
 #### Split
 - split treap C to treap A and treap B by key value **k**
-- result will store in a, b (passed by reference)
 - $\text{key}_a \leqslant k < \text{key}_b \quad \forall a \in A,\ b \in B$ 
 - Q : why heap property still holds
 ```cpp
@@ -255,19 +304,57 @@ void split(Node* c, int k, Node*& a, Node*& b)
 ```
 
 Note:
+- result will store in a, b (passed by reference)
 - Answer of Q : because all nodes' children are deeper than themself 
+- No need to judge priority!!
 
 ----
 
-### Insert
+#### Split - Implicit Treap
+
+- <span>implicit treap?<!-- .element: class="fragment" data-fragment-index="1" --></span>
+- <span>record size and change k while cutting<!-- .element: class="fragment" data-fragment-index="2" --></span>
+![](https://i.imgur.com/AJXzqCj.png)
+
+
+Note:
+- try to code yourself
+
 
 ----
 
-### Delete
+#### Insert
+
+- Insert(C, x) 
+- Split(C, x, A, B)
+- Merge(Merge(A, x), B)
+- get AxB
+- <span>insert interval?<!-- .element: class="fragment" data-fragment-index="1" --></span>
+
+![](https://i.imgur.com/sRiLDd1.png)
+
+Note:
+- interval(as treap) is nothing special 
 
 ----
 
-### Reminder
+#### Delete
+
+- Delete(C, x) 
+- Split(C, <x, A, B), Split(C, x, D, E) 
+- Merge(A, E)
+- get A(no x)E
+- <span>delete interval?<!-- .element: class="fragment" data-fragment-index="1" --></span><span>...delete "single x"?<!-- .element: class="fragment" data-fragment-index="2" --></span>
+
+![](https://i.imgur.com/c6ktc0N.png =50%x)
+
+
+Note:
+- D = find(C, x), D = Merge(D->lc, D->rc)
+
+----
+
+#### For Interval Treap
 - check validity of information!
 - write push and pull function for clarity
     - push (down)
@@ -360,7 +447,7 @@ his[i] = new rope<int> (*his[i - 1]);
     - history of tree (just like git)
     - concept : only copy what need to be copied
     - $O(\log(n))$ new nodes per patch 
-    - example : ASK(k, l, r) + Update + Online
+    - example : ASK(version, kth, l, r) + Update + Online
 
 
 ---
@@ -396,24 +483,28 @@ Note:
      - delete interval
 - Rope + Copy-on-Write = AC!
 - Challenge:
-    - implement yourself with treap
-    - what if add operation like reverse(try to do both rope and treap)
+    - treap
+    - what if add operation like reverse(rope and treap)
 
 ---
 
 ## Reference
-- Google
+- [Google](https://www.google.com)
 - [2016建中校隊培訓講義 by hansonyu123](https://tioj.ck.tp.edu.tw/uploads/attachment/5/35/9.pdf)
 - PCCA winter camp 廖俊杰(aaaaajack) Treap note
 - https://cp-algorithms.com/data_structures/treap.html
-- [Treap pictures](https://www.acwing.com/solution/AcWing/content/1475/)
 - [C++ PBDS](https://codeforces.com/blog/entry/11080)
 - [C++ rope](http://www.martinbroadhurst.com/stl/Rope.html)
 - [Markdown slide tutorial](https://hackmd.io/slide-example?both)
+- [Original Treap pictures with draw.io](https://www.draw.io/)
 - [Latex symbol list](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols)
 
 ---
 
 ## Thanks All
+
+Note:
+- 第一次使用markdown syntax + latex + draw.io
+- 希望大家都有聽懂!
 
 ---
