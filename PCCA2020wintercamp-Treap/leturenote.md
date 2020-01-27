@@ -356,6 +356,7 @@ Note:
 ----
 
 #### For Interval Treap
+- very similar to interval tree
 - check validity of information!
 - write push and pull function for clarity
     - push (down)
