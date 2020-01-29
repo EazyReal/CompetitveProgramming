@@ -9,8 +9,21 @@ slideOptions:
   transition: slide
   hash : true
   history: true
-  
+
 ---
+
+<!-- CSS -->
+<style>
+div.left {
+    text-align: left;
+}
+</style>
+
+<style>
+div.small {
+    font-size: 0.85em;
+}
+</style>
 
 # Treap
 
@@ -43,11 +56,16 @@ Note:
 
 ### Binary Search Tree
 
+<div class="small">
+
 - data structure for binaray search
 - $\mathrm{left child < parent < right child \quad \forall nodes}$
 - insert, delete, search for element 
 - $O(\text{height})$
 - problem : degenerate(退化)
+
+</div>
+
 ![](https://i.imgur.com/lJXx8QV.png)
 
 
@@ -55,9 +73,13 @@ Note:
 ----
 
 ### degenerate BST
+<div class="small">
+
 - this tree is inserted  with in the order of 
   [5, 6, 7, 8, 9]
 - degenerate to linked list, $O(\text{height}) = O(n)$
+
+</div>
 
 ![](https://i.imgur.com/uVk5fD4.png =30%x)
 
@@ -71,18 +93,24 @@ Note:
 ----
 
 ### Treap
+<div class="small">
 
 - a node consists of key and priority
 - key : tree
     - $\mathrm{key_{left\ child} < key_{parent} < key_{right\ child} \quad\forall nodes}$
 - priority : heap
     - $\mathrm{priority_{parent} > priority_{children} \quad\forall\ nodes}$
+    
+</div>
+
 ![](https://i.imgur.com/sLSqGvz.png)
 
 
 ----
 
-### A simple proof for balance property
+### Balance Property
+
+<div class="small">
 
 - <span> Observation : root is inserted before children in BST<!-- .element: class="fragment" data-fragment-index="1" --></span> 
 - <span> $\mathrm{priority_{parent} > priority_{children} \quad \forall nodes}$ <!-- .element: class="fragment" data-fragment-index="2" --></span>
@@ -90,7 +118,10 @@ Note:
 - <span>why balance? <!-- .element: class="fragment" data-fragment-index="4" --></span>
 - <span> priority is given randomly $\implies$ is balanced on average<!-- .element: class="fragment" data-fragment-index="5" --></span>
 
+</div>
+
 Note:
+- a single proof for balance property
 - insertion is decided by piority, larger priority -> inserted earlier
 - emphasize priority decide insertion order if view tree as final tree
 - randomized BST
@@ -102,13 +133,16 @@ Note:
 
 ## Usage
 - Easy to code balanced BST
+- Merge / Split operation
 - Implicit Treap
 - Serve as powerful interval tree(線段樹)
 - Free to add additional features!
 - Implementation details will be cover later
 
 Note:
-- Should give a sense that treap is strong  not details
+- interval tree? segment tree? 名稱緣由
+- Should give a sense that treap is strong
+- talk about merge/split a little
 - details should be cover in implementation
 
 ----
@@ -122,10 +156,14 @@ Note:
 
 Note:
 - when implement, record size instead of index
+- interval information maintain
 
 ----
 
 ### Treap as interval tree
+
+<div class="small">
+
 - implicit treap with extra information
 - interval(subtree) min/max/sum
 - interval fold  with *associative law* (結合律)
@@ -135,16 +173,26 @@ Note:
     - delete interval
     - insert interval
 
+</div>
+
+Note:
+- talk about concept of merge and split
+- cover details and code later
+
 ----
 
 ### Interval Treap
 
 ![](https://i.imgur.com/yrFpWod.png)
 
+Note:
+- Each point is array value itself and record the interval information of its subtree
 
 ---
 
 ## Implementation
+
+<div class="small">
 
 - Merge-split Treap
 - Treap Node
@@ -153,7 +201,9 @@ Note:
 - Basic Operations
     - merge, split
     - insert, delete (combine merge and split to achieve)
-    - pull, push (like in interval tree)
+    - pull, push (for interval tree)
+
+</div>
 
 Note:(can mention a little)
 - We use merge-split treap most of the time
@@ -177,8 +227,13 @@ struct Node
   Node(int val) :pri(rand()), sz(1), val(val), mark(0) {};
 }
 ```
-- hint : without `srand(time(NULL))` sometimes get TLE
+
+<div class="small">
+
+- hint : without ```srand(time(NULL))``` sometimes get TLE
 - Node means subTreap
+
+</div>
 
 Note:
 - if no srand, rand() result is predictible by problem setter
@@ -188,14 +243,19 @@ Note:
 ----
 
 ### Basic Operations
+
+<div class="small">
+
 - merge
     - merge treap A and treap B
-    - in which $\text{key}_a < \text{key}_b \quad \forall a \in A,\ b \in B$ 
+    - $\text{key}_a < \text{key}_b \quad \forall a \in A,\ b \in B$ 
 - split
     - split treap C to treap A and treap B by key value **k**
     - $\text{key}_a \leqslant k < \text{key}_b \quad \forall a \in A,\ b \in B$ 
 - inverse operations, both are $O(\log(n))$ in expectation
 - merge + split combinations
+
+</div>
 
 ----
 
@@ -229,11 +289,15 @@ Note:
 ----
 
 #### Merge
+<div class="small">
 
 - merge trees rooted at a and b, return merged tree root
 - $\text{key}_a < \text{key}_b \quad \forall a \in A, b \in B$ 
 - <span>implicit treap?<!-- .element: class="fragment" data-fragment-index="1" --></span>
 - <span>No Change, why?<!-- .element: class="fragment" data-fragment-index="2" --></span>
+
+</div>
+
 ```cpp
 Node* merge(Node* a, Node* b) //key a < key b
 {
@@ -351,7 +415,7 @@ Note:
 
 
 Note:
-- D = find(C, x), D = Merge(D->lc, D->rc)
+- Answer to delete a single x : D = find(C, x), D = Merge(D->lc, D->rc)
 
 ----
 
@@ -372,18 +436,83 @@ Note:
 
 ----
 
-#### For Interval Treap
+#### Example (POJ 3580 Super Memo)
+```cpp
+void add_(Node *&root, int l, int r, int x)
+{
+  Node *a, *b, *c, *d;
+  split(root, r, a, b); //a = [1, r]
+  split(a, l-1, c, d); //d = [l, r]
+  d->addv += x;
+  root = merge(merge(c, d), b);
+}
+```
 
 ```cpp
-
+Node *merge(Node *a, Node *b) //key a < key b
+{
+  if(!a) return b;
+  if(!b) return a;
+  if(a->pri > b->pri)
+  {
+    push(a);
+    a->rc = merge(a->rc, b);
+    pull(a);
+    return a;
+  }
+  push(b);
+  b->lc = merge(a, b->lc);
+  pull(b);
+  return b;
+}
 ```
+
+<!-- for practic, wont be on screen -->
+
+```cpp
+void push(Node *a)
+{
+  if(!a) return;
+  if(a->rev)
+  {
+    swap(a->lc, a->rc);
+    if(a->lc) a->lc->rev ^= 1;
+    if(a->rc) a->rc->rev ^= 1;
+    a->rev = false;
+  }
+  if(a->addv != 0)
+  {
+    a->val += a->addv;
+    a->minv += a->addv;
+    if(a->lc) a->lc->addv += a->addv;
+    if(a->rc) a->rc->addv += a->addv;
+    a->addv = 0;
+  }
+  return;
+}
+```
+
+```cpp
+void pull(Node *a)
+{
+  a->sz = sz(a->lc) + sz(a->rc) + 1;
+  a->minv = a->val;
+  //key : push children before pull (maintain inside) or consider addv lazy mark
+  if(a->lc) a->minv = min(a->minv, a->lc->minv + a->lc->addv);
+  if(a->rc) a->minv = min(a->minv, a->rc->minv + a->rc->addv);
+}
+```
+
+Note:
+- From my AC code
+- 21277193	maxwill	3580	Accepted	6140K	1532MS	G++	4975B	2020-01-29 13:41:32
 
 ---
 
 ## PBDS and Rope
 - pbds BST : binary search tree
 - rope : text editor, implicit BST
-- 如果必須實作， ICPC 可以帶模板
+- 如果必須實作, ICPC 可以帶模板
   但是要夠熟悉賽場上才容易寫得出來變化題
 
 ``` cpp
@@ -455,13 +584,16 @@ his[i] = new rope<int> (*his[i - 1]);
 ---
 
 ## Advanced Topics
+<div class="small">
+
 - handle duplication (multi-set)
 - Copy-on-Write (可持久化)
     - history of tree (just like git)
     - concept : only copy what need to be copied
     - $O(\log(n))$ new nodes per patch 
     - example : ASK(version, kth, l, r) + Update + Online
-
+    
+</div>
 
 ---
 
@@ -472,6 +604,8 @@ his[i] = new rope<int> (*his[i - 1]);
 ----
 
 ### POJ 3580 SuperMemo
+<div class="small">
+
 - Operations:
     - ADD x y D
     - REVERSE x y
@@ -483,13 +617,18 @@ his[i] = new rope<int> (*his[i - 1]);
 - Good practice problem for interval operations
 - Think : how to SUM x y
 
+</div>
+
 Note:
-- SUM x, y => care ADD lazy mark 
+- SUM x, y => care ADD lazy mark (interval val += interval size*addv)
+- sample solution?
 
 
 ----
 
 ### UVa 12538 Version Controlled IDE
+<div class="small">
+
 - Operatons:
      - Start with empty string
      - insert interval to position x
@@ -498,6 +637,8 @@ Note:
 - Challenge:
     - treap
     - what if add operation like reverse(rope and treap)
+
+</div>
 
 ---
 
