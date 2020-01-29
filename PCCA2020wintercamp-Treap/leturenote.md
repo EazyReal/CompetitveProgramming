@@ -84,7 +84,7 @@ Note:
 
 ### A simple proof for balance property
 
-- <span> Observation : root is inserted before children <!-- .element: class="fragment" data-fragment-index="1" --></span> 
+- <span> Observation : root is inserted before children in BST<!-- .element: class="fragment" data-fragment-index="1" --></span> 
 - <span> $\mathrm{priority_{parent} > priority_{children} \quad \forall nodes}$ <!-- .element: class="fragment" data-fragment-index="2" --></span>
 - <span> View as a BST whose insertion order is decided by priorities(larger-> earlier)<!-- .element: class="fragment" data-fragment-index="3" --></span>
 - <span>why balance? <!-- .element: class="fragment" data-fragment-index="4" --></span>
@@ -366,6 +366,17 @@ Note:
         - when merge subtrees
         - 子樹處理好的資訊「拉」上來
 
+Note:
+- 叫pull up的時候資訊一定要是對的
+- 叫push dpwn的時候自己要處理好
+
+----
+
+#### For Interval Treap
+
+```cpp
+
+```
 
 ---
 
@@ -490,6 +501,18 @@ Note:
 
 ---
 
+### Conclusion
+
+- Treap is a powerful data structure in competitive programming
+- However, many problems that can be solved by Treap have alternatives
+- Get familiar with this powerful tool and strengthen your mind
+
+Note:
+- https://codeforces.com/contest/847/problem/D
+- Treap/BIT/greedy/fastest O(n)
+
+---
+
 ## Reference
 - [Google](https://www.google.com)
 - [2016建中校隊培訓講義 by hansonyu123](https://tioj.ck.tp.edu.tw/uploads/attachment/5/35/9.pdf)
@@ -504,9 +527,3 @@ Note:
 ---
 
 ## Thanks All
-
-Note:
-- 第一次使用markdown syntax + latex + draw.io
-- 希望大家都有聽懂!
-
----
