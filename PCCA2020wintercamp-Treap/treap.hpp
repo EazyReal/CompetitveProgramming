@@ -1,15 +1,15 @@
 #include <bits/stdc++.h>
 
 //when use implicit treap
-//key = index(unused), record sz
+//key = index(unused), record subtree size
 struct Node
 {
   int pri, key, sz, val;
   Node *lc, *rc;
   Node(){};
+  //syntax sugar
   Node(int val, int key) :pri(rand()), key(key), sz(1), val(val), mark(0) {};
   Node(int val) :pri(rand()), sz(1), val(val), mark(0) {};
-  //syntax sugar
 }
 
 Node* merge(Node* a, Node* b) //key a < key b
@@ -26,11 +26,13 @@ Node* merge(Node* a, Node* b) //key a < key b
     return b;
 }
 
-void split(Node* c, int k, Node*& a, Node*& b) //依照 k 將 treap 分割至 a, b
+//result will store in a, b
+void split(Node* c, int k, Node*& a, Node*& b)
 {
   if (!c) a = b = nullptr; //base case
   else if (c−>key <= k)
-  { //key of c is smaller than k =>
+  {
+    //key of c <= k => Node c and lc <= k
     a = c;
     split(c−>r, k, a−>r, b);
   }
