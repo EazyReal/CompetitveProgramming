@@ -47,7 +47,7 @@ signed main()
         //use all of c this round / or no occurece of "any" c is afternow cursor(i.e. last)
         if(now[c] == idx[c].size() || idx[c][idx[c].size()-1] <= cursor ) {memset(now, 0, sizeof(now)); cursor = -1; ans++; /*debug(i);*/}
         //move to the occurece after now cur
-        while(idx[c][now[c]] <= cursor) ++now[c];
+        while(idx[c][now[c]] <= cursor) ++now[c]; //TLE
         cursor = idx[c][now[c]];
         //if(now[c] == idx[c].size()-1) ans++;
         now[c] = now[c]+1;
@@ -59,6 +59,8 @@ signed main()
     return 0;
 }
 
+
+//after contest judge TLE on case bbbbbbbbbbbbab ababababababababab
 
 /*
 aaabce
