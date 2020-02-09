@@ -1,5 +1,8 @@
 #for fast git operations
+#for further info., just go see function sub 
 #maxwill lin
+#ver 0 done 2020/2/9 14:00, debug [space$#]
+
 #!/bin/bash
 
 function sub()
