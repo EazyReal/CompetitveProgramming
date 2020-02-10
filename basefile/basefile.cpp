@@ -9,6 +9,8 @@ using namespace std;
 #define all(a) a.begin(), a.end()
 #define rep(i, st, n) for (int i = (st); i < (n); ++i)
 #define debug(x) std::cout << #x << ": " << x << endl
+#define fastIO() ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0)
+#define fileIO(in, out) freopen(in, "r", stdin); freopen(out, "w", stdout)
 
 typedef long long ll;
 typedef unsigned long long ull;

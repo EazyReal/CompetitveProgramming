@@ -10,6 +10,7 @@ using namespace std;
 #define rep(i, st, n) for (int i = (st); i < (n); ++i)
 #define debug(x) std::cout << #x << ": " << x << endl
 #define fastIO() ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0)
+#define fileIO(in, out) freopen(in, "r", stdin); freopen(out, "w", stdout)
 
 typedef long long ll;
 typedef unsigned long long ull;
@@ -32,25 +33,21 @@ double ans[maxn];
 signed main()
 {
     fastIO();
-    //freopen("in", "r", stdin);
     cin >> n;
     rep(i, 1, n+1) cin >> a[i];
     pre[0] = 0.0;
     rep(i, 1, n+1) pre[i] = pre[i-1] + a[i];
-    int s = 1;
-    while(s <= n)
+    int stk[maxn], top = 0;
+    rep(i, 1, n+1)
     {
-      double mm = 1e7;
-      int mi = s;
-      rep(t, s, n+1)
-      {
-        double now = (pre[t]-pre[s-1])/(t-s+1);
-        mm = min(mm, now);
-        if(now == mm) mi = t;
-      }
-      rep(si, s, mi+1) ans[si] = mm;
-      s = mi+1;
+      while(top && (pre[i]-pre[stk[top-1]])/(i-stk[top-1]) ) top--;
+      stk[top++] = i;
     }
+    rep(i, 0, top)
+    {
+      
+    }
+
     rep(i, 1, n+1) cout << std::setprecision(10) << ans[i] << " \n"[i==n];
     return 0;
 }
