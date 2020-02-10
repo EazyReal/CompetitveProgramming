@@ -23,12 +23,16 @@ const int maxn = 1e6+5;
 int a[maxn];
 //double ad[maxn];
 double pre[maxn];
-double ans[maxn];
-
+int top;
+double val[maxn];
+pii stk[maxn];
 
 //lemma: disjoint segments
 //from head to tall git min
 //how to do this fast for 1e6 n
+
+//solved after contest
+//not official optimization with convex property, should learn it
 
 signed main()
 {
@@ -37,17 +41,27 @@ signed main()
     rep(i, 1, n+1) cin >> a[i];
     pre[0] = 0.0;
     rep(i, 1, n+1) pre[i] = pre[i-1] + a[i];
-    int stk[maxn], top = 0;
+    //note that this stack is 1-indexed;
+    top = 0;
     rep(i, 1, n+1)
     {
-      while(top && (pre[i]-pre[stk[top-1]])/(i-stk[top-1]) ) top--;
-      stk[top++] = i;
+      //compare cur segment with past segments
+      double cur = a[i];
+      pii seg = mp(i, i);
+      while(top && cur < val[top]) //care eps?
+      {
+        cur = (pre[i]-pre[stk[top].X-1])/(i-stk[top].X+1); //merge now with past segment
+        --top;
+      }
+      ++top;
+      val[top] = cur;
+      stk[top] = mp((top == 1 ? 1 : stk[top-1].Y+1), i);
     }
-    rep(i, 0, top)
+    rep(i, 1, top+1)
     {
-      
+      //debug(stk[i].Y);
+      rep(j, stk[i].X, stk[i].Y+1) cout << std::setprecision(10) << val[i] << " \n"[j==n];
     }
 
-    rep(i, 1, n+1) cout << std::setprecision(10) << ans[i] << " \n"[i==n];
     return 0;
 }
