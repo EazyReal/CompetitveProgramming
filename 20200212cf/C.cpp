@@ -9,7 +9,6 @@ using namespace std;
 #define all(a) a.begin(), a.end()
 #define rep(i, st, n) for (int i = (st); i < (n); ++i)
 #define repinv(i, st, n) for (int i = ((n)-1); i >= (st); --i)
-#define MEM(a, b) memset(a, b, sizeof(a));
 
 #define debug(x) std::cout << #x << ": " << x << endl
 #define fastIO() ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0)
@@ -26,15 +25,60 @@ const ll mod=1e9+7;
 int rnd(int x) { return mrand() % x;}
 ll powmod(ll a,ll b) {ll res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=res*a%mod;a=a*a%mod;}return res;}
 ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
-//INT_MAX, ULLONG_MAX, LLONG_MAX or numeric_limits<int>::min()
 
 //------------------------------------------------------------------------//
 
 int T, n;
-const int maxn = mod;
+const int maxn = 200+2;
+int a[maxn];
+int dq[maxn*10], f, e, cur;
+int vis[27];
+
+void build(int cur)
+{
+}
 
 signed main()
 {
   fastIO();
+  cin >> T;
+  while(T--)
+  {
+    string s;
+    cin >> s;
+    n = s.size();
+    rep(i, 0, 27) vis[i] = 0;
+    rep(i, 0, n) {a[i] = s[i]-'a';}//0-indexed
+    f = 400;
+    e = 401;
+    cur = 400;
+    dq[400] = a[0];
+    vis[a[0]] = 1;
+    bool ok = true;
+    rep(i, 1, n)
+    {
+      if(!vis[a[i]])
+      {
+        if(cur == f) dq[--f] = a[i], cur = f;
+        else if(cur == e-1) dq[e++] = a[i], cur = e-1;
+        else {ok = false; /*debug(i);*/}
+        vis[a[i]] = 1;
+      }else{
+        if(cur != f && dq[cur-1] == a[i]) cur--;
+        else if(cur != e-1 && dq[cur+1] == a[i]) cur++;
+        else {ok = false; /*debug(i);*/}
+      }
+    }
+    if(ok)
+    {
+      cout << "YES" << endl;
+      rep(i, f, e) cout << char('a'+dq[i]);
+      rep(i, 0, 26) if(!vis[i]) cout << char('a'+i);
+      cout << endl;
+    }else{
+      cout << "NO" << endl;
+    }
+
+  }
   return 0;
 }
