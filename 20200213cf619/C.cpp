@@ -14,6 +14,7 @@ using namespace std;
 #define debug(x) std::cout << #x << ": " << x << endl
 #define fastIO() ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0)
 #define fileIO(in, out) freopen(in, "r", stdin); freopen(out, "w", stdout)
+#define NL << endl
 
 typedef long long ll;
 typedef unsigned long long ull;
@@ -29,14 +30,29 @@ ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 //INT_MAX, ULLONG_MAX, LLONG_MAX or numeric_limits<int>::min()
 
 //------------------------------------------------------------------------//
-int T, n;
 
+typedef unsigned long long ull;
+
+int T;
+ull n, m;
+
+//ans <= ll 10^18
 void solve()
 {
+  cin >> n >> m;
+
+  ll allp = (n+1)*n/2ull;
+  ll ze = n-m;
+  ll part = m+1;
+  ll mean = ze/part;
+  ll more = ze%part;
+  ll nomore = part-more;
+  ll formean = mean*(mean+1)/2;
+  ll formore = (mean+1)*(mean+2)/2;
+  ll allno = nomore*formean + more*formore;
+  cout << allp - allno << endl;
   return;
 }
-
-const int maxn = mod;
 
 signed main()
 {

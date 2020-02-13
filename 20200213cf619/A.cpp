@@ -33,6 +33,14 @@ int T, n;
 
 void solve()
 {
+  string a, b, c;
+  cin >> a >> b >> c;
+  n = a.size();
+  rep(i, 0, n)
+  {
+    if(a[i] != c[i] && b[i]!=c[i]) { cout << "NO" << endl; return;}
+  }
+  cout << "YES" << endl;
   return;
 }
 

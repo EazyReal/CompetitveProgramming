@@ -29,13 +29,13 @@ ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 //INT_MAX, ULLONG_MAX, LLONG_MAX or numeric_limits<int>::min()
 
 //------------------------------------------------------------------------//
-int T, n;
 
 void solve()
 {
   return;
 }
 
+int T, n;
 const int maxn = mod;
 
 signed main()
