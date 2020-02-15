@@ -32,9 +32,63 @@ ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 int T;
 const int maxn = mod;
 int n;
+string s; //s[i] decides a[i] vs a[i+1]
+
+inline int type2(char c)
+{
+  return int(c=='<');
+}
 
 void solve()
 {
+  cin >> n;
+  cin >> s;
+
+  vector<pii> a;
+  int cnt[2]; //0:>, 1:<
+  cnt[0] = cnt[1] = 0;
+  int curc = 1;
+  int curt = type2(s[0]);
+  cnt[type2(s[0])]++;
+  rep(i, 1, n-1)
+  {
+    cnt[type2(s[i])]++;
+    if(s[i-1] == s[i]){
+      curc++;
+    }
+    else{
+      a.pb(mp(curt, curc));
+      curc = 1;
+      curt = 1-curt;
+    }
+  }
+  a.pb(mp(curt, curc));//last segment
+  //min part
+  int cur0 = n-cnt[1]; // 53421
+  int cur1 = n;//8956
+  //debug(cur0);debug(cur1);
+  string smin;
+  smin += to_string(cur0--);
+  for(auto& ai : a)
+  {
+    if(ai.X == 0)
+    {
+      rep(i, 0, ai.Y)
+      {
+        smin += '>'; smin += to_string(cur0--);
+      }
+    }else{
+      cur1 -= ai.Y;
+      rep(i, 1, ai.Y+1)
+      {
+        smin += '<'; smin +=  to_string(cur1+i);
+      }
+    }
+  }
+  //max part
+  string smax;
+  cout << smin << endl;
+  cout << smax << endl;
   return;
 }
 

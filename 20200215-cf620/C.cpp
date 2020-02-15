@@ -31,10 +31,37 @@ ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 //------------------------------------------------------------------------//
 int T;
 const int maxn = mod;
-int n;
+int n, m;
+
+typedef pair<int, pii> Customer;
 
 void solve()
 {
+  cin >> n >> m;
+  vector<Customer> cs(n);
+  for(auto& ci : cs) cin >> ci.X >> ci.Y.X >> ci.Y.Y;
+  sort(all(cs));
+  int curX = m, curY = m; //cur lr = m
+  int prevt = 0;
+  for(int i = 0; i < n; i++)
+  {
+    while(i+1 < n && cs[i+1].X == cs[i].X)//deal with same time
+    {
+      cs[i+1].Y.X = max(cs[i+1].Y.X, cs[i].Y.X);
+      cs[i+1].Y.Y = min(cs[i+1].Y.Y, cs[i].Y.Y);
+      i++;
+    }
+    int dt = cs[i].X - prevt;
+    prevt = cs[i].X;//bug
+    curX = curX - dt;
+    curY = curY + dt;
+    //if(curY < cs[i].Y.X || curX > cs[i].Y.Y) {cout << "NO" << endl; return;} //cant reach; actually noneed
+    curX = max(curX, cs[i].Y.X);
+    curY = min(curY, cs[i].Y.Y);
+    if(curY < curX) {cout << "NO" << endl; return;} //range = 0
+    //debug(cs[i].X); debug(curX); debug(curY);
+  }
+  cout << "YES" << endl;
   return;
 }
 

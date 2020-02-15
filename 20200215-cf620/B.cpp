@@ -31,10 +31,63 @@ ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 //------------------------------------------------------------------------//
 int T;
 const int maxn = mod;
-int n;
+int n, m;
+string ss[100+5];
+int pairs[100+5];
+vector<int> ans;
+
+bool isPalindrome(string &str){
+  int len = str.length();
+
+  for(int i = 0; i < len/2; i++){
+      if(str[i] != str[len-1-i]){
+          return false;
+      }
+  }
+  return true;
+}
+
+bool isReverse(int a, int b)
+{
+  int len = m;
+  rep(i, 0, len)
+  {
+    if(ss[a][i] != ss[b][len-1-i]) return false;
+  }
+  return true;
+}
 
 void solve()
 {
+  cin >> n >> m;
+  rep(i, 0, n) cin >> ss[i];
+  rep(i, 0, n) pairs[i] = -1;
+  int cnt = 0;
+  ans.clear();
+  //debug(res);
+  rep(i, 0, n)rep(j, i+1, n)
+  {
+    if(isReverse(i, j))
+    {
+      if(pairs[i] == -1){ans.pb(i); cnt++;}
+      pairs[i] = j;
+      pairs[j] = i;
+    }
+  }
+  //assert(cnt%2 == 0);
+  int oddone = -1;
+  rep(i, 0, n)
+  {
+    if(pairs[i] == -1 && isPalindrome(ss[i])){
+      oddone = i; break;
+    }
+  }
+  //debug(cnt);
+  cout << (2*cnt + int(oddone!=-1))*m << endl;
+  rep(i, 0, cnt) cout << ss[ans[i]];
+  if(oddone != -1) cout << ss[oddone];
+  repinv(i, 0, cnt) cout << ss[pairs[ans[i]]];
+  cout << endl;
   return;
 }
 
@@ -42,8 +95,39 @@ void solve()
 signed main()
 {
   fastIO();
-  cin >> T;
-  //T = 1;
+  //cin >> T;
+  T = 1;
   while(T--) solve();
   return 0;
 }
+
+
+/*
+4
+3 3
+tab
+one
+bat
+
+4 2
+oo
+ox
+xo
+xx
+
+3 5
+hello
+codef
+orces
+
+9 4
+abab
+baba
+abcd
+bcde
+cdef
+defg
+wxyz
+zyxw
+ijji
+*/

@@ -33,8 +33,28 @@ int T;
 const int maxn = mod;
 int n;
 
-void solve()
+void solve(int ti)
 {
+  string s;
+  cin >> s;
+  int n = s.size();
+  map<char, int> cnt;//init0 ?
+  cnt['I'] = 0; cnt['i'] = 0;
+  int ans = 0;
+  rep(i, 0, n)
+  {
+    if(s[i] == 'I' || s[i] == 'i') cnt[s[i]]++;
+    if(s[i] == 'O')
+    {
+      if(cnt['I'] > 0) ans++, cnt['I']--;
+      else cnt['i']--;
+    }else if(s[i] == 'o'){
+      if(cnt['i'] > 0) cnt['i']--;
+      else cnt['I']--;
+    }
+  }
+  cout << "Case #" << ti << ": ";
+  cout << ans << endl;
   return;
 }
 
@@ -44,6 +64,6 @@ signed main()
   fastIO();
   cin >> T;
   //T = 1;
-  while(T--) solve();
+  rep(ti, 1, T+1) solve(ti);
   return 0;
 }
