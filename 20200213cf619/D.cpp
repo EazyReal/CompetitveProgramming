@@ -1,3 +1,4 @@
+//71111145	Feb/15/2020 17:43UTC+8	maxwill	D - Time to Run	GNU C++17	Accepted	31 ms	100 KB
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -30,18 +31,39 @@ ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 
 //------------------------------------------------------------------------//
 
+int n, m, k;
+vector<pair<int, char>> ans;
+
+void go(int t, char c, int& k)
+{
+  int actual = min(t, k);
+  //cout << actual << ' ' << c << endl;
+  if(actual == 0) return; //wa on 15 if judge on k(n-1/m-1 maybe 1)
+  ans.pb(mp(actual, c));
+  k -= actual;
+}
+
 void solve()
 {
+  cin >> n >> m >> k;
+  if(k > 4*n*m-2*n-2*m) {cout << "NO" << endl; return;}
+  cout << "YES" << endl;
+  ans.clear();
+  rep(i, 0, n-1) {go(m-1, 'R', k); go(m-1, 'L', k); go(1, 'D', k);}
+  go(m-1, 'R', k);
+  rep(i, 0, m-1) {go(n-1, 'U', k); go(n-1, 'D', k); go(1, 'L', k);}
+  go(n-1, 'U', k);
+  cout << ans.size() << endl;
+  for(auto& ansi : ans) cout << ansi.X << ' ' << ansi.Y << endl;
   return;
 }
 
-int T, n;
-const int maxn = mod;
-
+int T;
 signed main()
 {
   fastIO();
-  cin >> T; // T = 1;
+  //cin >> T;
+  T = 1;
   while(T--) solve();
   return 0;
 }
