@@ -21,20 +21,55 @@ typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 typedef long double ld;
 
-mt19937 mrand(random_device{}());
+//mt19937 mrand(random_device{}());
 const ll mod=1e9+7;
-int rnd(int x) { return mrand() % x;}
+//int rnd(int x) { return mrand() % x;}
 ll powmod(ll a,ll b) {ll res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=res*a%mod;a=a*a%mod;}return res;}
 ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 //INT_MAX, ULLONG_MAX, LLONG_MAX or numeric_limits<int>::min()
 
 //------------------------------------------------------------------------//
 int T;
-const int maxn = mod;
 int n;
+
+//obervation have 3 -> have 2(and position fixed) => 2 always better
+//care : aaaaaaaa aa aaa? ok
+//reduce tio find max pair a, b
+
+//complexity 26*26*n?
+
+
+int cnt[27];
+const int maxn = 1e5+10;
+//int dp[maxn];
 
 void solve()
 {
+  string s;
+  cin >> s;
+  n = s.size();
+  MEM(cnt, 0);
+  int ans = -1;
+  rep(i, 0, n)
+  {
+    cnt[s[i]-'a']++;
+    ans = max(ans, cnt[s[i]-'a']);
+  }
+  rep(i, 0, 26)rep(j, 0, 26)if(cnt[i] && cnt[j])
+  {
+    int sum = 0;
+    int prei = 0;
+    rep(k, 0, n)
+    {
+      if(s[k] == 'a'+j) sum+= prei; //case:aa
+      if(s[k] == 'a'+i) prei++;
+      //else if(s[k] == 'a'+j) sum+= prei;
+    }
+    ans = max(ans, sum);
+  }
+
+  cout << ans << endl;
+
   return;
 }
 
@@ -47,3 +82,12 @@ signed main()
   while(T--) solve();
   return 0;
 }
+
+/*
+5
+aaabb
+usaco
+lol
+aaaaaaaa
+aaaaaaaaaaaaaaabb
+*/
