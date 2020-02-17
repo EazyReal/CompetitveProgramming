@@ -52,6 +52,9 @@ void solve()
   return;
 }
 
+// (0, 3) 2 1...1=>2
+// (0, 1000) 3 => 333...1=>334
+//key : a*2 canconstruct any < a
 
 signed main()
 {

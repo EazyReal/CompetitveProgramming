@@ -38,6 +38,13 @@ void solve()
   return;
 }
 
+//observation : if d(a, b) == 1, adding e(a, b) wont affec anyway => optimal
+//find the original optimal path
+//if a, b both not on optimal path => no effect? no consider a-s-c-d-e-f-g-h-t-b
+
+//O(n2) : dp[u] s to u and t to u dis(single source bfs), check for every pait a, b
+//=> sort by d(a,s)+d(b,t) find max
+//=> max d(s, a)+ max d(b, t)
 
 signed main()
 {
