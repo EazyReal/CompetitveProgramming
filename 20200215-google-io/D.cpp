@@ -1,4 +1,8 @@
 #include <bits/stdc++.h>
+//WA i think is because the method required double calculation
+//O(n3) should pass testcases set 1
+//learn more about computaional geometry and do codebook if have time
+//go convex hull/tree decompositions/algebra/string topics first
 
 using namespace std;
 
@@ -28,18 +32,16 @@ ll powmod(ll a,ll b) {ll res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=re
 ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 //INT_MAX, ULLONG_MAX, LLONG_MAX or numeric_limits<int>::min()
 
-/* 常用的常量定义 */
 const double	INF		= 1E200;
 const double	EP		= 1E-10;
 const int		MAXV	= 300;
 const double	PI		= 3.14159265;
 
-/* 基本几何结构 */
 struct POINT
 {
 	double x;
 	double y;
-	POINT(double a=0, double b=0) { x=a; y=b;} //constructor
+	POINT(double a=0, double b=0) { x=a; y=b;}
 };
 struct LINESEG
 {
@@ -48,47 +50,21 @@ struct LINESEG
 	LINESEG(POINT a, POINT b) { s=a; e=b;}
 	LINESEG() { }
 };
-struct LINE           // 直线的解析方程 a*x+b*y+c=0  为统一表示，约定 a >= 0
-{
-   double a;
-   double b;
-   double c;
-   LINE(double d1=1, double d2=-1, double d3=0) {a=d1; b=d2; c=d3;}
-};
 
-//点的基本运算
-
-double dist(POINT p1,POINT p2)                // 返回两点之间欧氏距离
+double dist(POINT p1,POINT p2)
 {
 	return( sqrt( (p1.x-p2.x)*(p1.x-p2.x)+(p1.y-p2.y)*(p1.y-p2.y) ) );
 }
-bool equal_point(POINT p1,POINT p2)           // 判断两个点是否重合
-{
-	return ( (abs(p1.x-p2.x)<EP)&&(abs(p1.y-p2.y)<EP) );
-}
-/******************************************************************************
-r=multiply(sp,ep,op),得到(sp-op)和(ep-op)的叉积
-r>0：ep在矢量opsp的逆时针方向；
-r=0：opspep三点共线；
-r<0：ep在矢量opsp的顺时针方向
-*******************************************************************************/
+
 double multiply(POINT sp,POINT ep,POINT op)
 {
 	return((sp.x-op.x)*(ep.y-op.y)-(ep.x-op.x)*(sp.y-op.y));
 }
-// 求点p到线段l所在直线的距离,请注意本函数与上个函数的区别
+
 double ptoldist(POINT p,LINESEG l)
 {
 	return abs(multiply(p,l.e,l.s))/dist(l.s,l.e);
 }
-
-/*
-bool side_(POINT p, LINESEG l)
-{
-  double X = (p.y-l.s.y)*(l.e.x-l.s.x)/(l.e.y-l.s.y)+l.s.y;
-  return X < p.x;
-}
-*/
 
 bool side_(POINT point, LINESEG l)
 {
@@ -117,7 +93,7 @@ void solve(int ti)
       ds.pb(mp(ptoldist(ps[k], ls), k));
     }
     sort(all(ds));
-    bool all_same_side;
+    bool all_same_side = 1; //this was the bug i ge triggered(diff result on judge and PC)
     int p2id = -1;
     bool fir = side_(ps[ds[0].Y], ls);
     //debug(fir);

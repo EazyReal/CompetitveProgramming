@@ -1,4 +1,6 @@
 #include <bits/stdc++.h>
+//WA, once considered dp on cur is who's end
+//not enough time to think and complete in constest for D seemed more promising
 
 using namespace std;
 

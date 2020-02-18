@@ -1,4 +1,7 @@
 #include <bits/stdc++.h>
+//AC first and second set in contest
+//AC testcases set 3 after judge
+//my idea is good, but implementation should merge c[n] = c[a[0]] = 0 (12)(34)...
 
 using namespace std;
 
@@ -29,6 +32,8 @@ ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 //INT_MAX, ULLONG_MAX, LLONG_MAX or numeric_limits<int>::min()
 
 //------------------------------------------------------------------------//
+
+//AC attempt 7-8
 int T;
 const int maxn = 1000+5;
 int n;
@@ -52,6 +57,7 @@ void solve(int ti)
   cin >> n;
   vector<int> a(n);
   for(auto& ai : a) cin >> ai;
+  reverse(all(a));//reverse to let first pick be last in odd cases
   rep(i, 0, n+1) G[i].clear();
   rep(i, 1, n+1) c[i] = -1;
   //every 2 should be different
@@ -62,10 +68,10 @@ void solve(int ti)
     if(!(i&1)) G[a[i]].pb(a[i+1]);
     if(i&1) G[a[i]].pb(a[i-1]);
   }
-  if(n&1) c[n] = a[0] = 0; //nth = last pick color
-  else a[0] = 0;
-  dfs(a[0]);
-  rep(i, 1, n+1) if(c[i] == -1) {c[i]=0; dfs(i);}//fill the left with any 
+  if(n&1) c[n] = c[a[n-1]] = 0; //nth = first pick color
+  else c[a[n-1]] = 0;
+  dfs(a[n-1]);
+  rep(i, 1, n+1) if(c[i] == -1) {c[i]=0; dfs(i);}//fill the left with any
 
   cout << "Case #" << ti << ": ";
   //rep(i, 1, n+1) cout << c[i] << endl;
