@@ -30,7 +30,7 @@ ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 
 //------------------------------------------------------------------------//
 int T;
-const int maxn = mod;
+const int maxn = 2e5+7;
 int n;
 
 void solve()
