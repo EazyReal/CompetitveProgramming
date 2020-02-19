@@ -67,28 +67,45 @@ void solve()
   int cur0 = n-cnt[1]; // 53421
   int cur1 = n;//8956
   //debug(cur0);debug(cur1);
-  string smin;
-  smin += to_string(cur0--);
+  vector<int> smin;
+  smin.pb(cur0--);
   for(auto& ai : a)
   {
     if(ai.X == 0)
     {
       rep(i, 0, ai.Y)
       {
-        smin += '>'; smin += to_string(cur0--);
+        smin.pb(cur0--);
       }
     }else{
       cur1 -= ai.Y;
       rep(i, 1, ai.Y+1)
       {
-        smin += '<'; smin +=  to_string(cur1+i);
+        smin.pb(cur1+i);
       }
     }
   }
   //max part
-  string smax;
-  cout << smin << endl;
-  cout << smax << endl;
+  vector<int> smax;
+  int curv = 0;
+  //3>2>1 <4<5
+  if(a[0].X == 1) smax.pb(1), curv = 1;
+  for(auto& ai : a)
+  {
+    curv += ai.Y;
+    if(ai.X == 0) //'>' //3>2>1
+    {
+      curv++;
+      rep(i, 0, ai.Y+1) smax.pb(curv - i);
+    }else{ //<4<5
+      curv--;
+      rep(i, 1, ai.Y+1) smax.pb(curv-ai.Y+i);
+    }
+  }
+  //cout << "min\n";
+  for(auto&x : smin) cout << x << " \n"[x == smin[n-1]];
+  //cout << "max\n";
+  for(auto&x : smax) cout << x << " \n"[x == smax[n-1]];
   return;
 }
 
