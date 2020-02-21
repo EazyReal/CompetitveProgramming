@@ -28,6 +28,13 @@ ll powmod(ll a,ll b) {ll res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=re
 ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 //INT_MAX, ULLONG_MAX, LLONG_MAX or numeric_limits<int>::min()
 
+inline ll read(){
+	char ch=getchar();ll x=0,f=0;
+	while(ch<'0' || ch>'9') f|=ch=='-',ch=getchar();
+	while(ch>='0' && ch<='9') x=x*10+ch-'0',ch=getchar();
+	return f?-x:x;
+}
+
 //------------------------------------------------------------------------//
 int T;
 const int maxn = 2e5+7;

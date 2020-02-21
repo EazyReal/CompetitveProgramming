@@ -175,6 +175,7 @@ signed main()
     {
       ans[curl].Y.pb(lib.bl[i]);
       used[lib.bl[i]] = 1;
+      //cando book -> lib graph and delay update lib if saved result is shifting large enough
     }
 
     //

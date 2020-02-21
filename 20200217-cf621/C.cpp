@@ -29,6 +29,8 @@ ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 //INT_MAX, ULLONG_MAX, LLONG_MAX or numeric_limits<int>::min()
 
 //------------------------------------------------------------------------//
+#define int ll
+//WA 1 max ans is 1e5^2 
 int T;
 int n;
 
@@ -37,7 +39,6 @@ int n;
 //reduce tio find max pair a, b
 
 //complexity 26*26*n?
-
 
 int cnt[27];
 const int maxn = 1e5+10;
@@ -77,8 +78,8 @@ void solve()
 signed main()
 {
   fastIO();
-  cin >> T;
-  //T = 1;
+  //cin >> T;
+  T = 1;
   while(T--) solve();
   return 0;
 }

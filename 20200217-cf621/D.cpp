@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-
+//71541959	00:34:23	maxwill00:35	D - Cow and Fields	GNU C++17	Accepted	264 ms	9500 KB
 using namespace std;
 
 #define X first
@@ -30,11 +30,70 @@ ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 
 //------------------------------------------------------------------------//
 int T;
-const int maxn = mod;
-int n;
+const int maxn = 2e5+10;
+int n, m, k;
+vector<int> a;
+vector<int> d[2];
+vector<int> G[maxn];
+
+bool cmp(const int &a, const int &b)
+{
+  return d[0][a] - d[1][a] <  d[0][b] - d[1][b]; //fromer =>  as 0 better
+}
+
+void bfs(int vid, int s)
+{
+  d[vid].resize(n);
+  rep(i, 0, n) d[vid][i] = -1;
+  queue<int> q;
+  q.push(s);
+  d[vid][s] = 0;
+  while(!q.empty())
+  {
+    int u = q.front(); q.pop();
+    for(auto&v:G[u])
+    {
+      if(!~d[vid][v])
+      {
+        d[vid][v] = d[vid][u]+1;
+        q.push(v);
+      }
+    }
+  }
+}
 
 void solve()
 {
+  cin >> n >> m >> k;
+  a.resize(k);
+  for(auto &ai : a) cin >> ai, ai--;
+  int u, v;
+  rep(i, 0, n) G[i].clear();
+  rep(i, 0, m)
+  {
+    cin >> u >> v;
+    G[--u].pb(--v);
+    G[v].pb(u);
+  }
+
+
+  bfs(0, 0);
+  bfs(1, n-1);
+
+  sort(all(a), cmp);
+
+  int cur0m = d[0][a[0]];
+  int ans = INT_MIN;
+  rep(i, 1, k)
+  {
+    ans = max(ans, cur0m + d[1][a[i]] + 1);
+    cur0m = max(cur0m, d[0][a[i]]);
+  }
+
+  //rep(i, 0, n) debug(d[0][i]);
+  ans = min(ans, d[0][n-1]);
+  cout << ans << endl;
+
   return;
 }
 
@@ -46,11 +105,13 @@ void solve()
 //=> sort by d(a,s)+d(b,t) find max
 //=> max d(s, a)+ max d(b, t)
 
+//to ensure d(s, a) + d(b, t) <= d(s, b) + d(a, t)
+
 signed main()
 {
   fastIO();
-  cin >> T;
-  //T = 1;
+  //cin >> T;
+  T = 1;
   while(T--) solve();
   return 0;
 }
