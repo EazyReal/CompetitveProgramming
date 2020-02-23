@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-
+//this no work
 using namespace std;
 
 #define X first
@@ -58,8 +58,9 @@ void add_edge(int a, int b, int c)
 bool dfs_dup(int u, int f, int c)
 {
   bool ret = 1;
+	if(tag[u] == 1) return 1;
   tag[u] = 1; //from dup edges => not solution, will not mark p btw
-  for(pii& e: G[u])if(e.X != f && tag[e.X]!=1) //if not checked by dup, should check
+  for(pii& e: G[u])if(e.X != f) //if not checked by dup, should check
   {
     ret &= (e.Y != c); //bad in cut => no good points
     ret &= dfs_dup(e.X, u, e.Y);
@@ -71,7 +72,7 @@ bool dfs_all(int u)
 {
   bool ret = 1;
   //check dup color edges if wrong, should consider back to u so no mark tag here
-  for(pii& e:G[u])if(dupc[u].count(e.Y) && tag[e.X]!=1) ret &= dfs_dup(e.X, u, e.Y); //check vis 1 here : no check => bug
+  for(pii& e:G[u])if(dupc[u].count(e.Y)) ret &= dfs_dup(e.X, u, e.Y); //check vis 1 here : no check => bug
 	if(!ret) return 0;
 	tag[u] = 2; //2nd phase, check other O(n) on dfs(all)
 	for(pii& e:G[u])if(!tag[e.X]) ret &= dfs_all(e.X);
@@ -115,3 +116,128 @@ signed main()
 
   return 0;
 }
+
+/*
+//#include<bits/stdc++.h>
+
+#include<iostream>
+#include<algorithm>
+#include<cstdio>
+#include<string>
+#include<cstring>
+#include<vector>
+#include<set>
+
+
+using namespace std;
+typedef long long ll;
+typedef pair<int, int> P;
+
+const int maxn = 5e4 + 7;
+const int maxd = 1e9 + 7;
+
+const ll mod = 998244353;
+const int INF = 0x7f7f7f7f;
+
+int n;
+
+struct node {
+    int v, c;
+};
+vector<node> vec[maxn];
+set<int> st[maxn];
+set<int> er[maxn];
+
+int vis[maxn];
+bool flag = true;
+
+void init() {
+    for(int i = 1; i <= n; ++i) {
+        vec[i].clear();
+        st[i].clear();
+        vis[i] = 0;
+    }
+    flag = true;
+}
+
+void print1() {
+    printf("%d\n", n);
+    for(int i = 1; i <= n; ++i) {
+        printf("%d\n", i);
+    }
+}
+
+bool ER(int id, int f, int c) {
+    if(vis[id] == 1) return false;
+    vis[id] = 1;
+    for(auto i : vec[id]) {
+        if(i.v == f) continue;
+        if(i.c == c) return true;
+        if(ER(i.v, id, i.c)) return true;
+    }
+    return false;
+}
+void solve(int id) {
+    for(auto i : er[id]) {
+        for(auto j : vec[id]) {
+            if(j.c == i) {
+                if(ER(j.v, id, i)) {
+                    printf("0\n");
+                    flag = false;
+                    return;
+                }
+            }
+        }
+    }
+    vis[id] = 2;
+    for(auto i : vec[id]) {
+        if(!vis[i.v]) {
+            solve(i.v);
+        }
+    }
+}
+void work() {
+    vector<int> ans;
+    for(int i = 1; i <= n; ++i) {
+        if(vis[i] == 2) ans.push_back(i);
+    }
+    printf("%d\n", ans.size());
+    for(auto i : ans) {
+        printf("%d\n", i);
+    }
+}
+int main() {
+    scanf("%d", &n);
+    init();
+    for(int i = 1; i < n; ++i) {
+        int a, b, c;
+        scanf("%d%d%d", &a, &b, &c);
+        vec[a].push_back(node{b, c});
+        vec[b].push_back(node{a, c});
+
+        if(st[a].count(c)) er[a].insert(c);
+        else st[a].insert(c);
+        if(st[b].count(c)) er[b].insert(c);
+        else st[b].insert(c);
+    }
+    int x = -1;
+    for(int i = 1; i <= n; ++i) {
+        if(er[i].size()) {
+            x = i;
+            break;
+        }
+    }
+//    cout << x << " =++= ==++ " << endl;
+    if(x == -1) {
+        print1();
+    }
+    else {
+        solve(1);
+        if(flag) {
+            work();
+        }
+    }
+
+    return 0;
+}
+*/
