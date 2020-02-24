@@ -92,7 +92,7 @@ signed main()
 			{
 				//assert(G[u][k].X == G[u][i].X);
 				int v = G[u][k].Y;
-				if(v == p[u]) pre[0]++, pre[s[u]]--, pre[t[u]+1]++; //s[u] = s[p[u]+1]
+				if(v == p[u]) pre[0]++, pre[s[u]]--, pre[t[u]+1]++; //s[u] = s[p[u]]+1? no in general for p may dfs other first
 				else pre[s[v]]++, pre[t[v]+1]--;
 			}
 		}
