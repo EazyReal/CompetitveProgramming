@@ -40,42 +40,36 @@ int T;
 const int maxn = 5e4+7;
 int n;
 //vector<int> es;
-set<int> adjc[maxn];
-set<int> dupc[maxn];
-vector<pair<int,int>> G[maxn];
-int tag[maxn];
+vector<pair<pii, bool>> G[maxn];
+bool tag[maxn];
 
 void add_edge(int a, int b, int c)
 {
-  if(adjc[a].count(c)) dupc[a].insert(c);
-  if(adjc[b].count(c)) dupc[b].insert(c);
-  adjc[a].insert(c);
-  adjc[b].insert(c);
-  G[a].pb(mp(b, c));
-  G[b].pb(mp(a, c));
+  G[a].pb(mp(mp(c, b), 0)); //.Y = vis, .X = (color, to)
+  G[b].pb(mp(mp(c, a), 0));
 }
 
-bool dfs_dup(int u, int f, int c)
+//(directed so wont be blocked in another direction)
+void dfs_dup(int u, int p)//mark dup, block by p and edge, only mark once O(n)
 {
-  bool ret = 1;
-  tag[u] = 1; //from dup edges => not solution, will not mark p btw
-  for(pii& e: G[u])if(e.X != f && tag[e.X]!=1) //if not checked by dup, should check
-  {
-    ret &= (e.Y != c); //bad in cut => no good points
-    ret &= dfs_dup(e.X, u, e.Y);
-  }
-  return ret;
+	tag[u] = 1;
+	for(auto&e:G[u]) if(e.X.Y != p && !e.Y)
+	{
+		e.Y = 1;
+		dfs_dup(e.X.Y, u);
+	}
 }
 
-bool dfs_all(int u)
+void dfs_all(int u, int p) //O(n) on all dfs_all and O(n) on all dfs_dup
 {
-  bool ret = 1;
-  //check dup color edges if wrong, should consider back to u so no mark tag here
-  for(pii& e:G[u])if(dupc[u].count(e.Y) && tag[e.X]!=1) ret &= dfs_dup(e.X, u, e.Y); //check vis 1 here : no check => bug
-	if(!ret) return 0;
-	tag[u] = 2; //2nd phase, check other O(n) on dfs(all)
-	for(pii& e:G[u])if(!tag[e.X]) ret &= dfs_all(e.X);
-  return ret;
+	rep(i, 1, G[u].size())if(G[u][i].X.X == G[u][i-1].X.X) //regardless of is p or not, for dup edge, mark all taged
+	{
+		int v =  G[u][i].X.Y;
+		if(!G[u][i].Y) {G[u][i].Y = 1; dfs_dup(v, u);}
+		v = G[u][i-1].X.Y;
+		if(!G[u][i-1].Y) {G[u][i-1].Y = 1; dfs_dup(v, u);}
+	}
+	for(auto&e:G[u]) if(e.X.Y != p) dfs_all(e.X.Y, u); //for all point do so
 }
 
 signed main()
@@ -87,31 +81,15 @@ signed main()
   rep(i, 0, n-1)
   {
     cin >> a >> b >> c;
-    add_edge(--a, --b, c);
+    add_edge(a, b, c);
   }
-  bool allnodup = 1;
-  rep(i, 0, n) allnodup &= (dupc[i].size() == 0);
-  if(allnodup)
-  {
-    cout << n;
-    rep(i, 1, n+1) cout << i << endl;
-  }
-  else
-  {
-    memset(tag, 0, sizeof(tag));
-		int start = -1;//dup point to start to ensure start point will be checked
-		rep(i, 0, n)if(dupc[i].size()) start = i;
-    bool ok = dfs_all(start);
-    if(ok)
-    {
-      vector<int> ans;
-      rep(i, 0, n) if(tag[i] == 2) ans.pb(i+1);
-      //sort(all(ans));
-      cout << ans.size() << endl;
-      for(int x : ans) cout << x << endl;
-    }
-    else cout << 0 << endl;
-  }
+	rep(i, 1, n+1) sort(all(G[i]));
+	memset(tag, 0, sizeof(tag));
+	dfs_all(1, -1);
+	int ans = 0;
+	rep(i, 1, n+1)if(!tag[i]) ans++;
+	cout << ans << endl;
+	rep(i, 1, n+1)if(!tag[i]) cout << i << endl;
 
   return 0;
 }

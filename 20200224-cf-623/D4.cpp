@@ -37,47 +37,51 @@ inline ll read(){
 
 //------------------------------------------------------------------------//
 int T;
-const int maxn = 1e5+7;
+const int maxn = 2e5+7;
 int n;
-int a, b, p;
-string str;
-char s[maxn];
+//care max sum t for a policy is  10^5*10^9
+
+//this is almost same as my segment tree solution
+//why didn't i consider setv(0) as pop in priority queue :(
 
 void solve()
 {
-	cin >> a >> b >> p;
-	cin >> str;
-	n = str.size();
-	rep(i, 1, n+1) s[i] = str[i-1];
-	s[0] = ' ';
-	s[n] = 'C';
-	//debug(n); debug(s);
-	//char prev = s[n-1];
-	ll sum = 0; //no use ll wa on 48(max = 1e5*1e5)
-	int ans = n;
-	int last = n;
-	repinv(i, 1, n)//s[n-1] s[n]
+	cin >> n;
+	vector<pll> a(n);
+	for(pll &ai : a) cin >> ai.X;
+	for(pll &ai : a) cin >> ai.Y;
+	sort(all(a));
+	ll ans = 0;
+	ll sum = 0;
+	int cur = 0;
+	int curv = a[0].X;
+	priority_queue<ll> pq;
+	while(cur < n)
 	{
-		//debug(i); debug(s[i]); debug(s[i+1]);
- 		if(s[i] != s[i+1]) sum += ((s[i]=='A')?a:b);
-		//if(i == n-1 && s[n-1] == s[n]) sum += ((s[n-1]=='A')?a:b);
-		//if(i == 1 && s[1] == s[2]) sum += ((s[1]=='A')?a:b);
-		if(sum <= p)
+		//debug(curv);
+		while(cur < n && a[cur].X == curv)
 		{
-			ans = i;
+			ll newv = a[cur].Y;
+			sum += newv;
+			pq.push(newv);
+			cur++;
 		}
+		sum -= pq.top(); pq.pop(); //expecpt max all +1
+		ans += sum;
+		if(pq.size() > 0) curv++; //nxt round is curv +1
+		else if(cur < n) {curv = a[cur].X;} //nxt round is nxt val
 	}
-	while( ans > 1 && s[ans-1] == s[ans]) ans--;
 	cout << ans << endl;
+
   return;
 }
-//concept of pay on arrival ww
+
 
 signed main()
 {
   fastIO();
-  cin >> T;
-  //T = 1;
+  //cin >> T;
+  T = 1;
   while(T--) solve();
   return 0;
 }

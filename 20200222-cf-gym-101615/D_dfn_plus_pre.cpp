@@ -39,25 +39,23 @@ inline ll read(){
 int T;
 const int maxn = 5e4+7;
 int n;
-typedef pair<int, pii> Edge;
-vector<Edge> E;
-vector<int> G[maxn];
+typedef pair<int, int> Edge; // color, v
+vector<Edge> G[maxn];
 int s[maxn], t[maxn], p[maxn], dfn; //s,t mark dfn and p is parent
 
 void add_edge(int a, int b, int c)
 {
-	G[a].pb(E.size());
-	E.pb(mp(c, mp(a,b)));
+	G[a].pb(mp(c, b));
 }
 
 void dfs(int u, int f) //mark tree structure
 {
-	s[u] = dfn++;
+	s[u] = ++dfn;
 	p[u] = f;
-	for(int id : G[u])
+	for(pii& e : G[u])
 	{
-		int v = E[id].Y.Y;
-		if(v != u) dfs(v, u);
+		int v = e.Y;
+		if(v != f) dfs(v, u);
 	}
 	t[u] = dfn;
 }
@@ -68,6 +66,7 @@ signed main()
 
   cin >> n;
   int a, b, c;
+	rep(i, 1, n+1) G[i].clear();
 	rep(i, 0, n-1)
 	{
 		cin >> a >> b >> c;
@@ -75,11 +74,35 @@ signed main()
 		add_edge(b, a, c);
 	}
 	dfn = 0;
+	//rep(u, 1, n+1) sort(all(G[u]));
 	dfs(1, -1); //1-indexed
-	rep(i, 1, n+1)
+	assert(dfn == n);
+	vector<int> pre(n+5, 0); //prefix sum
+	rep(u, 1, n+1)
 	{
-		vector<Edge> 
+		sort(all(G[u]));
+		int m = G[u].size();
+		int i, j;
+		for(i = 0; i < m; i = j)
+		{
+			j = i; //int j = i cause bug...
+			while(j<m && G[u][j].X == G[u][i].X) j++;
+			if(j == i+1) continue; //only one this color
+			rep(k, i, j)
+			{
+				//assert(G[u][k].X == G[u][i].X);
+				int v = G[u][k].Y;
+				if(v == p[u]) pre[0]++, pre[s[u]]--, pre[t[u]+1]++; //s[u] = s[p[u]+1]
+				else pre[s[v]]++, pre[t[v]+1]--;
+			}
+		}
 	}
+	rep(i, 1, n+1) pre[i] += pre[i-1] ;
+	//rep(i, 1, n+1) cout << s[i] << ' ' << pre[i] << " \n"[i==n];
+	int ans = 0;
+	rep(i, 1, n+1) if(pre[s[i]] == 0) ans++;
+	cout << ans << endl;
+	rep(i, 1, n+1) if(pre[s[i]] == 0) cout << i << endl;
 
   return 0;
 }
