@@ -59,3 +59,54 @@ signed main()
   while(T--) solve();
   return 0;
 }
+
+/*
+#include <iostream>
+
+using namespace std;
+
+const int kMaxN = 5001;
+
+int c[kMaxN], a[kMaxN][kMaxN], f[kMaxN];
+int t, n, d;
+
+bool Check() {
+  d = n * (n - 1) / 2 - d;
+  if (d < 0) {
+    return 0;
+  }
+  for (int i = n - 1, j = 1, k; i > j && d; i--) {
+    k = min(i - j, d);
+    d -= k;
+    k = i - k;
+    f[i + 1] = a[k - 1][c[k] / 2];
+    a[k][c[k]++] = i + 1;
+    if (c[j] >= (1 << j)) {
+      j++;
+    }
+  }
+  return !d;
+}
+
+int main() {
+  cin >> t;
+  while (t--) {
+    cin >> n >> d;
+    for (int i = 0; i < n; i++) {
+      c[i] = 1;
+      a[i][0] = i + 1;
+      f[i + 1] = i;
+    }
+    if (Check()) {
+      cout << "YES" << endl;
+      for (int i = 2; i <= n; i++) {
+        cout << f[i] << " ";
+      }
+      cout << endl;
+    } else {
+      cout << "NO" << endl;
+    }
+  }
+  return 0;
+}
+*/

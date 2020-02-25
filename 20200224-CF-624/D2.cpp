@@ -44,6 +44,8 @@ inline ll read(){
 //~nlogn by n+n/2+n/3+n/4...
 //should write decide c version to ensure nlogn
 //maybe try fix B version
+//proof of correctness max = 10000 => two 20001 must be less efficient
+
 
 int T; //100
 const int maxn = 5e5+5;
