@@ -1,5 +1,5 @@
+// 71854263	Feb/25/2020 19:50UTC+8	maxwill	E - 1-Trees and Queries	GNU C++17	Accepted	951 ms	16600 KB
 #include <bits/stdc++.h>
-
 using namespace std;
 
 #define X first
@@ -21,9 +21,9 @@ typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 typedef long double ld;
 
-mt19937 mrand(random_device{}());
+//mt19937 mrand(random_device{}());
 const ll mod=1e9+7;
-int rnd(int x) { return mrand() % x;}
+//int rnd(int x) { return mrand() % x;}
 ll powmod(ll a,ll b) {ll res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=res*a%mod;a=a*a%mod;}return res;}
 ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 //INT_MAX, ULLONG_MAX, LLONG_MAX or numeric_limits<int>::min()
@@ -37,7 +37,7 @@ int T;
 int n, q;
 const int max2pow = 20; //19 is used actually
 //2^20 ~ 1e6 > maxn = 1e5
-int p[max2pow][maxn];
+int p[max2pow+2][maxn];
 vector<int> G[maxn];
 int d[maxn];
 
@@ -84,7 +84,7 @@ void solve()
     G[a].pb(b);
     G[b].pb(a);
   }
-  rep(i, 0, max2pow) memset(p[i], -1, sizeof(p[i]));
+  rep(i, 0, max2pow) p[i][0] = 0;
   build_lca(1, 0);
   cin >> q;
   rep(i, 0, q)
