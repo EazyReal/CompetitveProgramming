@@ -45,7 +45,7 @@ void build_lca(int u, int f)
 {
   d[u] = d[f]+1;
   p[0][u] = f; //1st parent = f
-  rep(i, 0, max2pow) p[i+1][u] = p[i][p[i][u]];
+  rep(i, 0, max2pow) p[i+1][u] = p[i][p[i][u]]; //i+1 => RE
   for(int v:G[u]) if(v!=f) build_lca(v, u);
 }
 
@@ -84,7 +84,7 @@ void solve()
     G[a].pb(b);
     G[b].pb(a);
   }
-  rep(i, 0, max2pow) p[i][0] = 0;
+  rep(i, 0, max2pow) p[i][0] = 0; //modified => no TLE
   build_lca(1, 0);
   cin >> q;
   rep(i, 0, q)
