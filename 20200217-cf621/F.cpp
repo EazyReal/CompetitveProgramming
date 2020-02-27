@@ -1,3 +1,4 @@
+//71953032	Feb/27/2020 13:59UTC+8	maxwill	F - Cow and Vacation	GNU C++17	Accepted	1388 ms	67800 KB
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -32,81 +33,139 @@ ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 
 //------------------------------------------------------------------------//
 int T;
-const int maxn = 2e5+5;
-const int maxb = 19; //besure not to interate over 19
+const int maxn = (2e5+5)*2;
+const int maxb = 20; //besure not to interate to 19
 int n, k, r, q; //q is v in statement
-int p[maxb][maxn];
-int dsu[maxn], dsu_sz[maxn];
-bool isr[maxn];
+int dep[maxn], dis[maxn], from[maxn];
+vi rs;
 vi G[maxn];
 
-void init_dsu(int n)
+namespace dsu
 {
-  rep(i, 1, n+1) dsu[i] = i, dsu_sz[i] = 1;
-}
-
-int find_dsu(int x)
-{
-  return x == dsu[x] ? (dsu[x] = find_dsu(dsu[x]));
-}
-
-void union_dsu(int a, int b)
-{
-  a = find_dsu(a), b = find_dsu(b);
-  if(dsu_sz[a] > dsu_sz[b]) swap(a, b);
-  //assert(dsu_sz[a] <= dsu_sz[b]);
-  dsu[a] = b;
-  dsu_sz[b] += dsu_sz[a];
-}
-
-void init_lca()
-{
-  rep(i, 0, maxb) p[i][0] = 0;
-  dep[1] = 0;
-}
-
-void build_lca(int u, int f)
-{
-  p[0][u] = f;
-  dep[u] = dep[f] + 1;
-  rep(i, 1, maxb) p[i][u] = p[i-1][p[i-1][u]];
-  for(auto v : G[u]) if(v != f) build_lca(v, u);
-}
-
-int len_lca(int a, int b)
-{
-  int ret = 0;
-  if(dep[a] < dep[b]) swap(a, b);
-  //assert(dep[a] >= dep[b]);
-  repinv(i, 0, maxb) if(dep[p[i][a]] < dep[b]) a = p[i][a], res += i << i;
-  if(a == b) return ret;
-  repinv(i, 0, maxb)
+  int dsu[maxn], dsu_sz[maxn];
+  void init(int n)
   {
-    if(p[i][a] != p[i][b]) ret += i << (i+1);
+    rep(i, 0, n+1) dsu[i] = i, dsu_sz[i] = 1;
   }
-  return ret + 2; //the left part is p[0][a, b]
+
+  int find(int x)
+  {
+    return x == dsu[x] ? dsu[x] : (dsu[x] = find(dsu[x]));
+  }
+
+  void unite(int a, int b)
+  {
+    a = find(a), b = find(b);
+    if(dsu_sz[a] > dsu_sz[b]) swap(a, b);
+    //assert(dsu_sz[a] <= dsu_sz[b]);
+    dsu[a] = b;
+    dsu_sz[b] += dsu_sz[a];
+  }
+}
+
+namespace lca{
+  int p[maxb][maxn];
+  void dfs(int u, int f)
+  {
+    p[0][u] = f;
+    dep[u] = dep[f] + 1;
+    for(auto v : G[u]) if(v != f) dfs(v, u);
+  }
+
+  int lca(int a, int b)
+  {
+    if(dep[a] < dep[b]) swap(a, b);
+    //assert(dep[a] >= dep[b]);
+    repinv(i, 0, maxb) if(dep[p[i][a]] >= dep[b]) a = p[i][a]; //< -> >=...
+    if(a == b) return a;
+    repinv(i, 0, maxb)
+    {
+      if(p[i][a] != p[i][b]) a = p[i][a], b = p[i][b];
+    }
+    return p[0][a];
+  }
+
+  void build(int n)
+  {
+    dep[0] = -1;
+    dfs(1, 0);
+    p[0][1] = 1;
+    rep(i, 1, maxb) rep(u, 1, n+1) p[i][u] = p[i-1][p[i-1][u]];
+  }
+
+  int dist(int a, int b)
+  {
+    return dep[a] + dep[b] - 2*dep[lca(a, b)];
+  }
+}
+
+void add_edge(int u, int v)
+{
+  G[u].pb(v);
+  G[v].pb(u);
 }
 
 void solve()
 {
+  //read graph and rest stations
   cin >> n >> k >> r;
   int a, b;
-  rep(i, 0, n-1) //node 1-indexed
+  rep(i, 1, n) //node 1-indexed
   {
     cin >> a >> b;
-    G[a].pb(b);
-    G[b].pb(a);
+    add_edge(a, n+i); //n+i from n+1 to 2n-1
+    add_edge(n+i, b);
   }
-  MEM(isr, 0);
-  rep(i, 0, r) { cin >> a; isr[a] = 1;}
+  n = 2*n-1;
+  rep(i, 0, r) { cin >> a; rs.pb(a);}
+
+  //cout << "end of reading rests";
+
+  //process
+  lca::build(n);
+  dsu::init(n);
+  MEM(from, 0);
+  queue<int> que;
+  for(auto ri : rs) que.push(ri), from[ri] = ri, dis[ri] = 0;
+  while(!que.empty())
+  {
+    int u = que.front(); que.pop();
+    if(dis[u] >= k) continue;
+    for(int v:G[u])
+    {
+      if(!from[v]) from[v] = from[u], dis[v] = dis[u] + 1, que.push(v);
+      else dsu::unite(from[u], from[v]);
+    }
+  }
+  //cout << "end of process";
+
+  //answer queries
+  auto go = [&](int u, int v, int t) -> int
+  {
+    int c = lca::lca(u, v);
+    if(dep[u] - dep[c] < t) //see as go from the other side
+    {
+      t = dep[v] - dep[c] - (t - (dep[u] - dep[c]));
+      swap(u, v);
+    }
+    rep(i, 0, maxb)if(t & 1<<i)  u = lca::p[i][u];
+    return u;
+  };
   cin >> q;
   while(q--)
   {
     cin >> a >> b;
+    //no rest
+    if(lca::dist(a, b) <= 2*k) { cout << "YES\n"; continue;}
+    //rest
+    a = go(a, b, k);
+    b = go(b, a, k);
+    //debug(a); debug(b);
+    //debug(dsu::find(from[a]));
+    //debug(dsu::find(from[b]));
+    if(from[a] && from[b] && dsu::find(from[a]) == dsu::find(from[b]) ) cout << "YES\n";
+    else cout << "NO\n";
   }
-  init_lca();
-  build_lca(1, 0); //use to calc len
-  init_dsu(n);
   return;
 }
 
@@ -114,8 +173,77 @@ void solve()
 signed main()
 {
   fastIO();
-  cin >> T;
-  //T = 1;
+  //cin >> T;
+  T = 1;
   while(T--) solve();
   return 0;
 }
+
+/*
+8 3 3
+7 2
+2 3
+3 4
+4 5
+4 6
+6 1
+1 8
+2 5 8
+56
+1 2
+1 3
+1 4
+1 5
+1 6
+1 7
+1 8
+2 1
+2 3
+2 4
+2 5
+2 6
+2 7
+2 8
+3 1
+3 2
+3 4
+3 5
+3 6
+3 7
+3 8
+4 1
+4 2
+4 3
+4 5
+4 6
+4 7
+4 8
+5 1
+5 2
+5 3
+5 4
+5 6
+5 7
+5 8
+6 1
+6 2
+6 3
+6 4
+6 5
+6 7
+6 8
+7 1
+7 2
+7 3
+7 4
+7 5
+7 6
+7 8
+8 1
+8 2
+8 3
+8 4
+8 5
+8 6
+8 7
+*/

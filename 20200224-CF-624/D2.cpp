@@ -75,6 +75,7 @@ void solve()
 		if(modba == 0) tb = b;
 		else if
 	}*/
+	//theory bound => ta : 2*a, tb : 2*b, tc : calc from ta tb, mincost of((c/tb)*tb + (0 or 1)*tb)
 	for(ta = 1; ta <= 10000; ta++)
 	{
 		//int closemaxb = c;

@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 
+//unable to think of BIT and finish in contest, nut was close
+
 using namespace std;
 
 #define X first
