@@ -64,7 +64,7 @@ void dfs_all(int u, int p) //O(n) on all dfs_all and O(n) on all dfs_dup
 {
 	rep(i, 1, G[u].size())if(G[u][i].X.X == G[u][i-1].X.X) //regardless of is p or not, for dup edge, mark all taged
 	{
-		int v =  G[u][i].X.Y;
+		int v = G[u][i].X.Y;
 		if(!G[u][i].Y) {G[u][i].Y = 1; dfs_dup(v, u);}
 		v = G[u][i-1].X.Y;
 		if(!G[u][i-1].Y) {G[u][i-1].Y = 1; dfs_dup(v, u);}
