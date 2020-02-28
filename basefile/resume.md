@@ -1,6 +1,6 @@
-# Yan-tong, Lin
+# Yan-Tong Lin
 
-## Contact Me
+## Contact Information
 
 * +886-911-102924
 * 0312fs3@gmail.com
@@ -8,7 +8,7 @@
 
 ## Education
 
-* National Chiao Tung University, Applied Mathematics, Sep 2018-now
+* National Chiao Tung University, Applied Mathematics, Sep 2018-
 * Suspended and left NTU for some health issues
 * National Taiwan University, CSIE, Sep 2015-Jan 2016, 2017
 * CKHS 67th, 2013-June 2015
