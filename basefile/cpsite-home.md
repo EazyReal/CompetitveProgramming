@@ -15,13 +15,7 @@ Note:
 - **Patch History:**
     - start update before 2020/02/27, ~2020/2
     - 2020/02/27 become CPsite homepage
-- Some random words:
-    - 2020/02/27 :
-        Being too careless recently
-        loss 1~2 problems per contest
-        dropped from 1700 to 1500 :(
-        Hope to get to 2000+ real quick
-
+    
 ---
 
 ## Category
