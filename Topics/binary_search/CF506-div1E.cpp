@@ -1,3 +1,5 @@
+//72150697	Mar/01/2020 17:43UTC+8	maxwill	B - The hat	GNU C++17	Accepted	31 ms	0 KB
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -44,17 +46,46 @@ int T;
 const int maxn = 2e5+7;
 int n;
 
+//obeservation 1 : target = f[i] = a[i] - a[(i+n/2)%n], want = 0
+//obeservation 2 : f[i] - f[i+1] \belongs {-2, 0, 2} => continuity
+
+int q(int i) //only 1-indexed whe asking
+{
+	cout << "? " << i + 1 << endl;
+	int a1 = read();
+	cout << "? " << (i + n/2)%n +1 << endl;
+	int a2 = read();
+	return a1 - a2;
+}
+
 void solve()
 {
+	cin >> n;
+	int d1 = q(0);
+	if(d1%2) {cout << "! -1\n"; return;}
+	if(d1 == 0){cout << "! 1\n"; return;}
+	int L = 1, R = n/2, M;
+	int dL = d1, dR = -d1;
+	while(L+1 < R) //[)
+	{
+		M = (L+R)>>1; //<n
+		int dm = q(M);
+		//debug(L); debug(R); debug(M);
+		//debug(dL); debug(dR); debug(dm);
+		if(dm == 0) {cout << "! " << M+1 << endl; return;}
+		else if(dL*dm < 0) R = M, dR = dm;//, cout << "go L \n";
+		else L = M+1, dL = dm;//, cout << "go R \n";
+	}
+	cout << "! " << L+1 << endl;
   return;
 }
 
 
 signed main()
 {
-  fastIO();
+  //fastIO();
 	T = 1;
-	cin >> T; //this
+	//cin >> T; //this
   while(T--) solve();
   return 0;
 }
