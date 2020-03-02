@@ -24,9 +24,9 @@ typedef pair<ll, ll> pll;
 typedef long double ld;
 
 //mt19937 mrand(random_device{}());
-const ll mod=1e9+7;
+//const ll mod=1e9+7;
 //int rnd(int x) { return mrand() % x;}
-ll powmod(ll a,ll b) {ll res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=res*a%mod;a=a*a%mod;}return res;}
+//ll powmod(ll a,ll b) {ll res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=res*a%mod;a=a*a%mod;}return res;}
 ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 pii operator+(const pii&x, const pii&y) { return mp(x.X+y.X, x.Y+y.Y);}
 pii operator-(const pii&x, const pii&y) { return mp(x.X-y.X, x.Y-y.Y);}
@@ -40,21 +40,96 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
+//#define int ll
+
 int T;
 const int maxn = 2e5+7;
-int n;
+int n; ll M;
+ll dp[maxn]; //way that u is black,rooted at 1 at first
+vector<int> G[maxn];
+vector<ll> pre[maxn];
+vector<ll> suf[maxn]; //so that dont need to calc inv
+//int p[maxn];
+//int s[maxn], t[maxn], dfn;
+//vector<ll> vals;
+
+ll dfs1(int u, int f) //first dp
+{
+	//debug(u);
+	ll &ret = dp[u];
+	ret = 1;
+	//vals.clear();
+	vector<ll> vals;
+	for(int v:G[u])
+	{
+		if(v == f) {vals.pb(1); continue;}
+		ll dpv = (dfs1(v, u)+1)%M;
+		ret *= dpv;
+		ret %= M;
+		vals.pb(dpv);
+	}
+	int sz = G[u].size();
+	//debug(sz);
+	pre[u].resize(sz); //RE
+	suf[u].resize(sz);
+	rep(i, 0, sz)
+	{
+		pre[u][i] = i ? (pre[u][i-1]*vals[i]%M) : vals[i];
+		suf[u][sz-1-i] = i ? (suf[u][sz-i]*vals[sz-1-i]%M) : vals[sz-1-i]; //%M WA
+	}
+	return ret;
+}
+
+
+//     fval(1/0)
+//     |
+//     1
+// |   |   |
+// u  1/0 1/0
+void dfs2(int u, int f, ll f_val) //eular tree tour concept
+{
+	//debug(u);
+	ll &ret = dp[u];
+	ret = ret*f_val%M;
+	rep(i, 0, G[u].size())
+	{
+		int v = G[u][i];
+		if(v == f) continue;
+		ll brother_way = ((i ? pre[u][i-1] : 1) * (i+1 < G[u].size() ? suf[u][i+1] : 1)) %M;
+		ll f_is_1 = brother_way * f_val % M;
+		dfs2(v, u, f_is_1 + 1);
+	}
+
+}
+
+
 
 void solve()
 {
+	cin >> n >> M;
+	int a, b;
+	rep(i, 0, n-1) //1-indexed
+	{
+		cin >> a >> b;
+		G[a].pb(b);
+		G[b].pb(a);
+	}
+	//dfn = 0;
+	dfs1(1, 0);
+	//cout << "HIHI" << endl;
+	dfs2(1, 0, 1);
+
+	rep(i, 1, n+1) cout << dp[i] << endl;
+
   return;
 }
 
 
 signed main()
 {
-  fastIO();
+  //fastIO();
 	T = 1;
-	cin >> T; //this
+	//cin >> T; //this
   while(T--) solve();
   return 0;
 }

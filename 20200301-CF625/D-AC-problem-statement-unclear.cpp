@@ -1,3 +1,10 @@
+//unclear problem statement
+//the nevigate system can reuse path
+//
+//#	When	Who	Problem	Lang	Verdict	Time	Memory
+//72227193	Mar/02/2020 12:37UTC+8	maxwill	D - Navigation System	GNU C++17	Accepted	217 ms	12900 KB
+//72227165	Mar/02/2020 12:36UTC+8	maxwill	D - Navigation System	GNU C++17	Wrong answer on test 5	46 ms	6600 KB
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -42,10 +49,58 @@ inline ll read(){
 //------------------------------------------------------------------------//
 int T;
 const int maxn = 2e5+7;
-int n;
+int n, m, k;
+int a[maxn];
+vi G[maxn], H[maxn];
+int d[maxn];
+bool vis[maxn];
 
 void solve()
 {
+	cin >> n >> m;
+	int u, v;
+	rep(i, 0, m)
+	{
+		cin >> u >> v;
+		G[u].pb(v);
+		H[v].pb(u);
+	}
+	cin >> k;
+	rep(i, 0, k) cin >> a[i];
+
+	//bfs for d to t
+	queue<int> q;
+	int s = a[0], t = a[k-1];
+	memset(d, -1, sizeof(d));
+	q.push(t); d[t] = 0;
+	while(!q.empty())
+	{
+		int cur = q.front(); q.pop();
+	  for(int nxt:H[cur]) if(d[nxt] == -1) {q.push(nxt), d[nxt] = d[cur]+1;}
+	}
+	//rep(i, 1, n+1) debug(d[i]);
+
+	memset(vis, 0, sizeof(vis));
+
+	int minv = 0;
+	int maxv = 0;
+	vis[s] = 1;
+	rep(i, 0, k-1) //i = cur
+	{
+		int minto = INT_MAX;
+		int minto2 = INT_MAX;
+		for(int x : G[a[i]]) minto = min(minto, d[x]);
+		//debug(minto);
+		vis[a[i+1]] = 1;//this step may need back track, rule not clear, ignore
+		bool flag = 0;
+		for(int x : G[a[i]]) if(x!=a[i+1] && d[x] == minto) flag = 1;
+
+		if(d[a[i+1]] != minto) {minv++, maxv++;}
+		else if(flag) {maxv++; }
+		else maxv = maxv;
+		//vis[a[i]] = 1;
+	}
+	cout << minv << " " << maxv << endl;
   return;
 }
 
@@ -54,7 +109,7 @@ signed main()
 {
   fastIO();
 	T = 1;
-	cin >> T; //this
+	//cin >> T; //this
   while(T--) solve();
   return 0;
 }
