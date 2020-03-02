@@ -127,9 +127,9 @@ void solve()
 
 signed main()
 {
-  //fastIO();
-	T = 1;
-	//cin >> T; //this
+  fastIO();
+  T = 1;
+  //cin >> T; //this
   while(T--) solve();
   return 0;
 }
