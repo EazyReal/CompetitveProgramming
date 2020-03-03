@@ -31,29 +31,23 @@ ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 //------------------------------------------------------------------------//
 int T;
 const int maxn = 2e4+5;
-int n, m, k;
-int a[55][maxn];
-int dp[55][maxn];
-int pre[55][maxn];
+int n;
+typedef pair<pii, ll> Block;
 
-inline int seg(int i1, int i2, int jl, int jr)
-{
-  return pre[i1][jr]-pre[i1][jl] + pre[i2][jr]-pre[i2][jl];
-}
+#define w X.X
+#define s X.Y
+#define v Y
 
 void solve()
 {
-  cin >> n >> m >> k;
-  rep(i, 1, n+1) a[i][0] = 0, a[i][m+1] = 0;
-  rep(i, 1, n+1)rep(j, 1, m+1) cin >> a[i][j], pre[i][j] = pre[i][j-1] + a[i][j];
-  rep(j, 1, m+1) a[n+1][j] = 0;
-
-  rep(j, 1, m-k+2) dp[1][j] = seg(1, 2, j-1, j+k-1);
-  cout << endl; rep(j, 1, m-k+2) cout << dp[1][j] << " \n"[j==m-k+1];
-  rep(i, 2, n+1) rep(j, 1, m-k+2)
-  {
-    
-  }
+   cin >> n;
+   vector<Block> bs;
+   for(auto &bi:bs) cin >> bi.w >> bi.s >> bi.v;
+   function<bool(Block&, Block&)> cmp = (Block &a, Block &b)
+   {
+     a.s - b.w > b.s - a.w;
+   }
+   sort(all(bs), cmp);
   return;
 }
 

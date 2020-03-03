@@ -43,7 +43,7 @@ inline ll read(){
 int T;
 const int maxn = 2e5+7;
 ll ls[maxn];
-vector<pair<ll, int>> rs[maxn];
+vector<pair<ll, int> > rs[maxn];
 
 //I think can do compression if n is 1e9, m is 1e5 (by unique and reassigning li, ri)
 
@@ -138,17 +138,21 @@ void solve()
 	//build(0, n); no need, all 0ll
 	segment_tree<ll> seg(n);
 	ll ans = 0; //min ans = 0;
-	//dpi means the best (when take the point) ignoring not ended intervals
-	//after complete dpi dosen't ingnore any interval and is added only once by each intrval
-	//use current to update past dp
-	rep(i, 1, n+1)
+	//here use interval [0, i) = decide val of i, use past to decide current dp
+	//if encounter l, all dpi before l need to add l(the current choice is new)
+	//if encounter r, remove all contribution(the current choice no loger add ai)
+	rep(i, 1, n+1) //here 0 is imaginary point means before all seg
 	{
-		ll dpi = max(0ll, seg.query(1, max(1, i-1), 1, n, 1));
-		seg.add(i, i, dpi, 1, n, 1); //is set
-		for(pair<ll, int>& ri : rs[i]) seg.add(ri.Y, i, ri.X, 1, n, 1);
+		if(ls[i] != 0) seg.add(0, i-1, ls[i], 0, n, 1); //cur and future choice is not new
+		//>0 bug!!!! ls[i] is not >0 sometimes, debug by print seg
+		ll dpi = seg.query(0, i-1, 0, n, 1);
+		ans = max(ans, dpi);
+		//debug(ans);
+		//seg.print(0, n, 1);
+		seg.add(i, i, dpi, 0, n, 1); //cur pos best with cur pos 1 is
+		for(pair<ll, int> ri : rs[i]) seg.add(0, ri.Y-1, -ri.X, 0, n, 1); //for over r there is no need to add for before val
 	}
-	//seg.print(1, n, 1);
-	ans = max(ans, seg.query(1, n, 1, n, 1));
+	//seg.print(0, n, 1);
 	cout << ans << endl;
   return;
 }
