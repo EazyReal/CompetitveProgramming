@@ -52,16 +52,15 @@ void solve()
 
    vector<ll> dp(maxspw+1, 0ll);
    ll ans = 0ll;
-   //i : from if choose x must choose y, judge from y to x
+   //i : from if choose x must be before choose y, judge from y to x
    //j : from big update to small update that no current i updated will be used this round
    rep(i, 0, n)
-   repinv(si, 0, bs[i].s+1) //extra use of cur volume
+   repinv(si, bs[i].w, bs[i].s+bs[i].w+1) //cur all weight
    {
-     //for nxt to carry
-     //debug(bs[i].s);
-     dp[si+bs[i].w] = max(dp[si+bs[i].w], dp[si]+bs[i].v); //carry si more => dp[si] + bs[i].v (current)
-     //cout << si << ' '; debug(dp[si+bs[i].w]);
-     ans = max(ans, dp[si+bs[i].w]);
+     //si = for nxt to carry
+     dp[si] = max(dp[si], dp[si-bs[i].w]+bs[i].v); //last carried = si-bs[i].w
+     //cout << si << ' '; debug(dp[si]);
+     ans = max(ans, dp[si]);
    }
    cout << ans << endl;
    return;

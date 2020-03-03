@@ -49,7 +49,7 @@ void solve()
 
    vector<ll> dp(maxs+1, 0ll);
    ll ans = 0ll;
-   //i : from if choose x must choose y, judge from y to x
+   //i : from if choose x must be before choose y, judge from y to x
    //j : from big update to small update that no current i updated will be used this round
    rep(i, 0, n)
    repinv(si, 0, bs[i].s-bs[i].w+1) //extra use of current volume(eq = original meaning of solidity)
