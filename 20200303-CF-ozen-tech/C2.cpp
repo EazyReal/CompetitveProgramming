@@ -94,7 +94,7 @@ void solve()
 		while(now-a[id] >= m)
 		{
 			c[a[id]%m]++;
-			if(now-a[id] == m) {cout << 0 << endl; return;}
+			if(now-a[id]%m == 0) {cout << 0 << endl; return;} //==m in contest
 			id++;
 		}
 		rep(j, id, i) ans = ans*(now-a[j])%m;

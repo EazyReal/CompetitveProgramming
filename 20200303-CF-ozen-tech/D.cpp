@@ -93,6 +93,7 @@ bool go(int u, int v, int w, int p)
 	bool ret = 0;
 	for(int x:G[u])if(x!=p)
 	{
+		//if(mark[x]==1) continue;
 		ret &= go(x, v, w, u); //path
 	}
 	if(ret && u!=w) mark[u] = 1;

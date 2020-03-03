@@ -92,8 +92,8 @@ void solve()
 		cout << "? " << u[0] << " " << u[1] << endl;
 		cin >> w;
 		mark[u[0]] = 1; mark[u[1]] = 1;
-		go(w, u[0], -1);
-		go(w, u[1], -1);
+		if(w != u[0]) go(w, u[0], -1);
+		if(w != u[1]) go(w, u[1], -1);
 		mark[w] = 2;
 	}
 
