@@ -148,6 +148,8 @@ void solve()
 		seg.print(0, n, 1);
 		ll cur = seg.query(0, i, 1, n, 1);
 		debug(i);		debug(cur);
+
+
 		ans = max(ans, seg.query(1, i, 1, n, 1));
 		for(pair<ll, int>& ri : rs[i]) seg.add(1, max(1, ri.Y-1), -ri.X, 1, n, 1);*/
 	}
