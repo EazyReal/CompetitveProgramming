@@ -32,23 +32,35 @@ ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 int T;
 const int maxn = 2e4+5;
 int n;
-typedef pair<pii, ll> Block;
+typedef pair<int, pll> Block;
 
-#define w X.X
-#define s X.Y
-#define v Y
+#define w Y.X
+#define s X
+#define v Y.Y
 
+//observation : can be sort with a.s + a.w as property, its meaning is compacity(carrying self+top)
 void solve()
 {
    cin >> n;
-   vector<Block> bs;
-   for(auto &bi:bs) cin >> bi.w >> bi.s >> bi.v;
-   function<bool(Block&, Block&)> cmp = (Block &a, Block &b)
+   vector<Block> bs(n);
+   int maxs = 0;
+   for(auto &bi:bs) cin >> bi.w >> bi.s >> bi.v, bi.s+=bi.w, maxs = max(maxs, bi.s);
+   sort(all(bs));
+
+   vector<ll> dp(maxs+1, 0ll);
+   ll ans = 0ll;
+   //i : from if choose x must choose y, judge from y to x
+   //j : from big update to small update that no current i updated will be used this round
+   rep(i, 0, n)
+   repinv(si, 0, bs[i].s-bs[i].w+1) //extra use of current volume(eq = original meaning of solidity)
    {
-     a.s - b.w > b.s - a.w;
+     //for nxt to carry = si+bs[i].w
+     dp[si+bs[i].w] = max(dp[si+bs[i].w], dp[si]+bs[i].v); //carry si more => dp[si] + bs[i].v (current)
+     //cout << si << ' '; debug(dp[si+bs[i].w]);
+     ans = max(ans, dp[si+bs[i].w]);
    }
-   sort(all(bs), cmp);
-  return;
+   cout << ans << endl;
+   return;
 }
 
 
