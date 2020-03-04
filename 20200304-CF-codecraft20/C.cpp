@@ -40,13 +40,31 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
+#define int ll
 int T;
-const int maxn = 2e5+7;
-int n;
+const int maxn = 2e6+7;
+int n, m, p;
+int a[maxn], b[maxn], c[maxn*2];
+
+//1 1 2 2 2
 
 //check T
 void solve()
 {
+
+	cin >> n >> m >> p;
+	rep(i, 0, n) cin >> a[i];
+	rep(i, 0, m) cin >> b[i];
+
+	int s, f;
+	rep(i, 0, n) if(a[i]%p != 0) {s = i; break;}
+	rep(i, 0, m) if(b[i]%p != 0) {f = i; break;}
+	cout << s+f << endl;
+	//assert(p == 2);
+
+	/*if(a[0]%p==0 && b[0]%p==0) cout << 2 << endl; //both of
+	else if(a[0]%p!=0 && b[0]%p!=0) cout << 0 << endl; //none of
+	else cout << 1 << endl; //one of*/
   return;
 }
 
@@ -55,7 +73,7 @@ signed main()
 {
   fastIO();
   T = 1;
-  cin >> T; //this
+  //cin >> T; //this
   while(T--) solve();
   return 0;
 }

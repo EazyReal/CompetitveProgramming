@@ -42,11 +42,18 @@ inline ll read(){
 //------------------------------------------------------------------------//
 int T;
 const int maxn = 2e5+7;
-int n;
+int n, m;
+
+int a[maxn];
 
 //check T
 void solve()
 {
+	cin >> n >> m;
+	int sum = 0;
+	rep(i, 0, n) cin >> a[i], sum+=a[i];
+	cout << min(m, sum) << endl;
+
   return;
 }
 

@@ -40,34 +40,34 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
+#define int ll
 int T;
-const int maxn = 2e5+7;
-int n;
-string s;
+const int maxn = 2e6+7;
+int n, m, p;
+int a[maxn], b[maxn], c[maxn*2];
+
+//1 1 2 2 2
 
 //check T
 void solve()
 {
-	cin >> n;
-	cin >> s;
-	set<pair<string, int> > st;
-	if(n == 1) {cout << s << endl << 1 << endl; return;}
-	rep(k, 1, n+1)
+
+	cin >> n >> m >> p;
+	rep(i, 0, n) cin >> a[i];
+	rep(i, 0, m) cin >> b[i];
+	if(n == 1)
 	{
-		string a(n,'0');
-		//rep(i, 0, n-k+1) a[i] = s[i];
-		//rep(i, 0, k-1) a[n-1-i] = s[n-k+1+i];
-		if(k == 1) {st.insert(mp(s, 1)); continue;}
-		rep(i, k-1, n) a[i-k+1] = s[i];
-		//reverse
-		if((n-k+1)%2 == 1)
-		rep(i, 0, k-1) a[n-k+1+i] = s[k-1-1-i];
-		else
-		rep(i, 0, k-1) a[n-k+1+i] = s[i];
-		//debug(a);
-		st.insert(mp(a, k));
+		rep(i, 0, m) if(b[i]%p != 0) {cout << i << endl; break;}
+		return;
 	}
-	cout << (*st.begin()).X << endl << (*st.begin()).Y << endl;
+	if(m == 1)
+	{
+		rep(i, 0, n) if(a[i]%p != 0) {cout << i << endl; break;}
+		return;
+	}
+	if(a[0]%p==0 && b[0]%p==0) cout << 2 << endl; //both of
+	else if(a[0]%p!=0 && b[0]%p!=0) cout << 0 << endl; //none of
+	else cout << 1 << endl; //one of*/
   return;
 }
 
@@ -76,7 +76,7 @@ signed main()
 {
   fastIO();
   T = 1;
-  cin >> T; //this
+  //cin >> T; //this
   while(T--) solve();
   return 0;
 }
