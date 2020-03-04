@@ -44,6 +44,7 @@ int T;
 const int maxn = 2e5+7;
 int n;
 
+//check T
 void solve()
 {
   return;
@@ -58,13 +59,3 @@ signed main()
   while(T--) solve();
   return 0;
 }
-/*
-stuck:
-	* do observations and see properties
-	* binary search? DP? DS? flow?
-	* be organized
-
-before upload:
-	* int overflow, array bounds
-	* special cases (min, max, special)
-*/
