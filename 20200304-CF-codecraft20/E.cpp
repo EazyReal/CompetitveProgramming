@@ -45,6 +45,8 @@ const int maxn = 2e5+7;
 int n;
 
 //check T
+//bitmask on pos , use bitcount + cur idx to calc audience number
+//trivial dp, but no time, 
 void solve()
 {
   return;
