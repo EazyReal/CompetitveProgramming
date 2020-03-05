@@ -41,11 +41,37 @@ inline ll read(){
 
 //------------------------------------------------------------------------//
 int T;
-const int maxn = 2e5+7;
-int n;
+const int maxn = 5e3+7;
+int n, m;
+int dp[maxn];
 
 void solve()
 {
+	cin >> n >> m;
+	int maxv = 0;
+	rep(i, 1, n+1) maxv+= (i-1)/2, dp[i] = maxv;
+	rep(i, 1, n+1) cout << dp[i] << " \n"[i==n-1];
+	if(m > maxv) {cout << -1 << endl; return;}
+
+	int curpos = 1;
+	int mutable_n = n;
+	vector<int> ans;
+	repinv(i, 1, n+1)
+	while(dp[i] <= m && mutable_n >= i)
+	{
+		debug(i); debug(m);
+		m -= dp[i];
+		mutable_n -= i;
+		debug(mutable_n);
+		debug(m);
+		rep(pi, 0, i) ans.pb(curpos + pi);
+		curpos = ans[ans.size()-1] + (ans.size()>1 ? ans[ans.size()-2] : 1) + 1;
+		debug(curpos);
+		assert(curpos <= 1000000000);
+	}
+	assert(mutable_n == 0);
+	assert(m == 0);
+	rep(i, 0, n) cout << ans[i] << " \n"[i==n];
   return;
 }
 
@@ -54,7 +80,7 @@ signed main()
 {
   fastIO();
   T = 1;
-  cin >> T; //this
+  //cin >> T; //this
   while(T--) solve();
   return 0;
 }
