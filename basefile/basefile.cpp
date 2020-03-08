@@ -11,7 +11,11 @@ using namespace std;
 #define repinv(i, st, n) for (int i = ((n)-1); i >= (st); --i)
 #define MEM(a, b) memset(a, b, sizeof(a));
 
-#define debug(x) std::cout << #x << ": " << x << endl
+#ifdef LOCAL
+#define debug(x) std::cerr << #x << ": " << x << endl
+#else
+#define debug(x) 860111
+#endif
 #define fastIO() ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0)
 #define fileIO(in, out) freopen(in, "r", stdin); freopen(out, "w", stdout)
 
