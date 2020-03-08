@@ -1,5 +1,7 @@
 # CompetitveProgramming
 
-CP2 2019fall
+## shell scripts
 
-test for git extension
+*  qgit "MSG" for quick git pull + add + commit + push with commit message MSG
+
+*  newcontest "CONTEST" for creating folder named CONTEST with basefile.cpp as ABCDEF in it
