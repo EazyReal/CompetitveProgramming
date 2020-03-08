@@ -42,20 +42,44 @@ inline ll read(){
 //------------------------------------------------------------------------//
 int T;
 const int maxn = 2e5+7;
-int n;
+int n, m;
 
 //check T
 void solve()
 {
+	scanf("%d%d", &n, &m);
+	vector<ll> a(n);
+	rep(i, 0, n) scanf("%lld", &a[i]);
+	vector<vector<int>> G(n); //right to left
+	int u, v;
+	rep(i, 0, m)
+	{
+		scanf("%d%d", &u, &v);
+		G[--v].pb(--u);
+	}
+	//map<set<int>, ll> lsum; //the right vertex with same l set
+	map<vector<int>, ll> lsum;
+	rep(i, 0, n)
+	{
+		if(G[i].size() == 0) continue;
+		sort(all(G[i]));
+		lsum[G[i]] += a[i];
+	}
+	//ll ans = lsum.begin()->Y; //m>=1
+	ll ans = 0;
+	for(auto& s : lsum)
+	{
+		ans = __gcd(ans , s.Y);
+	}
+	printf("%lld\n", ans);
+
   return;
 }
 
 
 signed main()
 {
-  fastIO();
-  T = 1;
-  cin >> T; //this
+	scanf("%d", &T);
   while(T--) solve();
   return 0;
 }
