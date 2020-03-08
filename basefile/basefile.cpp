@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-
+//#define LOCAL
 using namespace std;
 
 #define X first
@@ -10,7 +10,6 @@ using namespace std;
 #define rep(i, st, n) for (int i = (st); i < (n); ++i)
 #define repinv(i, st, n) for (int i = ((n)-1); i >= (st); --i)
 #define MEM(a, b) memset(a, b, sizeof(a));
-
 #ifdef LOCAL
 #define debug(x) std::cerr << #x << ": " << x << endl
 #else
@@ -48,10 +47,12 @@ inline ll read(){
 int T;
 const int maxn = 2e5+7;
 int n;
+//ll a[maxn];
 
 //check T
 void solve()
 {
+	//cin >> n; rep(i, 0, n) cin >> a[i];
   return;
 }
 
