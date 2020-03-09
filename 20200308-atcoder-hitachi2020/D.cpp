@@ -48,11 +48,35 @@ int T;
 const int maxn = 2e5+7;
 int n;
 //ll a[maxn];
-
+vector<pll> a;
 //check T
+
+bool C(int x)
+{
+	int t = 0;
+	rep(i, 0, x)
+	{
+		t++;
+		t += -a[n-x+i].X*t+a[n-x+i].Y;
+	}
+	return t <= T;
+}
+
 void solve()
 {
-	//cin >> n; rep(i, 0, n) cin >> a[i];
+	cin >> n >> T;
+	a.resize(n);
+	rep(i, 0, n) cin >> a[i].X >> a[i].Y, a[i].X = -a[i].X;
+	rep(i, 0, n) t[i] = (T-a[i].X)/a[i].Y;
+	sort(all(a));
+	int L = 0, R = n+1, M;
+	while(L+1 < R)
+	{
+		M = (L+R)/2;
+		if(C(M)) L = M;
+		else R = M; //cannot => upperbound low
+	}
+	cout << L << endl;
   return;
 }
 
@@ -60,8 +84,6 @@ void solve()
 signed main()
 {
   fastIO();
-  T = 1;
-  cin >> T; //this
-  while(T--) solve();
+  solve();
   return 0;
 }

@@ -44,26 +44,65 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
-int T;
 const int maxn = 2e5+7;
 int n;
+ll T;
 //ll a[maxn];
-
+vector<pll> a;
+ll t[maxn];
+ll p[maxn];
 //check T
+
+bool cmp2(int x, int y)
+{
+	return a[x].X > a[y].X; //m bigger choose first
+}
+
+bool C(int x)
+{
+	ll t = 0;
+	ll Ttmp = T;
+	vector<int> pc(x);
+	rep(i, 0, x) pc[i] = p[i]; //deadline later first => for other time more
+	sort(all(pc), cmp2); //wait more first
+	rep(i, 0, x)
+	{
+		t++;
+		//Ttmp--;
+		t += a[pc[i]].X*t+a[pc[i]].Y;
+		//Ttmp -=
+		if(t > T) return 0;
+	}
+	return t <= T;
+}
+
+bool cmp(int x, int y)
+{
+	//if((T-a[x].Y) * (a[y].X+1) > (T-a[y].Y) * (a[x].X+1) ) return 1; //deadline
+	//else if((T-a[x].Y) * (a[y].X+1) == (T-a[y].Y) * (a[x].X+1) ) return a[x].X < a[y].X;
+	//return 0;
+	if(t[x] > t[y]) return 1;
+	return t[x]==t[y] && a[x].X<a[x].X;
+}
+
 void solve()
 {
-	//cin >> n; rep(i, 0, n) cin >> a[i];
-	string s;
-	cin >> s;
-	n = s.size();
-	if(n&1){cout << "No\n"; return;}
-	bool flag = 1;
-	rep(i, 0, n)
+	cin >> n >> T;
+	a.resize(n);
+	rep(i, 0, n) cin >> a[i].X >> a[i].Y;
+	rep(i, 0, n) t[i] = max(-1ll, (T-a[i].Y-a[i].X-1)/(a[i].X+1)); // T' = for other's time
+	//T' is to calc T''
+	rep(i, 0, n) p[i] = i;
+	sort(p, p+n, cmp);
+	//rep(i, 0, n) cout << p[i] << " \n"[i==n-1];
+	int L = 0, R = n+1, M;
+	while(L+1 < R)
 	{
-		if(i&1) flag &= s[i] == 'i';
-		else flag &= s[i] == 'h';
+		M = (L+R)/2;
+		if(C(M)) L = M;
+		else R = M; //cannot => upperbound low
 	}
-	cout << (flag?"Yes":"No") <<endl;
+	cout << L << endl;
   return;
 }
 
@@ -71,8 +110,29 @@ void solve()
 signed main()
 {
   fastIO();
-  T = 1;
-  //cin >> T; //this
-  while(T--) solve();
+  solve();
   return 0;
 }
+
+/*
+ 1000000
+10000000000 10000000000
+10000000000 10000000000
+10000000000 10000000000
+10000000000 10000000000
+10000000000 10000000000
+*/
+/*
+5
+1000000000
+100000000
+100000000
+100000000
+100000000
+100000000
+100000000
+100000000
+100000000
+100000000
+100000000
+*/

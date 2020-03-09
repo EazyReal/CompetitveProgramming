@@ -48,11 +48,52 @@ int T;
 const int maxn = 2e5+7;
 int n;
 //ll a[maxn];
+vi G[maxn];
+vi bip[2];
+int cs[maxn];
+
+void dfs(int u, int p, int c)
+{
+	cs[u] = c;
+	bip[c].pb(u);
+	for(int v :G[u]) if(v != p)
+	{
+		dfs(v, u, c^1);
+	}
+	return ;
+}
 
 //check T
 void solve()
 {
-	//cin >> n; rep(i, 0, n) cin >> a[i];
+	cin >> n;
+	int u, v;
+	rep(i, 0, n-1) cin >> u >> v, G[u].pb(v), G[v].pb(u);
+	dfs(1, -1, 0);
+	int minc = bip[1].size() < bip[0].size();
+	if(bip[minc].size() <= n/3)
+	{
+		int m3 = 3;
+		int m12 = 1;
+		rep(i, 1, n+1)
+		{
+			if(cs[i] == minc) cout << m3, m3+=3;
+			else if(m12 <= n)  cout << m12, m12++, m12+=(m12%3==0);
+			else cout << m3, m3+=3;
+			cout << " \n"[i==n];
+		}
+	}else{
+		int m1 = 1;
+		int m2 = 2;
+		int m3 = 3;
+		rep(i, 1, n+1)
+		{
+			if(cs[i] == minc && m1 <= n) cout << m1, m1+=3;
+			else if(cs[i] == minc^1 && m2 <= n) cout << m2, m2+=3;
+			else cout << m3, m3 += 3;
+			cout << " \n"[i==n];
+		}
+	}
   return;
 }
 
@@ -61,7 +102,7 @@ signed main()
 {
   fastIO();
   T = 1;
-  cin >> T; //this
+  //cin >> T; //this
   while(T--) solve();
   return 0;
 }
