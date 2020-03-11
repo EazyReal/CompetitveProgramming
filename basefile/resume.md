@@ -1,5 +1,6 @@
 # Yan-Tong Lin
 
+
 ## Contact Information
 
 * +886-911-102924
@@ -53,3 +54,10 @@
 * Band (yu-cheng-tong-xing) as Keyboard, Guitar
 * NCTU CS Union 10/11 Public Relation Department
 * CKHS Classical Guitar Club Activities Department 
+
+## Other Links
+::: spoiler
+* [transcripts page for 104 visitors](/uZOcVjC2TeG3o9igFWa-JA)
+* [NCTU Lecture Notes](/r-CG8R7xTZ2S3pRa6JD9FA)
+* [Maxwill's CP site](/okb8VJY1SXqK320--sSOdg?both)
+:::
