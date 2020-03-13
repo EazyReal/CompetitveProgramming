@@ -44,55 +44,25 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
-#define int ll
 int T;
 const int maxn = 2e5+7;
-int n, m, a, b;
-vector<int> G[maxn];
+int n,m;
 //ll a[maxn];
-
-
-void dfs(int u, int deleted, vector<int>& vis)
-{
-	vis[u] = 1;
-	for(int v:G[u]) if(vis[v]!=1 && v != deleted) dfs(v, deleted, vis);
-}
 
 //check T
 void solve()
 {
-	cin >> n >> m  >> a >> b;
-	--a, --b;
-	rep(i, 0, n) G[i].clear();
-	rep(i, 0, m)
-	{
-		int u, v;
-		cin >> u >> v;
-		u--, v--;
-		G[u].pb(v);
-		G[v].pb(u);
-	}
-
-	function<void(int,int,vector<int>&)> dfs2 = [&](int a, int b, vector<int>& mark)
-	{
-		if(a > 100) return;
-		return dfs(a+b, b, mark);
-	};
-
-	auto abs = 10;
-
-	dfs2(10, 10, G[0]);
-
-	vector<int> mark1(n, -1);
-	vector<int> mark2(n, -1);
-
-	dfs(b, a, mark1);
-	dfs(a, b, mark2);
-	int a1 = 0, a2 = 0;
-	rep(i, 0, n) if(mark1[i] == 1) a1++;
-	rep(i, 0, n) if(mark2[i] == 1) a2++;
-	cout << (n-a1-1)*(n-a2-1) << endl;
-
+	cin >> n >> m;
+	vector<int> msum(m+1, 0);
+	vector<bool> has(m+1, 0);
+	vector<int> f(n+1);
+	int p;
+	rep(i, 0, n) cin >> f[i], has[f[i]] = 1;
+	rep(i, 0, n) cin >> p, msum[f[i]]+=p;
+	//rep(i, 1, m+1) cout << i << " " << msum[i] << endl;
+	int ans = INT_MAX;
+	rep(i, 1, m+1) if(has[i]) ans = min(ans, msum[i]);
+	cout << ans << endl;
   return;
 }
 

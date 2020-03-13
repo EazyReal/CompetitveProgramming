@@ -15,7 +15,7 @@ using namespace std;
 #else
 #define debug(x) 860111
 #endif
-#define fastIO() ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0)
+#define fastIO() ios_base::sync_with_stdio(false); cin.tie(0)
 #define fileIO(in, out) freopen(in, "r", stdin); freopen(out, "w", stdout)
 
 typedef long long ll;
@@ -44,64 +44,63 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
-#define int ll
 int T;
 const int maxn = 2e5+7;
-int n, m, a, b;
-vector<int> G[maxn];
-//ll a[maxn];
-
-
-void dfs(int u, int deleted, vector<int>& vis)
-{
-	vis[u] = 1;
-	for(int v:G[u]) if(vis[v]!=1 && v != deleted) dfs(v, deleted, vis);
-}
+int n;
+int q;
+int B = 30;\
 
 //check T
 void solve()
 {
-	cin >> n >> m  >> a >> b;
-	--a, --b;
-	rep(i, 0, n) G[i].clear();
-	rep(i, 0, m)
+	//cin >> n >> q;
+	scanf("%d%d", &n, &q);
+	array<int, 2> cnt = {0, 0};
+	int a;
+	rep(i, 0, n)
 	{
-		int u, v;
-		cin >> u >> v;
-		u--, v--;
-		G[u].pb(v);
-		G[v].pb(u);
+		scanf("%d", &a);
+		cnt[__builtin_parity(a)]++;
 	}
-
-	function<void(int,int,vector<int>&)> dfs2 = [&](int a, int b, vector<int>& mark)
+	//rep(i, 0, 2) cout << cnt[i];
+	int p;
+	rep(i, 0, q)
 	{
-		if(a > 100) return;
-		return dfs(a+b, b, mark);
-	};
-
-	auto abs = 10;
-
-	dfs2(10, 10, G[0]);
-
-	vector<int> mark1(n, -1);
-	vector<int> mark2(n, -1);
-
-	dfs(b, a, mark1);
-	dfs(a, b, mark2);
-	int a1 = 0, a2 = 0;
-	rep(i, 0, n) if(mark1[i] == 1) a1++;
-	rep(i, 0, n) if(mark2[i] == 1) a2++;
-	cout << (n-a1-1)*(n-a2-1) << endl;
-
+		//cin >> p;
+		scanf("%d", &p);
+		int exchage = __builtin_parity(p);
+		printf("%d %d\n", cnt[exchage], cnt[exchage^1]);
+		//cout << cnt[exchage] << ' ' << cnt[exchage^1] << endl;
+	}
   return;
 }
 
 
 signed main()
 {
-  fastIO();
+  //fastIO();
   T = 1;
-  cin >> T; //this
+  scanf("%d", &T); //this
   while(T--) solve();
   return 0;
 }
+
+
+/*
+1
+6 1
+4 2 15 9 8 8
+3
+
+2
+6 1
+4 2 15 9 8 8
+3
+6 5
+4 2 15 9 8 8
+3
+4
+5
+6
+7
+*/

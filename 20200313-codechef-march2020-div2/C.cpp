@@ -44,55 +44,38 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
-#define int ll
 int T;
 const int maxn = 2e5+7;
-int n, m, a, b;
-vector<int> G[maxn];
-//ll a[maxn];
-
-
-void dfs(int u, int deleted, vector<int>& vis)
-{
-	vis[u] = 1;
-	for(int v:G[u]) if(vis[v]!=1 && v != deleted) dfs(v, deleted, vis);
-}
+int n;
+int a, b;
 
 //check T
 void solve()
 {
-	cin >> n >> m  >> a >> b;
-	--a, --b;
-	rep(i, 0, n) G[i].clear();
-	rep(i, 0, m)
-	{
-		int u, v;
-		cin >> u >> v;
-		u--, v--;
-		G[u].pb(v);
-		G[v].pb(u);
-	}
-
-	function<void(int,int,vector<int>&)> dfs2 = [&](int a, int b, vector<int>& mark)
-	{
-		if(a > 100) return;
-		return dfs(a+b, b, mark);
+	cin >> a >> b;
+	auto go = [&](int x, int y){
+		cout << x << " " << y << endl;
+		return;
 	};
-
-	auto abs = 10;
-
-	dfs2(10, 10, G[0]);
-
-	vector<int> mark1(n, -1);
-	vector<int> mark2(n, -1);
-
-	dfs(b, a, mark1);
-	dfs(a, b, mark2);
-	int a1 = 0, a2 = 0;
-	rep(i, 0, n) if(mark1[i] == 1) a1++;
-	rep(i, 0, n) if(mark2[i] == 1) a2++;
-	cout << (n-a1-1)*(n-a2-1) << endl;
-
+	cout << 34 << endl;
+	go(a, b);
+	int m = a+b>>1;
+	go(m, m); //2
+	rep(i, 1, 4+1) //4*4
+	{
+		go(i, i);
+		go(2*i-1, 1);
+		go(1, 2*i-1);
+		go(i, i);
+	}
+	rep(i, 5, 8+1) //4*4
+	{
+		int j = i-4;
+		go(i, i);
+		go(2*j, 8);
+		go(8, 2*j);
+		go(i, i);
+	}
   return;
 }
 

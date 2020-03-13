@@ -2,6 +2,8 @@
 //#define LOCAL
 using namespace std;
 
+//O(n^2 * k) check for pair ?
+
 #define X first
 #define Y second
 #define pb push_back
@@ -44,55 +46,61 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
-#define int ll
 int T;
 const int maxn = 2e5+7;
-int n, m, a, b;
-vector<int> G[maxn];
+int n, k;
 //ll a[maxn];
-
-
-void dfs(int u, int deleted, vector<int>& vis)
-{
-	vis[u] = 1;
-	for(int v:G[u]) if(vis[v]!=1 && v != deleted) dfs(v, deleted, vis);
-}
 
 //check T
 void solve()
 {
-	cin >> n >> m  >> a >> b;
-	--a, --b;
-	rep(i, 0, n) G[i].clear();
-	rep(i, 0, m)
+	cin >> n >> k; //care n = 1
+	vector<vector<int>> a(k, vector<int>(n)); //store
+	vector<vector<bool>> occ(n+1, vector<bool>(n+1,0)); //if ok to add(i -> j)
+	vector<vector<bool>> ok(n+1, vector<bool>(n+1,0));
+	//O(k*n^2) build ok
+	rep(ii, 0, k)
 	{
-		int u, v;
-		cin >> u >> v;
-		u--, v--;
-		G[u].pb(v);
-		G[v].pb(u);
+		rep(i, 0, n) cin >> a[ii][i];
+		rep(i, 1, n) rep(j, 0, i) occ[a[ii][i]][a[ii][j]] = 1; //j->i is occred
 	}
 
-	function<void(int,int,vector<int>&)> dfs2 = [&](int a, int b, vector<int>& mark)
+	//special judge
+	//if(n == 1) {cout << 1 << endl << 0 << endl; return;}
+
+	rep(i, 1, n+1) rep(j, 1, n+1)
 	{
-		if(a > 100) return;
-		return dfs(a+b, b, mark);
-	};
+		ok[i][j] = (occ[i][j]^occ[j][i])&&(occ[i][j]);
+		//cout << i << " " << j << " is " << ok[i][j] << " \n"[j==n];
+	}
 
-	auto abs = 10;
-
-	dfs2(10, 10, G[0]);
-
-	vector<int> mark1(n, -1);
-	vector<int> mark2(n, -1);
-
-	dfs(b, a, mark1);
-	dfs(a, b, mark2);
-	int a1 = 0, a2 = 0;
-	rep(i, 0, n) if(mark1[i] == 1) a1++;
-	rep(i, 0, n) if(mark2[i] == 1) a2++;
-	cout << (n-a1-1)*(n-a2-1) << endl;
-
+	set<int> ls; //the cur leaves, no further out degrees possible
+	vector<int> G(n+1, 0);
+	rep(i, 0, k) ls.insert(a[i][n-1]); //lasts
+	repinv(t, 0, n-1) //O(n)
+	{
+		rep(i, 0, k) //O(k)
+		{
+			int x = a[i][t];
+			if(ls.find(x) != ls.end()) continue;
+			//G[x] = 0;
+			for(auto it = ls.begin(); it != ls.end(); it++) //O(n)
+			{
+				int y = *it;
+				if(ok[y][x])
+				{
+					G[x] = y;
+					break;
+				}
+				//ls.erase(*it);
+			}
+		}
+		rep(i, 0, k) ls.insert(a[i][t]);
+	}
+	set<int> hasindegree;
+	rep(i, 1, n+1) if(G[i]!=0) hasindegree.insert(G[i]);
+	cout << n-hasindegree.size() << endl;
+	rep(i, 1, n+1) cout << G[i] << " \n"[i==n];
   return;
 }
 
@@ -105,3 +113,36 @@ signed main()
   while(T--) solve();
   return 0;
 }
+
+
+/*
+1
+4
+2
+1 2 3 4
+3 2 1 4
+
+3
+4 4 4 0
+
+1
+4 3
+1 2 3 4
+3 4 1 2
+1 3 2 4
+
+1
+6 3
+5 1 2 3 4 6
+5 3 4 1 2 6
+6 5 1 3 2 4
+
+/
+1
+6 3
+1 2 3 4 5 6
+3 4 1 2 5 6
+1 3 2 4 6 5
+
+
+*/
