@@ -37,25 +37,34 @@ pii operator-(const pii&x, const pii&y) { return mp(x.X-y.X, x.Y-y.Y);}
 //INT_MAX, ULLONG_MAX, LLONG_MAX or numeric_limits<int>::min()
 
 inline ll read(){
-	char ch=getchar();ll x=0,f=0;
-	while(ch<'0' || ch>'9') f|=ch=='-',ch=getchar();
-	while(ch>='0' && ch<='9') x=x*10+ch-'0',ch=getchar();
-	return f?-x:x;
+ char ch=getchar();ll x=0,f=0;
+ while(ch<'0' || ch>'9') f|=ch=='-',ch=getchar();
+ while(ch>='0' && ch<='9') x=x*10+ch-'0',ch=getchar();
+ return f?-x:x;
 }
 
 //------------------------------------------------------------------------//
+#define int ll
 int T;
 const int maxn = 2e5+7;
-int n;
-ll a[maxn];
+//ll a[maxn];
+ll u, v;
+const int B = 61; //2^61 10^18  up
 
 //check T
 void solve()
 {
-	set<ll> s;
-	cin >> n; rep(i, 0, n) cin >> a[i], s.insert(a[i]);
-	cout << s.size() << endl;
-  return;
+ //cin >> n; rep(i, 0, n) cin >> a[i];
+ cin >> u >> v;
+ if(u > v || ((u&1) != (v&1))) {cout << -1 << endl; return;}
+ int x = (v-u)/2;
+ if(u == 0) {cout << 0 << endl; return;}
+ if(x == 0){cout << 1 << endl << u << endl; return;}
+ if(x^u == x+u){cout << 2 << endl << x <<  " " << x+u << endl; return;}
+ cout << 3 << endl;
+ cout << x <<  " " << x <<  " " << u << endl;
+
+return;
 }
 
 
@@ -63,7 +72,7 @@ signed main()
 {
   fastIO();
   T = 1;
-  cin >> T; //this
+  //cin >> T; //this
   while(T--) solve();
   return 0;
 }

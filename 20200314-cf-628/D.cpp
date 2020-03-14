@@ -44,15 +44,58 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
+#define int ll
 int T;
 const int maxn = 2e5+7;
-int n;
 //ll a[maxn];
+ll u, v;
+const int B = 61; //2^61 10^18  up
 
 //check T
 void solve()
 {
 	//cin >> n; rep(i, 0, n) cin >> a[i];
+	cin >> u >> v;
+	bool flag = 0;
+	//vector<ll> inhi(B+5);
+	vector<ll> cc(B+5);
+	int mm = INT_MAX;//smallest difference bit
+	rep(b, 0, B)
+	{
+		if((u>>b)&1 != (v>>b)&1) {mm = b; break;}
+	}
+	repinv(b, 0, B)
+	{
+		ll c = 1<<b;
+		ll ub = (u>>b)&1;
+		ll vb = (v>>b)&1;
+		if(ub == vb)
+		{
+			cc[b] += ub;
+			//if(b > 0 && cc[b]>=2) cc[b]-=2, cc[b-1]+=4; //mm>=0
+		}
+		if(ub == 0 && vb == 1)
+		{
+			if(b == 0){flag = 1; break;}
+			cc[b-1]+=2;
+		}
+		if(ub == 1 && vb == 0)
+		{
+			if(b==0){flag = 1; break;}
+			if(cc[b]) {cc[b]--; cc[b-1]+=2;}
+			else {flag = 1; break;}
+		}
+	}
+	if(flag) {cout << -1 << endl; return;}
+	if(v==0 && u == 0) {cout << 0 << endl; return;}
+	vector<ll> ans;
+	rep(b, 0, B)
+	{
+		if(cc[b] > ans.size()) ans.resize(cc[b]);
+		rep(i, 0, cc[b]) ans[i] += 1ll<<b;
+	}
+	cout << ans.size() << endl;
+	rep(i, 0, ans.size()) cout << ans[i] << " \n"[i==ans.size()-1];
   return;
 }
 
@@ -61,7 +104,7 @@ signed main()
 {
   fastIO();
   T = 1;
-  cin >> T; //this
+  //cin >> T; //this
   while(T--) solve();
   return 0;
 }

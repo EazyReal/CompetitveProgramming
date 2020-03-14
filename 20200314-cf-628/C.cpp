@@ -48,11 +48,27 @@ int T;
 const int maxn = 2e5+7;
 int n;
 //ll a[maxn];
+vector<int> G[maxn];
 
 //check T
 void solve()
 {
-	//cin >> n; rep(i, 0, n) cin >> a[i];
+	cin >> n;
+	int u, v;
+	rep(i, 0, n-1)
+	{
+		cin >> u >> v;
+		G[u].pb(i);
+		G[v].pb(i);
+	}
+	int maxp = -1;
+	int maxv = 0;
+	rep(i, 1, n+1) if(maxv < G[i].size()) maxp = i, maxv = G[i].size();
+	//or 3 leaf edge can do
+	vector<int> ans(n+1, -1);
+	int cur = 0;
+	rep(i, 0, G[maxp].size()) ans[G[maxp][i]] = cur++;
+	rep(i, 0, n-1) cout << (ans[i] == -1 ? cur++ : ans[i]) << " \n"[i==n-2];
   return;
 }
 
@@ -61,7 +77,7 @@ signed main()
 {
   fastIO();
   T = 1;
-  cin >> T; //this
+  //cin >> T; //this
   while(T--) solve();
   return 0;
 }

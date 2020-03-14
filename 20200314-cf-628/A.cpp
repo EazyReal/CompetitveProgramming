@@ -53,6 +53,9 @@ int n;
 void solve()
 {
 	//cin >> n; rep(i, 0, n) cin >> a[i];
+	ll x;
+	cin >> x;
+	cout << 1 << ' ' << x-1 << endl;
   return;
 }
 
