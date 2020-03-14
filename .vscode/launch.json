@@ -6,7 +6,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) Launch",
+            "name": "Launch(gdb)",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceRoot}/${fileBasenameNoExtension}.exe",

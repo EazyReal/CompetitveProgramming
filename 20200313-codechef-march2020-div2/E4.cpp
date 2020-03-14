@@ -64,48 +64,36 @@ void solve()
 		rep(i, 0, n) cin >> a[ii][i];
 		rep(i, 1, n) rep(j, 0, i) occ[a[ii][i]][a[ii][j]] = 1; //j->i is occred
 	}
-
 	//special judge
 	//if(n == 1) {cout << 1 << endl << 0 << endl; return;}
-
 	rep(i, 1, n+1) rep(j, 1, n+1)
 	{
-		ok[i][j] = (occ[i][j]^occ[j][i])&&(occ[i][j]);
-		//cout << i << " " << j << " is " << ok[i][j] << " \n"[j==n];
-		//j -> i ok
+		ok[i][j] = (occ[i][j]^occ[j][i])&&(occ[i][j]); // j->i
 	}
 
 	vector<int> G(n+1, 0);
+	vector<int> vis(n+1, 0);
+	vector<int> used(n+1, 0);
 
-	vector<set<int> > cs(n+1); //candicates
-	vector<int> vis(n+1, 0); //has in |= 1, used |= 2
-	set<pii> nin;
-	rep(i, 1, n+1)
+	rep(t, 0, n)
 	{
-		//int cnt = 0;
-		rep(j, 1, n+1) if(ok[i][j]) cs[i].insert(j);
-		//debug(cs[i].size());
-		if(cs[i].size()!=0); nin.insert(mp(cs[i].size(), i));
-	}
-
-	while(nin.size())
-	{
-		pii cur = *nin.begin(); //first deal with small candicate ones
-		if(cur.X == 0) {nin.erase(cur); continue;} //no mores
-		int  t = *(cs[cur.Y].begin());
-		nin.erase(cur);
-		vis[cur.Y] = 1;
-
-		G[t] = cur.Y;
-		//cout << "G " << t << " = " << cur.Y << endl;
-		rep(i, 1, n+1)if(!vis[i])
+		rep(tk, 0, k)
 		{
-			if(cs[i].find(t) != cs[i].end())
+			int cur = a[tk][t];
+			//debug(cur);
+			if(vis[cur] == 1) continue;
+			rep(i, 0, t)//before its are the only candicates
 			{
-				nin.erase(mp(cs[i].size(), i));
-				cs[i].erase(t);
-				if(cs[i].size()!=0) nin.insert(mp(cs[i].size(), i));
+				int b = a[tk][i];
+				if(ok[cur][b] && !used[b])
+				{
+					G[b] = cur;
+					//debug(G[b]);
+					used[b] = 1;
+					break;
+				}
 			}
+			vis[cur] = 1;
 		}
 	}
 
@@ -113,14 +101,13 @@ void solve()
 	rep(i, 1, n+1) if(G[i]!=0) hasindegree.insert(G[i]);
 	cout << n-hasindegree.size() << endl;
 	rep(i, 1, n+1) cout << G[i] << " \n"[i==n];
-	//cout << "??" << endl;
   return;
 }
 
 
 signed main()
 {
-  //fastIO();
+  fastIO();
   T = 1;
   cin >> T; //this
   while(T--) solve();
@@ -139,11 +126,6 @@ signed main()
 3
 4 4 4 0
 
-1
-4 3
-1 2 3 4
-3 4 1 2
-1 3 2 4
 
 1
 6 3
