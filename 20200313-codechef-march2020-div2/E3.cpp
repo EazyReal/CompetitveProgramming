@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-//#define LOCAL
+#define LOCAL
 using namespace std;
 
 //O(n^2 * k) check for pair ?
@@ -72,50 +72,59 @@ void solve()
 	{
 		ok[i][j] = (occ[i][j]^occ[j][i])&&(occ[i][j]);
 		//cout << i << " " << j << " is " << ok[i][j] << " \n"[j==n];
+		//j -> i ok
 	}
 
-	set<pii> ls; //the cur leaves, no further out degrees possible
 	vector<int> G(n+1, 0);
-	rep(i, 0, k) ls.insert(mp(0,a[i][n-1])); //lasts
-	repinv(t, 0, n-1) //O(n)
+
+	vector<set<int>> cs(n+1); //candicates
+	vector<int> vis(n+1, 0); //has in |= 1, used |= 2
+	set<pii> nin;
+	rep(i, 1, n+1)
 	{
-		rep(i, 0, k) //O(k)
-		{
-			int x = a[i][t];
-			if(ls.find(mp(0,x)) != ls.end() || ls.find(mp(1,x)) != ls.end()) continue;
-			//G[x] = 0;
-			for(auto it = ls.begin(); it != ls.end(); it++) //O(n) //smaller indegree(i.e. 0) first
-			{
-				pii y = *it;
-				if(ok[y.Y][x])
-				{
-					G[x] = y.Y;
-					//if(y.X == 0)
-					ls.erase(y);
-					ls.insert(mp(1, G[x]));
-					break;
-				}
-				//ls.erase(*it);
-			}
-			ls.insert(mp(0, x)); //to avoid reuse
-		}
-		//rep(i, 0, k) ls.insert(mp(0, a[i][t]));
+		//int cnt = 0;
+		rep(j, 1, n+1) if(ok[i][j]) cs[i].insert(j);
+		//debug(cs[i].size());
+		if(cs[i].size()!=0); nin.insert(mp(cs[i].size(), i));
 	}
+	
+	while(nin.size())
+	{
+		pii cur = *nin.begin(); //first deal with small candicate ones 
+		if(cur.X == 0) {nin.erase(cur); continue;} //no mores
+		int  t = *(cs[cur.Y].begin());
+		nin.erase(cur);
+		vis[cur.Y] = 1;
+		
+		G[t] = cur.Y;
+		//cout << "G " << t << " = " << cur.Y << endl;
+		rep(i, 1, n+1)if(!vis[i])
+		{
+			if(cs[i].find(t) != cs[i].end())
+			{
+				nin.erase(mp(cs[i].size(), i));
+				cs[i].erase(t);
+				if(cs[i].size()!=0) nin.insert(mp(cs[i].size(), i));
+			}
+		}
+	}
+
 	set<int> hasindegree;
 	rep(i, 1, n+1) if(G[i]!=0) hasindegree.insert(G[i]);
 	cout << n-hasindegree.size() << endl;
 	rep(i, 1, n+1) cout << G[i] << " \n"[i==n];
+	//cout << "??" << endl;
   return;
 }
 
 
 signed main()
 {
-  fastIO();
+  //fastIO();
   T = 1;
   cin >> T; //this
   while(T--) solve();
-  //system("pause");
+  system("pause");
   return 0;
 }
 
