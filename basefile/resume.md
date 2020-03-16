@@ -6,12 +6,16 @@
 * +886-911-102924
 * 0312fs3@gmail.com
 * https://github.com/EazyReal
-* [Online version of this Resume](https://hackmd.io/WwzUYXj1QHyzLI0_PQcWIw?both)
+* [Online version of this Resume](https://hackmd.io/WwzUYXj1QHyzLI0_PQcWIw)
 
 ## Education
 
 * **National Chiao Tung University, Applied Mathematics**, Sep 2018 - June 2021(exp.)
+    ::: spoiler
     * 33 credits with 3.84 GPA ranked 7th in 2019 fall semester
+    * relevant course works
+        * Algorithm, Mathematics, Deep Learning, Machine Learning
+    :::
 * Suspended and left NTU for some health issues
 * **National Taiwan University, CSIE**, Sep 2015 - Jan 2016, 2017
 * **CKHS 67th**, 2013 - June 2015
@@ -37,16 +41,15 @@
 ## Awards and Honors
 
 * 2020 Google Code Jam IO Ranked 154(without small test cases)
-* Codeforces #616 division 2 contest Ranked 402
 * **2019 Taiwan Online Programming Contest Ranked 14**
 * CKHS TOI School Team Selection-2 Ranked 2, Feb 2015 
-* General English Proficiency Test(GEPT), High-intermediate Level, Preliminary Test Passed, May 2018 
+* General English Proficiency Test(GEPT), High-intermediate Level, Preliminary Test High Passed, May 2018 
 * National Tsing Hua University Chemistry High School Student Program, 2012
 
 ## Programming Languages
 
-* C/C++
-* Python
+* **C/C++**
+* **Python**
 
 ## Extracurricular Performance
 
@@ -57,7 +60,7 @@
 
 ## Other Links
 ::: spoiler
-* [transcripts page for 104 visitors](/uZOcVjC2TeG3o9igFWa-JA)
+* [transcripts page](/uZOcVjC2TeG3o9igFWa-JA)
 * [NCTU Lecture Notes](/r-CG8R7xTZ2S3pRa6JD9FA)
 * [Maxwill's CP site](/okb8VJY1SXqK320--sSOdg?both)
 :::
