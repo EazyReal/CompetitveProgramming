@@ -58,9 +58,10 @@ void solve()
  cin >> u >> v;
  if(u > v || ((u&1) != (v&1))) {cout << -1 << endl; return;}
  int x = (v-u)/2;
- if(u == 0) {cout << 0 << endl; return;}
+ if(v == 0) {cout << 0 << endl; return;}
  if(x == 0){cout << 1 << endl << u << endl; return;}
- if(x^u == x+u){cout << 2 << endl << x <<  " " << x+u << endl; return;}
+ if((x^u) == x+u){cout << 2 << endl << x <<  " " << x+u << endl; return;}
+ if(u == 0){cout << 2 << endl << x <<  " " << x << endl; return;}
  cout << 3 << endl;
  cout << x <<  " " << x <<  " " << u << endl;
 
