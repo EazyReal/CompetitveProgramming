@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-//#define LOCAL
+#define LOCAL
 using namespace std;
 
 #define X first
@@ -45,14 +45,81 @@ inline ll read(){
 
 //------------------------------------------------------------------------//
 int T;
-const int maxn = 2e5+7;
+const int maxn = 3e5+7;
 int n;
-//ll a[maxn];
+ll p[maxn], q[maxn];
+
+pii operator+(pii a, pii b)
+{
+	return mp(a.X+b.X, a.Y+b.Y);
+}
+
+void operator+=(pii &a, pii &b)
+{
+	a.X += b.X; a.Y += b.Y;
+}
+
+const int inf = 100000000;
+
+struct segment_tree
+{
+	struct Node{
+		int l, r;
+		pii val;
+		Node *lc, *rc;
+	};
+
+	void build(int l, int r, Node *o)
+	{
+		if(l==r) return o->val = p[l-1]; //0 1 indexed
+
+	}
+
+	pii query(int l, int r, Node *o)
+	{
+		if(o->l >= l && o->r <= r) return o->val;
+		int m = o->l+o->r >> 1;
+		pii ret = mp(inf, 0);
+		if(l<=m) o->val = min(ret, qeury(l, r, o->lc));
+		if(r>=m)
+		return o->val;
+	}
+
+	pii set(int x, pii v, Node *o)
+	{
+		if(o->l == o->r && o->l == x) o->val = v;
+	}
+
+	void clear(Node*o)
+	{
+		clear(o->lc); clear(o->rc);
+	}
+
+};
+
 
 //check T
 void solve()
 {
-	//cin >> n; rep(i, 0, n) cin >> a[i];
+	cin >> n;
+	rep(i, 0, n) cin >> p[i];
+	rep(i, 0, n) cin >> q[i];
+	//cout << n << ' ';
+	vector<int> ans;
+	segment_tree<pii> st(n+5);
+	rep(i, 1, n+1) st.add(i, i, mp(p[i-1], i), 1, n, 1); //nlogn build
+	int curmax = -1;
+	repinv(i, 1, n)
+	{
+		int cur = q[i];
+		pii foundmin = st.query(cur, n, 1, n, 1);
+		curmax = max(curmax, foundmin.X);
+		st.add(foundmin.Y, foundmin.Y, mp(100000000, 0), 1, n, 1);
+		ans.pb(curmax);
+		//debug(curmax);
+	}
+	cout << n << ' ';
+	repinv(i, 0, n-1) cout << ans[i] << " \n"[i==n];
   return;
 }
 
@@ -61,7 +128,7 @@ signed main()
 {
   fastIO();
   T = 1;
-  cin >> T; //this
+  //cin >> T; //this
   while(T--) solve();
   return 0;
 }

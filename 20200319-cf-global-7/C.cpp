@@ -28,9 +28,9 @@ typedef long double ld;
 
 //mt19937 mrand(random_device{}());
 //mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
-const ll mod=1e9+7;
+
 //int rnd(int x) { return mrand() % x;}
-ll powmod(ll a,ll b) {ll res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=res*a%mod;a=a*a%mod;}return res;}
+//ll powmod(ll a,ll b) {ll res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=res*a%mod;a=a*a%mod;}return res;}
 ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 pii operator+(const pii&x, const pii&y) { return mp(x.X+y.X, x.Y+y.Y);}
 pii operator-(const pii&x, const pii&y) { return mp(x.X-y.X, x.Y-y.Y);}
@@ -46,13 +46,22 @@ inline ll read(){
 //------------------------------------------------------------------------//
 int T;
 const int maxn = 2e5+7;
-int n;
-//ll a[maxn];
+ll n, k;
+ll p[maxn];
+const ll mod = 998244353;
 
 //check T
 void solve()
 {
-	//cin >> n; rep(i, 0, n) cin >> a[i];
+	cin >> n >> k;
+	rep(i, 0, n) cin >> p[i];
+	vector<ll> cp;
+	rep(i, 0, n) if(p[i] >= n-k+1) cp.pb(i);
+	ll nn = 1ll;
+	rep(i, 1, cp.size()) nn = nn * (cp[i]-cp[i-1]) % mod;
+	ll ss = (n-k+1 + n)*k/2;
+	cout << ss << ' ' << nn << endl;
+
   return;
 }
 
@@ -61,7 +70,7 @@ signed main()
 {
   fastIO();
   T = 1;
-  cin >> T; //this
+  //cin >> T; //this
   while(T--) solve();
   return 0;
 }

@@ -45,14 +45,21 @@ inline ll read(){
 
 //------------------------------------------------------------------------//
 int T;
-const int maxn = 2e5+7;
+const int maxn = 200000+7;
 int n;
-//ll a[maxn];
+ll a[maxn], b[maxn], x[maxn];
 
 //check T
 void solve()
 {
-	//cin >> n; rep(i, 0, n) cin >> a[i];
+	cin >> n; rep(i, 0, n) cin >> b[i];
+	int curmax = 0;
+	rep(i, 0, n)
+	{
+		a[i] = curmax + b[i];
+		if(b[i] > 0) curmax += b[i];
+	}
+	rep(i, 0, n) cout <<  a[i] << " \n"[i==n-1];
   return;
 }
 
@@ -61,7 +68,7 @@ signed main()
 {
   fastIO();
   T = 1;
-  cin >> T; //this
+  //cin >> T; //this
   while(T--) solve();
   return 0;
 }
