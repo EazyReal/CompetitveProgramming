@@ -39,7 +39,17 @@ bool C(int x)
     dis[i][j] = 0;
   }
 
-  vector<pii> bigs;
+  //observation : union is still 45 square, how to calc union
+  //linear programming expression of ok area
+  //d(a, b) = max of abs(x1-x2 + y1-y2) = abs(x1+y1 -(x2+y2))and abs(x1-x2+ y2-y1)
+  //=> to <= k
+  // abs((x1+-y1) - (x2+-y2)) <= k
+  //  -k <= (x1+-y1) - (x2+-y2) <= k
+  //  x1+y1+k   >= (x2+-y2) >= x1+y1-k
+  int mxpy = -100000000, mxmy = -100000000;
+  int Mxpy =  100000000, Mxmy = 100000000;
+
+  vector<pii> bigs; 
   while(!q.empty())
   {
     pii cur = q.front(); q.pop();
@@ -50,34 +60,24 @@ bool C(int x)
       {
         dis[nxt.X][nxt.Y] = dis[cur.X][cur.Y]+1;
         q.push(nxt);
-        if(dis[nxt.X][nxt.Y] > x) bigs.pb(nxt);
+        if(dis[nxt.X][nxt.Y] > x)
+        {
+          bigs.pb(nxt);
+          int x1 = nxt.X, y1 = nxt.Y;
+          mxpy = max(mxpy, x1+y1-x);
+          Mxpy = min(Mxpy, x1+y1+x);
+          mxmy = max(mxmy, x1-y1-x);
+          Mxmy = min(Mxmy, x1-y1+x);
+        }
       }
     }
   }
   if(bigs.size() == 0) return 1;
-  rep(i, 0, n)rep(j, 0, m) cnt[i][j] = 0;
-  //snd bfs
-  rep(i, 0, n)rep(j, 0, m) if(a[i][j] != 0)
+  rep(i, 0, n)rep(j, 0, m)
   {
-    q.push({i,j});
-    dis[i][j] = 0;
+    if(i-j >= mxmy && i-j <= Mxmy && i+j >= mxpy && i+j <=  Mxpy) return 1;  
   }
-  q.push(maxp); dis[maxp.X][maxp.Y] = 0;
-  maxv = 0;
-  while(!q.empty())
-  {
-    pii cur = q.front(); q.pop();
-    rep(i, 0, 4)
-    {
-      pii nxt = cur + dd[i];
-      if(dis[nxt.X][nxt.Y] == -1)
-      {
-        dis[nxt.X][nxt.Y] = dis[cur.X][cur.Y]+1;
-        q.push(nxt);
-        if(dis[nxt.X][nxt.Y] > maxv) maxv = dis[nxt.X][nxt.Y];
-      }
-    }
-  }
+  return 0;
 }
 
 signed main()
@@ -95,11 +95,12 @@ signed main()
 
     int L = 0, R = n+m+1, M;
 
-    while(L+1<R)
+    while(L<R)
     {
+      //cout << M << endl;
       M = L+R >> 1;
       if(C(M)) R = M;
-      else L = M;
+      else L = M+1;
     }
 
     printf("Case #%d: %d\n", tc, L);
