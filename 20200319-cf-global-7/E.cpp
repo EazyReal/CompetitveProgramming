@@ -65,13 +65,18 @@ struct segment_tree
 {
 	struct Node{
 		int l, r;
-		pii val;
+		ll val;
 		Node *lc, *rc;
-	};
+	}*root;
 
 	void build(int l, int r, Node *o)
 	{
-		if(l==r) return o->val = p[l-1]; //0 1 indexed
+		o->l = l;
+		o->r = r;
+		if(l==r) {o->val = p[l-1]; return;} //0 1 indexed
+		int M = l+r >> 1;
+
+		build()
 
 	}
 
