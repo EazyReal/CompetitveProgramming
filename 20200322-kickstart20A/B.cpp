@@ -51,6 +51,7 @@ int a[50+5][50+5];
 int s[50+5][50+5];
 int dp[1500+5]; ///max = wp..
 
+//AC one
 
 //check T
 void solve(int tc)
