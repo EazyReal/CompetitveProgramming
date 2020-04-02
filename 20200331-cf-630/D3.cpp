@@ -28,7 +28,7 @@ typedef long double ld;
 
 //mt19937 mrand(random_device{}());
 //mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
-const ll mod=998244353;
+const ll mod=1e9+7;
 //int rnd(int x) { return mrand() % x;}
 ll powmod(ll a,ll b) {ll res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=res*a%mod;a=a*a%mod;}return res;}
 ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
@@ -44,24 +44,25 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
-#define int ll
 int T;
 const int maxn = 2e5+7;
 int n;
-//ll a[maxn];
+int a[3][4];
 
 //check T
 void solve()
 {
-	//cin >> n; rep(i, 0, n) cin >> a[i];
-  int L, R, n, m, l;
-  cin >> n >> m >> L >> R;
-  l = R-L+1;
-  ll total = powmod(l, n*m);
-  if(n*m%2ll == 1ll) cout << total << endl;
-  else cout << (total+(l%2))*(mod+1)/2%mod << endl;
+    int k;
+    cin >> k;
+    int b = 1;
+    while(b<=k) b <<= 1;
+    //or just simply b == 1<<17;
+    cout << "3 2\n";
+    cout << (b|k) << " " << b << endl;
+    cout << k << " " << (b|k) << endl;
+    cout << 0 << " " << k << endl;
 
-  return;
+    return;
 }
 
 

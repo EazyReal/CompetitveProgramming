@@ -28,7 +28,7 @@ typedef long double ld;
 
 //mt19937 mrand(random_device{}());
 //mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
-const ll mod=998244353;
+const ll mod=1e9+7;
 //int rnd(int x) { return mrand() % x;}
 ll powmod(ll a,ll b) {ll res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=res*a%mod;a=a*a%mod;}return res;}
 ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
@@ -46,30 +46,46 @@ inline ll read(){
 //------------------------------------------------------------------------//
 #define int ll
 int T;
-const int maxn = 2e5+7;
+const int maxn = 2e3+7;
 int n;
-//ll a[maxn];
+int a[maxn];
+int c[maxn];
 
 //check T
 void solve()
 {
-	//cin >> n; rep(i, 0, n) cin >> a[i];
-  int L, R, n, m, l;
-  cin >> n >> m >> L >> R;
-  l = R-L+1;
-  ll total = powmod(l, n*m);
-  if(n*m%2ll == 1ll) cout << total << endl;
-  else cout << (total+(l%2))*(mod+1)/2%mod << endl;
-
-  return;
+    cin >> n;
+    rep(i, 0, n) cin >> a[i], c[i] = -1;//c vvis
+    int cc = 0;
+    //use the fact that <= 1000 min prime factor <= 31, or it is prime 
+    vector<int> is_p(32,-1);
+    rep(i, 2, 32)
+    {
+        if(!is_p[i]) continue;
+        for(int j = 2*i; j<32; j+=i) is_p[j] = 0;
+    }
+    rep(i, 0, n)
+    {
+        rep(f, 2, 32)if(is_p[f] && a[i]%f == 0)
+        {
+            if(is_p[f] == -1) is_p[f] = ++cc;
+            c[i] = is_p[f];
+            break;
+        }
+    }
+    cout << cc << endl;
+    rep(i, 0, n) cout << c[i] << " \n"[i==n-1];
+    return;
 }
+
+// 1 3 6 3 2 
 
 
 signed main()
 {
   fastIO();
   T = 1;
-  //cin >> T; //this
+  cin >> T; //this
   while(T--) solve();
   return 0;
 }
