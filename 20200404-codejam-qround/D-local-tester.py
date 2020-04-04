@@ -7,6 +7,7 @@ from __future__ import print_function
 import itertools
 import random
 import sys
+import time #modified
 
 # Use raw_input in Python2.
 try:
@@ -149,6 +150,7 @@ def GenerateInputs(b):
   # The one included here is just an example and is not necessarily part of
   # any real test set.
   cases.add('1' * b)
+  cases.add('10'* (b/2))
 
   while len(cases) < NUM_CASES:
     cases.add(RandomBitString(b))
@@ -193,7 +195,7 @@ def main():
     assert test_number in (0, 1, 2)
     # Remember that the local testing tool is not guaranteed to implement
     # randomness in the same way as the actual judge.
-    random.seed(123456 + test_number)
+    random.seed(int(time.time()) + test_number) # modified
     io = IO()
     result = JudgeAllCases(test_number, io)
     if result is not None:

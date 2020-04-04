@@ -66,7 +66,7 @@ void solve()
     if(ans[i] < 1) {flag = 0; break;} // cant all appear
     done = ans[i];
   }
-  // now want fill, from left to right to fill when still appearing
+  // now want fill, from left to right to fill when still appearing;
   ans[0] = 1;
   int ok  = ans[0] + l[0] -1;
   rep(i, 1, m)

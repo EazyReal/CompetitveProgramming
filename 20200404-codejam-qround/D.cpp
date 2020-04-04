@@ -93,7 +93,7 @@ void q_change()
     bool spc = q_check(sp);
     bool dpc = q_check(dp);
     C = spc;
-    R = dpc^spc;
+    R = dpc^spc; //debug 1
   }else{
     assert(0);
   }
@@ -113,7 +113,7 @@ void solve()
     q_pair(id++); //10q
   }
   //rep(k, 0, n) cout << a[k]; cout << endl;
-  while((id-1) + 1 < n-1-(id-1))
+  while((id-1) + 1 < n-1-(id-1)) //id-1, dubug 2
   {
     q_change(); //2q
     //rep(i, 0, n) cout << a[i]; cout << endl;
