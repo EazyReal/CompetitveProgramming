@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-//#define LOCAL
+#define LOCAL
 using namespace std;
 
 #define X first
@@ -45,14 +45,47 @@ inline ll read(){
 
 //------------------------------------------------------------------------//
 int T;
-const int maxn = 2e5+7;
-int n;
-//ll a[maxn];
+const int maxN = 4e6+7;
+int n, m;
+int N, M;
+int a[maxN];
+vector<int> ans;
+
+#define pr (x>>1)
+#define lc (x<<1)
+#define rc (x<<1|1)
+#define mc a[lc]>a[rc]?lc:rc
+
+bool ok(int x)
+{
+  if(a[x] == 0) return 0;
+  while(a[mc]) x = mc;
+  return x >= M;
+}
+
+void pull(int x)
+{
+  while(a[mc]) x = mc, a[pr] = a[x];
+  a[x] = 0;
+}
 
 //check T
 void solve()
 {
-	//cin >> n; rep(i, 0, n) cin >> a[i];
+  ans.clear();
+	cin >> n >> m;
+  N = 1<<n;
+  M = 1<<m;
+  rep(i, 1, N) cin >> a[i];
+  rep(i, N, N<<1) a[i] = 0; //WA on 66 or TLE
+  ll sum = 0;
+  rep(i, 1, M)
+  {
+    while(ok(i)) {ans.pb(i); pull(i);}
+    sum += a[i];
+  }
+  cout << sum << endl;
+  rep(i, 0, ans.size()) cout << ans[i] << " \n"[i==ans.size()-1];
   return;
 }
 

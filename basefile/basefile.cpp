@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-//#define LOCAL
+#define LOCAL
 using namespace std;
 
 #define X first
@@ -62,6 +62,10 @@ signed main()
   fastIO();
   T = 1;
   cin >> T; //this
-  while(T--) solve();
+  rep(tc, 1, T+1)
+  {
+    //cout << "Case #" << tc << ": ";
+    solve();
+  }
   return 0;
 }
