@@ -59,6 +59,7 @@ void solve()
   rep(i, 0, n) cin >> b[i];
   ll INF = 1e9+1;
   //ll dp = INF, dm = INF; 
+  //inf is not enough 1e9 - -1 = 1e9+1 ...
   dp[0] = dm[0] = INF;
   rep(i, 0, n-1)
   {
