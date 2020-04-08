@@ -53,6 +53,7 @@ int n;
 void solve()
 {
     cin >> n;
+    //should know this way to calc divisors of all number below n in nlogn
     vector<vi> d(n+1);
     rep(i, 1, n+1) for(int j = i; j <= n; j += i) d[j].pb(i);
     d[1].pb(1); //for 1 = 1*1 or segment fault
