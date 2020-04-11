@@ -108,8 +108,9 @@ copyright : "screen shots are mainly from Ming-Hsuan Kang's lecture notes, paste
 * The next will be Jordan form
     * what to fill in blocks?
 * btw, diagonizable and invertible is independent
+    * [link](https://yutsumura.com/true-or-false-every-diagonalizable-matrix-is-invertible/)
 
-### T-invariant subspaces
+### !T-invariant subspaces
 * to find a basis $\alpha$ $\ni$ 
 * and extend the basis from span W to span V
 * then the matrix representation of T : V->V
@@ -132,7 +133,7 @@ $$
 * $for\ T \in L(V,V),\ Ann(T) = \{f(x)\in F[x]\mid f(T)\ is \ 0\ transformation\}$
 * a way to get decomposition of $V$ to direct sum of T-invariant subspaces 
 
-### Cayley-Hamilton Theorem
+### !Cayley-Hamilton Theorem
 * $f_T(T) \in Ann(T)$
 * in this case, the usage is to find a $f(x) \ni f(T)\equiv 0$
 * proof:
@@ -149,9 +150,10 @@ $f_{T|_{W+W^{'}}}(T) = g(x)f_{T|_W}(x)$ Note that g(x) is the $det(\lambda I-B)$
 $f_{T|_W}(v) = 0$ from collagory that followed directly with definition of $T|_W$
 $Q.E.D.$
 
-### Decomposition of V
+### !(General Eigenspace)Decomposition of V
 
-* goal : $V=ker_\infty(T) \bigoplus Im_\infty(T)$ 
+* goal : $V=ker_\infty(T) \bigoplus Im_\infty(T)$
+* goal2 : $V=\bigoplus E_\infty(\lambda)$ 
 * part 1 
 ![](https://i.imgur.com/lGqruvA.png)
 ![](https://i.imgur.com/xtfAkVt.png)
@@ -175,6 +177,7 @@ Note:
     * case minimal m = 0 => invertible(rank(n)) => trivial
     * case minimal m >= 1 => is true 
 * above notes are from Ming-Hsuan Kang
+* [proof of diagonizability](https://math.okstate.edu/people/binegar/4063-5023/4063-5023-l18.pdf)
 
 ### Next Jordan Form
 * what's in the block exactly
@@ -191,3 +194,293 @@ Note:
 * its quite different from Abstract Algebra by teacher
     * whereas I think the way to think is similar
     * just LA emphasize more on linearity and dimension etc.
+
+## Week 2-2
+
+### quiz problem
+* pA : calculation of T-invariant subspace
+* pB : let T : R3->R3 be reflex transformation, show T is diagonizable
+    * hint $T^2 = I$ + HW
+    * I was the first one finished
+
+### other material
+* [Invariant Subspace]https://math.okstate.edu/people/binegar/4063-5023/4063-5023-l18.pdf
+
+## Week 3-1
+
+### Nilpotent LT
+- definition 
+    - T is a nilpotent LT
+    - $V = ker_{\infty}(T)$ 
+    - $T^k = \vec{0} for\ some\ k$
+- use similar technique as T-invariant subspace
+    - find a matrix rep of T 
+$$
+\begin{pmatrix}
+0 & 0 & 0 & ...&0 \\
+1 & 0 & 0 & ...&0 \\
+0 & 1 & 0 & ...&0 \\
+0 & 0 & 1 & ...&0 \\
+...&...&...&...&0
+\end{pmatrix}
+$$
+
+### Theorem 
+
+## Week 3-2 skipped, 3-3(self study@Saturday)
+
+### !Th. - V can be decomposed with Nilpotent LT(on V)
+![](https://i.imgur.com/xHP8xXc.png)
+
+#### Proof sketch of part 3(2020/3/23, correct by teacher)
+:::info
+let T be nilpotent LT on V of index k+1
+choose $v_i$ s.t. $T^{k}(v_i)$ forms a basis of $Im(T^{k})$ 
+
+Objective : 
+$V = W\bigoplus cyclic(v_i)$ for some T-invariant subspace $W$
+
+Proof:
+- key : must have **dot diagram** in mind
+- Induction on k+1, index of T
+- $W$ as the left part removing higher dimension cyclic subspaces
+- extension of basis is like finding the current longest given the past longest
+    - $v_i$ past longest
+    - $u_i$ current longest
+
+1. when $k = 0, T = 0, T^0 = I$, holds trivially
+2. when k holds
+    -  $V = ker(T^k) \bigoplus Fv_i$
+        - devide V to apply $T^k$ is 0 or non-zero
+    -  $V^{'} = ker(T^k)$, $T^{'} = T|_{V^{'}}$
+        -  $T^{'}$ is nilpotent on $V^{'}$ of index k
+    -  Now we find a basis of $Im({T^{'}}^{k-1})$, a subspace of $ker(T^k)$
+        -  part original: 
+            -  from $v_i$ to $T(v_i)$
+            -  ${T^{'}}^{k-1} (T(v_i))$ = $T^k(v_i)$
+            -  l.i. subset of $Im({T^{'}}^{k-1}))$
+        -  part extended:
+            -  $u_i$
+    -  $ker(V) = W_0 \bigoplus cyclic(T(v_i)) \bigoplus cyclic(u_i)$
+        -  by induction hypotesis
+        -  $T(v_i) \bigoplus u_i$ forms basis of $Im({T^{'}}^{k-1})$
+    -  $V = ker(T^k) \bigoplus Fv_i$
+    -  $V = W_0 \bigoplus cyclic(u_i) \bigoplus cyclic(T(v_i)) \bigoplus Fv_i$
+    -  $V = W \bigoplus cyclic(v_i)$
+        -  since $cyclic(u_i)$ is T-invariant
+3. by induction, Q.E.D.
+- by the proof step can actually see W is cyclic subspaces' direct sum
+:::
+
+Illustration Diagram
+::: spoiler
+![](https://i.imgur.com/zDbcml2.jpg)
+:::
+
+## HW3
+
+## Week 4-1(2020/3/23)
+
+### !Jordan Form
+
+#### part 1
+- for a LT T
+- $V = \bigoplus ker_\infty(T-\lambda_i I)$
+- $V = \bigoplus E_\infty(\lambda_i)$
+#### part 2
+- $T-\lambda I$ is nilpotent on $E_\infty(\lambda_i)$
+- $E_\infty(\lambda_i) = \bigoplus cyclic(v_i)$
+#### part 3
+- these $cyclic(v_i)$s have a representation of  
+$$
+\begin{pmatrix}
+0 & 0 & 0 & ...&0 \\
+1 & 0 & 0 & ...&0 \\
+0 & 1 & 0 & ...&0 \\
+0 & 0 & 1 & ...&0 \\
+...&...&...&...&0
+\end{pmatrix}
+$$
+#### Conclusion
+- Jordan Form 
+
+#### Uniqueness?
+- General Eigenspace Decomposition (YES)
+- Cyclic Subsapce Decomposition (No)
+    - but the dimensions are unique
+- generally, the matrix rep. can be said to be unique
+
+#### Steps to find a Jordan form matrix rep.
+1. find $f_A(x)$
+2. find **dot diagram** for each $\lambda$
+    - by observe the nulity of $(T-\lambda I)^k$
+ex:
+0 <- $T(v_2)$ <- $v_2$
+0 <- $v_1$
+
+$$
+\begin{pmatrix}
+\lambda & 1 & 0 \\
+0 & \lambda & 0 \\
+0 & 0 & \lambda \\
+\end{pmatrix}
+$$
+
+#### Steps to find a Jordan basis
+1. just solve it from basis of $E\infty(\lambda)$
+
+
+#### Case Study
+1. 
+$$
+\begin{pmatrix}
+5 & 7 & 1 & 1 & 5 \\
+-2 & -3 & -1 & -1 & -5 \\
+-1 & -3 & 1 & 1 & -3 \\
+0 & 0 & 3 & 0 & 1 \\
+3 & 3 & 1 & 0 & 6
+\end{pmatrix}
+$$
+2.
+let V be a subspace of real funcitons spanned by $\alpha = \{x^{-2}e^x, xe^x, e^x\}$
+let D be the differential operator
+find Jordan form of D and its jordan basis
+
+### Jordan Chevalley Decomposition
+
+$A = P^{-1}(D+N)P = P^{-1}DP + P^{-1}NP$ 
+where
+$P^{-1}DP$ is semi-simple part
+$P^{-1}DP$ is nilpotent part
+
+- $\forall A \in M_n(\mathbb{C})$ there exist unique $D,N \in M_n(\mathbb{C})$ 
+    - A = D + N
+    - DN = ND
+    - D is diagonizanle
+    - N is nilpotent
+
+### Advantage of Jordan Form
+
+#### power of matrix
+- by $(D+N)^k$ with the fact that N is nilpotent
+
+## Realse of HW1 Quiz1 Quiz2
+- HW1 30/30
+- Quiz1 16/20
+- Quiz2 20/20
+::: spoiler
+![](https://i.imgur.com/DuHu2QN.jpg)
+![](https://i.imgur.com/dTMCqs8.jpg)
+![](https://i.imgur.com/JkvlEdI.jpg)
+:::
+
+## Week 4-2
+* Hw and test
+* approximate Jordan form with diagonizable matrix
+
+## Week 5 - next topic - Inner Product Space
+
+## Week 5-1 - Inner Prodct Space
+- Definition over $\mathbb{R}^N$ and $\mathbb{C}^N$
+- Definition of orthogonal
+- General definition when $\mathbb{F}$ is $\mathbb{R}$ or $\mathbb{C}$
+- Inner Product of
+    - Continuous Functions
+    - Discrete Signals
+- Discrete Fourier Transformation(DFT)
+    - meaningful basis
+    - easy-to-compute basis
+- Theorem:
+    - Every inner product is induced from some basis
+
+## Week 5-2 - Normal LT
+
+### Symmetric and Hermitian
+
+### Adjoint
+- adjoint
+![](https://i.imgur.com/7Yupv1Q.png)
+- self-adjoint
+
+### Normal and Ker/Im
+![](https://i.imgur.com/PsVV0s0.png =70%x)
+- proof of 5
+![](https://i.imgur.com/fMvmZrz.png =70%x)
+
+
+
+### Normal <=> Diagonalizable under orthogonal basis
+- proof
+- <=
+    - trivial
+- =>
+    - key : general eigenspaces = eigenspaces
+
+## HW5
+![](https://i.imgur.com/vHIsO4Y.png =12%x)
+![](https://i.imgur.com/PvfaEYa.png =50%x)
+
+## Week 6 - fill in week 5
+- diagonization of symmetric matrix
+- Grandsmith and projection
+- norm of $C^2$
+- 2020/04/07 making up HW5
+
+:::spoiler
+![](https://i.imgur.com/Q2fE7D1.jpg)
+![](https://i.imgur.com/JH4pW9P.jpg)
+![](https://i.imgur.com/M2iTpGt.jpg)
+:::
+
+**Q: relationship of Rn and Cn
+Q: induced innerproduct by basis**
+
+[induced inner product](https://math.stackexchange.com/questions/1233384/how-to-choose-an-inner-product-with-respect-to-a-basis-in-such-a-way-that-this-b)
+
+## Week 6-1 - Othogonal/Unitary
+
+### Definition
+- preserve inner product
+![](https://i.imgur.com/XZYqbnJ.png =70%x)
+
+### Equivalences
+![](https://i.imgur.com/AqDA51E.png =70%x)
+
+### Theorems revisitted
+![](https://i.imgur.com/29SKn75.png =70%x)
+
+
+### Isometric
+- $isometric$ + $f(\vec{0}) = \vec{0}$ $\iff$ $orthogonal$
+- must be LT
+![](https://i.imgur.com/gFsrEfr.png =70%x)
+- proof: theorem
+![](https://i.imgur.com/MNqZvVS.png =70%x)
+- proof: LT
+![](https://i.imgur.com/BuyYqU7.png =70%x)
+
+#### general isometry
+- affine map(LT + bias)
+
+#### Isometric 2-D case study
+- all orthogonal matrice in $\mathbb{R}^2$
+- rotation/reflection by parametric method
+
+### Det and Eigenvalues of Orthogomal Matrices
+- $det(A) = +-1$ by $det(AA^T) = det(I) = det(A)^2$
+- $T$ is ortho LT, $W$ is $T-invariant$ implies $W^\perp$ is too.
+- proof is exercise 
+
+#### Orthogonal 3-D case 
+- $det(A) = +-1$
+- exist $\lambda = +-1$ => rotate axis or reflecton axis
+- by direct sum of T-invariant subspaces(exercise theorem)
+- the left part is orthogonal matrice of rank 2 with det = 1, which must be a rotation
+
+### Questions
+**Q: relationship of Rn and Cn
+Q: induced innerproduct by basis**
+**Q: orthogonal - normal - symmetric(A*=A) relations**
+
+## HW6
+
