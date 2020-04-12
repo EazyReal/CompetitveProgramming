@@ -47,12 +47,35 @@ inline ll read(){
 int T;
 const int maxn = 2e5+7;
 int n;
-//ll a[maxn];
 
 //check T
 void solve()
 {
-  //cin >> n; rep(i, 0, n) cin >> a[i];
+  cin >> n;
+  set<ll> s;
+  vector<ll> sv;
+  while(1)
+  {
+    ll a = 1; 
+    while(s.count(a)) a++;
+    s.insert(a);
+    ll b = 1;
+    findb:
+    while(s.count(b)) b++;
+    if(s.count(a^b) || (ll(a^b)==a) ||(ll(a^b)==b)) {b++; goto findb;}
+    s.insert(b);
+    ll c = a^b;
+    sv.pb(a);  sv.pb(b); sv.pb(c);
+    /*s.insert(a); s.insert(b); */s.insert(c);
+    if(sv.size() >= n) break;
+  }
+  rep(i, 0, n) cout << sv[i] << " \n"[i == n-1];
+  cout << "first\n";
+  rep(i, 0, n/3) cout << sv[i*3] << " \n"[i == n-3];
+  cout << "second\n";
+  rep(i, 0, n/3) cout << sv[i*3+1] << " \n"[i == n-2];
+  cout << "third\n";
+  rep(i, 0, n/3) cout << sv[i*3+2] << " \n"[i == n-1];
   return;
 }
 
@@ -61,7 +84,7 @@ signed main()
 {
   fastIO();
   T = 1;
-  cin >> T; //this
+  //cin >> T; //this
   rep(tc, 1, T+1)
   {
     //cout << "Case #" << tc << ": ";

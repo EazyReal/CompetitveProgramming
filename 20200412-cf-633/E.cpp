@@ -46,13 +46,16 @@ inline ll read(){
 //------------------------------------------------------------------------//
 int T;
 const int maxn = 2e5+7;
-int n;
+ll n;
 //ll a[maxn];
 
 //check T
 void solve()
 {
-  //cin >> n; rep(i, 0, n) cin >> a[i];
+  cin >> n; //rep(i, 0, n) cin >> a[i];
+  if(n%3 == 0) cout << << endl; 
+  if(n%3 == 1) cout << << endl; 
+  if(n%3 == 2) cout << << endl; 
   return;
 }
 

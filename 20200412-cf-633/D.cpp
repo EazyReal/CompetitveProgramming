@@ -48,11 +48,57 @@ int T;
 const int maxn = 2e5+7;
 int n;
 //ll a[maxn];
+vi G[maxn];
+int d[maxn];
+
+void dfs(int u, int p, int dep)
+{
+  d[u] = dep;
+  for(int v: G[u]) if(v != p) dfs(v, u, dep+1);
+}
 
 //check T
 void solve()
 {
-  //cin >> n; rep(i, 0, n) cin >> a[i];
+  cin >> n;
+  int u, v;
+  rep(i, 0, n) G[i].clear();
+  rep(i, 0, n-1)
+  {
+    cin >> u >> v;
+    u--; v--;
+    G[u].pb(v);
+    G[v].pb(u);
+    //deg[u]++;
+    //deg[v]++;
+  }
+  //n>=3 always have no leaf point
+  /*int rt = -1;
+  rep(i, 0, n) if(G[i].size() >= 2) rt = i;
+  assert(rt != -1);*/
+
+  //for min
+  int minv;
+  int rt = -1;
+  rep(i, 0, n) if(G[i].size() >= 2) rt = i;
+  assert(rt != -1);
+  rep(i, 0, n) d[i] = 0;
+  //d[rt] = 0;
+  dfs(rt, -1, 0);
+  bool has[2] = {0, 0};
+  rep(i, 0, n) if(i!=rt && G[i].size()==1) has[d[i]%2] = 1;
+  if(has[0] && has[1]) minv = 3;
+  else minv = 1;
+
+  //for max
+  //for all leaf, loop up 1; remove reapeat, other can not repeat
+  vector<int> rec(n, 0);
+  rep(i, 0, n) if(G[i].size() == 1) rec[G[i][0]]++;
+  int maxv = n-1;
+  rep(i, 0, n) if(rec[i] > 1) maxv -= rec[i]-1;
+  cout << minv << " " <<  maxv << endl;
+
+
   return;
 }
 
@@ -61,7 +107,7 @@ signed main()
 {
   fastIO();
   T = 1;
-  cin >> T; //this
+  //cin >> T; //this
   rep(tc, 1, T+1)
   {
     //cout << "Case #" << tc << ": ";

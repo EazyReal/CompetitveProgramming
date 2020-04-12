@@ -47,12 +47,23 @@ inline ll read(){
 int T;
 const int maxn = 2e5+7;
 int n;
-//ll a[maxn];
+ll a[maxn];
 
 //check T
 void solve()
 {
-  //cin >> n; rep(i, 0, n) cin >> a[i];
+  cin >> n; rep(i, 0, n) cin >> a[i];
+  sort(a, a+n);
+  int id = n/2;
+  int dis = 1;
+  int sign = -1;
+  rep(i, 0, n)
+  {
+    cout << a[id] << " \n"[i==n-1];
+    id = id + dis*sign;
+    sign = -sign;
+    dis++;
+  }
   return;
 }
 

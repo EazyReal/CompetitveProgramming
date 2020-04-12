@@ -47,12 +47,27 @@ inline ll read(){
 int T;
 const int maxn = 2e5+7;
 int n;
-//ll a[maxn];
+ll a[maxn];
 
 //check T
 void solve()
 {
-  //cin >> n; rep(i, 0, n) cin >> a[i];
+  cin >> n; rep(i, 0, n) cin >> a[i];
+  vector<ll> ms(n);
+  ms[n-1] = a[n-1];
+  repinv(i, 1, n) ms[i-1] = min(ms[i], a[i-1]);
+  ll maxr = 0;
+  rep(i, 0, n-1)
+  {
+    if(ms[i+1] < a[i])
+    {
+      ll ri = 0;
+      ll delta = a[i] - ms[i+1];
+      while((1ll << ri) <= delta) ri++;
+      maxr = max(maxr, ri);
+    }
+  }
+  cout << maxr << endl;
   return;
 }
 

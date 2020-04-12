@@ -47,12 +47,16 @@ inline ll read(){
 int T;
 const int maxn = 2e5+7;
 int n;
+int N;
 //ll a[maxn];
 
 //check T
 void solve()
 {
-  //cin >> n; rep(i, 0, n) cin >> a[i];
+  cin >> n;
+  //if(n > 1) cout << "2\n";
+  //else cout << "1\n";
+  cout << n << endl;
   return;
 }
 
@@ -62,6 +66,8 @@ signed main()
   fastIO();
   T = 1;
   cin >> T; //this
+  //N = 1e9+5;
+  //rep()
   rep(tc, 1, T+1)
   {
     //cout << "Case #" << tc << ": ";
