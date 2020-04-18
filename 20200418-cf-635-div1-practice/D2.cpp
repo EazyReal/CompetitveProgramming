@@ -74,13 +74,14 @@ void solve()
   a.assign(n+1, 0); 
   dt.assign(n+1, 0);
   ds.assign(n+1, 0);
+  // n-1 ... 3 1 2 1
   repinv(i, 3, n) q(i);
   q(1); //maksure 1 non zero
   q(2); //for 2, 3
   cout << "+ " << 1 << endl;
   cin >> qt >> qs;
   int dt11 = qt-lt, ds11 = qs-ls;
-  a[1] = sqrt(2*dt11); // a1 origin, 0, 1, 2up
+  a[1] = sqrt(2*dt11); // a1 origin, 0, 1, 2up, this is to makesure a1 none zero
   a[3] = ds11 - ds[1] - 1; //q1: snd  (a2+1) * (a3+1) , fst a2*(a3+1)
   a[2] = ds[1]/(a[3]+1); //fst/a3+1
   a[4] = ds[2]/(a[3]+1) - a[1]-2; //ds[2] = (a1+1)*(a3+1) + (a3+1)*(a4+1), note when calc ds2, a1 is added once
