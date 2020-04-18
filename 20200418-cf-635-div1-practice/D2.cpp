@@ -81,7 +81,7 @@ void solve()
   cout << "+ " << 1 << endl;
   cin >> qt >> qs;
   int dt11 = qt-lt, ds11 = qs-ls;
-  a[1] = sqrt(2*dt11); // a1 origin, 0, 1, 2up, this is to makesure a1 none zero
+  a[1] = sqrt(2*dt11); // a1 origin, 0, 1, 2up, this is to makesure a1 none zero to get a2*a3
   a[3] = ds11 - ds[1] - 1; //q1: snd  (a2+1) * (a3+1) , fst a2*(a3+1)
   a[2] = ds[1]/(a[3]+1); //fst/a3+1
   a[4] = ds[2]/(a[3]+1) - a[1]-2; //ds[2] = (a1+1)*(a3+1) + (a3+1)*(a4+1), note when calc ds2, a1 is added once
