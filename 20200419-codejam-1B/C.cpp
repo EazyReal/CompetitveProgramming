@@ -46,13 +46,61 @@ inline ll read(){
 //------------------------------------------------------------------------//
 int T;
 const int maxn = 2e5+7;
-int n;
-//ll a[maxn];
+int r, s;
 
 //check T
 void solve()
 {
-  //cin >> n; rep(i, 0, n) cin >> a[i];
+  cin >> r >> s;
+  int limit = (r*s-r+1)/2; //ceiling
+  cout << limit << endl;
+  vector<pii> cards[2];
+  int cur = 0;
+  #define nxt (1-cur)
+  rep(j, 0, s)rep(i, 0, r) cards[cur].pb(mp(i, 1));
+  rep(round, 0, limit)
+  {
+    int n = cards[cur].size();
+    int c1 = cards[cur][0].X;
+    int c2 = -1;
+    int m1, m2; //mark
+    rep(i, 1, n) if(cards[cur][i].X == c1) {m2 = i+1, c2 = cards[cur][m2].X; break;}
+    if(m2 == n) m1 = 1;
+    else{
+      rep(i, 0, n) if(cards[cur][i].X == c2) {m1 = i+1; break;}
+    }
+    // c1, c2 is determined
+    //debug(m1);debug(m2);
+    int s1 = 0, s2 = 0;
+    rep(i, 0, m1) s1 += cards[cur][i].Y;
+    rep(i, m1, m2) s2 += cards[cur][i].Y;
+    cout << s1 << " " << s2 << endl;
+    vector<int> p(n);
+    int cnt = 0;
+    rep(i, m1, m2)  p[cnt++] = i;
+    rep(i, 0, m1)  p[cnt++] = i;
+    rep(i, m2, n)  p[cnt++] = i;
+    int prev = -1;
+    int sum = 0;
+    rep(k, 0, n)
+    {
+      int i = p[k];
+      if(cards[cur][i].X == prev) sum += cards[cur][i].Y;
+      else
+      {
+        if(prev != -1) cards[nxt].pb(mp(prev, sum)); //not else if ..
+        sum = cards[cur][i].Y;
+        prev = cards[cur][i].X;
+      }
+    }
+    if(prev != -1) cards[nxt].pb(mp(prev, sum));
+    /*rep(i, 0, cards[nxt].size())
+    {
+      cerr << cards[nxt][i].X << " " << cards[nxt][i].Y << endl;
+    }*/
+    cur = nxt;
+    cards[nxt].clear(); //the nxt now is not the last nxt, all nxt is correspend to cur
+  }
   return;
 }
 
@@ -64,7 +112,7 @@ signed main()
   cin >> T; //this
   rep(tc, 1, T+1)
   {
-    //cout << "Case #" << tc << ": ";
+    cout << "Case #" << tc << ": ";
     solve();
   }
   return 0;
