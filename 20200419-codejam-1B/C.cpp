@@ -65,7 +65,7 @@ void solve()
     int c2 = -1;
     int m1, m2; //mark
     rep(i, 1, n) if(cards[cur][i].X == c1) {m2 = i+1, c2 = cards[cur][m2].X; break;}
-    if(m2 == n) m1 = 1;
+    if(m2 == n) m1 = 1; //ABCA, 3123
     else{
       rep(i, 0, n) if(cards[cur][i].X == c2) {m1 = i+1; break;}
     }
