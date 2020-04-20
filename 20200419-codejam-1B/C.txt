@@ -1,0 +1,82 @@
+q:
+12341234
+11223344
+
+obs, no more 2 
+1 12 23344
+12 1 23344
+
+origin r*s-1
+last r-1
+
+ceil((r*s-r)/2)
+
+try:
+
+r = 4
+s = 2
+limit = 4*2-4 >> 1  = 2
+
+12341234
+
+guess 3
+(midlle and back to avoid repermutation)
+
+1234 123 4
+123 1234 4 x
+
+12 341 234 ok
+1 234 1234 x
+
+12 341 234 
+341 12 234 //only 2 can...
+
+34[11][22]34 2?
+34 123 4
+123344 ok done
+
+1234
+
+
+how about 123123
+(odd)
+reduce to even in one step with one merge? 
+12 31 23
+31 12 23
+3 1 2 3
+no 
+can use the last step? ok
+
+how about s>2
+
+1234 1234 1234
+
+by 2 step
+
+1234 1234
+
+by 2 step
+
+1234
+
+limit satisfied(all 2)
+
+just merge them one by one
+
+123 123 123
+satisfied =>
+12(3 3) 123
+satisfied =>
+3 123
+last step =>
+123
+
+//I solve in 30 min... when wake up in 2020/4/20 morning
+//its a easy C IMO
+//the key observation is glue point is 2
+//even without sample testcase, which is actually helpful(123123)
+
+
+
+
+
