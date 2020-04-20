@@ -118,8 +118,8 @@ def RunCases(d, minr, maxr, cases, test_input=None, test_output_storage=None):
               test_output_storage=test_output_storage)
     except Error as err:
       Output(WRONG)
-      Output("AC is {} {}".format(c, r))
-      raise Error(CASE_ERROR(i, err))
+      # Output("AC is {} {}".format(c, r))
+      raise Error(CASE_ERROR(i, err) + "\n AC is {} {}".format(c, r))
   try:
     extra_input = input()
   except EOFError:

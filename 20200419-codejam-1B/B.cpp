@@ -111,6 +111,7 @@ void solve()
     dis[i] = calc(ox, oy, dx[i], dy[i]);
     if(dis[i] == -1) return;
   }
+  rep(i, 0, 4) debug(dis[i]);
   int ax = ox+(dis[1]-dis[3])/2;
   int ay = oy+(dis[0]-dis[2])/2;
   debug(ax);
