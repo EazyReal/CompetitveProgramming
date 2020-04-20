@@ -44,6 +44,7 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
+#define int ll
 int T;
 const int maxn = 2e5+7;
 int n = 1e9;
@@ -65,14 +66,14 @@ int q(int x, int y)
   }
   else if(msg == "MISS") return 0;
   else if(msg == "HIT") return 1;
-  else if(msg == "WRONG") exit(1);
+  else if(msg == "WRONG") {while(1); exit(1);}
 }
 
 int dx[4] = {0, 1, 0, -1};
 int dy[4] = {1, 0, -1, 0};
 
 int calc(int ox, int oy, int dx, int dy){
-  int L = 0, R = 2e9+1, M;
+  int L = 0,  R = 2e9+10, M; //L = 0? for len for a direction can be zero
   while(L+1 < R)
   {
     //debug(M);
@@ -92,7 +93,7 @@ int qr; //for store return
 void solve()
 {
   int r = 2e9/4;
-  int ox = -1, oy = -1;
+  int ox = -1, oy = -1; 
   rep(i, 1, 4)rep(j, 1, 4)
   {
     //debug(i*r); debug(j*r);
@@ -104,20 +105,22 @@ void solve()
     }
   }
   found:
-  assert(ox != -1);
+  if(ox == -1){while(1);}
   vector<int> dis(4);
   rep(i, 0, 4)
   {
     dis[i] = calc(ox, oy, dx[i], dy[i]);
     if(dis[i] == -1) return;
   }
-  rep(i, 0, 4) debug(dis[i]);
+  //rep(i, 0, 4) debug(dis[i]);
+  //debug(ox);
+  //debug(oy);
   int ax = ox+(dis[1]-dis[3])/2;
   int ay = oy+(dis[0]-dis[2])/2;
-  debug(ax);
-  debug(ay);
+  //debug(ax);
+  //debug(ay);
   qr = q(ax, ay);
-  //assert(qr == -1);
+  assert(qr == -1);
   return;
 }
 
