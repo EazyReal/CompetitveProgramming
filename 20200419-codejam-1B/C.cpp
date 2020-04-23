@@ -110,6 +110,8 @@ signed main()
   fastIO();
   T = 1;
   cin >> T; //this
+
+  
   rep(tc, 1, T+1)
   {
     cout << "Case #" << tc << ": ";
