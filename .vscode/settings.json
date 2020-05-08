@@ -6,6 +6,9 @@
         "vector": "cpp",
         "ostream": "cpp",
         "map": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "set": "cpp",
+        "string": "cpp",
+        "functional": "cpp"
     }
 }
