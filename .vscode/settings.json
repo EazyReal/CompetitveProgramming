@@ -7,6 +7,12 @@
         "ostream": "cpp",
         "map": "cpp",
         "random": "cpp",
+<<<<<<< HEAD
         "cmath": "cpp"
+=======
+        "set": "cpp",
+        "string": "cpp",
+        "functional": "cpp"
+>>>>>>> ed3bf0e4e9a3698eb1cfb6c2e3600d20210d6ff3
     }
 }
