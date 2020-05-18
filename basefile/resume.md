@@ -1,12 +1,13 @@
 # Yan-Tong Lin
 
-
 ## Contact Information
 
 * +886-911-102924
 * 0312fs3@gmail.com
 * https://github.com/EazyReal
-* [Online version of this Resume](https://hackmd.io/WwzUYXj1QHyzLI0_PQcWIw)
+* reading [the online version of this resume](https://hackmd.io/WwzUYXj1QHyzLI0_PQcWIw) is strongly recommended
+
+---
 
 ## Education
 
@@ -21,6 +22,8 @@
 * **CKHS 67th**, 2013 - June 2015
 * **CKHS Science Class 4th**, Sep 2012 - 2013
 
+---
+
 ## Projects and Works
 
 * [**Competitive Programming Archives from 2019**](https://github.com/EazyReal/CompetitveProgramming)
@@ -34,12 +37,17 @@
     * [Brief Report Link](https://github.com/EazyReal/NCTU2019fall-reports/blob/master/cgilab/Indivisual%20Study%202019%20spring%20at%20CGI%20lab%20report.pptx)
 * [**Deep Learning Projects**](https://github.com/EazyReal/NCTU2019fall_DeepLearning/blob/master/HW3/HW3%20Report.pdf)
     * Deep learning course assignments
+* [**Introduction to AI projects**](https://github.com/EazyReal/Intro2AI-2020spring)
+    * Introduction to AI 2020 labs
+    * lab1 report about seach algorithms is [here](https://github.com/EazyReal/Intro2AI-2020spring/blob/master/lab1/AI_lab1_0712238.pdf)
 * [**Treap Tutorial.md**](https://hackmd.io/9Hw3BAv8RhecludOcMEsvw)
     * Treap tutorial for NCTU PCCA winter camp(canceled for COVID-19)
 * Other projects can be found at [github page](https://github.com/EazyReal)
 
+---
+
 ## Awards and Honors
-* Google Code Jam 2020 advanced to Round 2
+* **Google Code Jam 2020 Round 2 684th**, 23rd in Taiwan, advanced to Round 3
 * Codeforces Educational Round 86 Ranked 298(out of 22515 contestants)
 * Codeforces Round 637 (Div. 2) Ranked 307 (out of 23207 contestants)
 * NCTU GPE Ranked 1 (out of ~100 students of NCTU), 4/15/2020
@@ -51,10 +59,14 @@
 * General English Proficiency Test(GEPT), High-intermediate Level, Preliminary Test High Passed, May 2018 
 * National Tsing Hua University Chemistry High School Student Program, 2012
 
+---
+
 ## Programming Languages
 
 * **C/C++**
 * **Python**
+
+---
 
 ## Extracurricular Performance
 
@@ -64,6 +76,8 @@
 * Band (yu-cheng-tong-xing), as Keyboard, Guitar
 * NCTU CS Union 10/11, Public Relation Department
 * CKHS Classical Guitar Club, Activities Department 
+
+---
 
 ## Other Links
 * [Transcripts Page](https://hackmd.io/uZOcVjC2TeG3o9igFWa-JA)
