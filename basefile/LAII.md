@@ -378,7 +378,11 @@ $P^{-1}DP$ is nilpotent part
 * Hw and test
 * approximate Jordan form with diagonizable matrix
 
+---
+
 ## Week 5 - next topic - Inner Product Space
+
+--- 
 
 ## Week 5-1 - Inner Prodct Space
 - Definition over $\mathbb{R}^N$ and $\mathbb{C}^N$
@@ -393,14 +397,23 @@ $P^{-1}DP$ is nilpotent part
 - Theorem:
     - Every inner product is induced from some basis
 
+---
+
 ## Week 5-2 - Normal LT
 
 ### Symmetric and Hermitian
 
 ### Adjoint
-- adjoint
+
+#### definition
 ![](https://i.imgur.com/7Yupv1Q.png)
-- self-adjoint
+- defined on vector space with inner product 
+    - without basis => more inside 
+
+#### self-adjoint
+1. All eigenvalues of T are real.
+2. T admits a set of eigenvectors which forms an orthonormal basis of V. (Especially, T is diagonalizable.)
+3. Under an orthonormal basis, the conjugate transpose of the matrix representation of T is equal to the matrix representation of T∗
 
 ### Normal and Ker/Im
 ![](https://i.imgur.com/PsVV0s0.png =70%x)
@@ -416,9 +429,13 @@ $P^{-1}DP$ is nilpotent part
 - =>
     - key : general eigenspaces = eigenspaces
 
+---
+
 ## HW5
 ![](https://i.imgur.com/vHIsO4Y.png =12%x)
 ![](https://i.imgur.com/PvfaEYa.png =50%x)
+
+---
 
 ## Week 6 - fill in week 5
 - diagonization of symmetric matrix
@@ -435,7 +452,15 @@ $P^{-1}DP$ is nilpotent part
 **Q: relationship of Rn and Cn
 Q: induced innerproduct by basis**
 
+- finite filed > 0 is not well defined
+    - positive definite
+    - compare relation
+    - inner prouct( >= 0)
+    - only have = 0
+
 [induced inner product](https://math.stackexchange.com/questions/1233384/how-to-choose-an-inner-product-with-respect-to-a-basis-in-such-a-way-that-this-b)
+
+---
 
 ## Week 6-1 - Othogonal/Unitary
 
@@ -482,5 +507,593 @@ Q: induced innerproduct by basis**
 Q: induced innerproduct by basis**
 **Q: orthogonal - normal - symmetric(A*=A) relations**
 
+---
+
 ## HW6
 
+## TA hour by MC kang 2020/4/14, learned a lot
+- HW6 3-2
+    - more analytic way, discuss det=+1,-1, only on 3D
+
+### n-reflections theorem
+[reference link](http://faculty.uml.edu/dklain/orthogonal.pdf)
+
+### more on Orientation(advanced topic)
+- isometric LT has 2 type!
+- continuous isometric (rotate) vs no away (reflect)
+- add dimension, what happen
+    - spin by dimension
+- orientation preserving orthogonal LT
+    - det +-1
+    - maintain isometric during continuous changing process!
+- orientation is 2 for all R^n by 2 reflection = 1 rotation
+- may not cover in class :(
+
+---
+
+## Week 7 - self study - Review Concepts
+
+### Inner product
+
+#### Q: induced basis and induced inner product
+
+
+### self-adjoint, Hermitian
+
+#### conjugate transpose
+
+#### self-adjoint Th
+1. All eigenvalues of T are real.
+2. T admits a set of eigenvectors which forms an orthonormal basis of V. (Especially, T is diagonalizable.)
+#### self-adjoint, Hermitian
+- Under an orthonormal basis, the conjugate transpose of the matrix representation of T is equal to the matrix representation of T∗
+- A symmetric/Hermitian matrix is a matrix representation of a self-adjoint linear transform under an orthonormal basis.
+
+---
+
+### Normal LT
+
+#### def 
+T∗ and T commute
+
+#### Properties
+![](https://i.imgur.com/HkoBgjm.png)
+
+
+#### Theorem
+A complex linear transformation is diagonalizable under some
+orthonormal basis if and only if it is normal.
+
+--- 
+
+### Orthogonal and unitary
+
+#### def
+T* = T-1
+
+#### n-reflections
+
+## Week 7 quiz
+- prove cannot find a continuous family of iometry for reflection\
+- first show b is inrelevant
+- by cont. compose cont. (det。F~(t))
+
+---
+
+## Week 7 - Real Canonical Form
+
+### analysis of real matrix A
+- pairs of conjecate roots of $f_A(X)$
+    - pairs of eigenvalues
+- conclusion
+    - for a eigenvalue $\lambda=a-bi$, and $\vec{v}$ be the corresponding eigenvector
+    - let $v = v_1+iv_2$
+    - $A(v_1+iv_2) = (av_1+bv_2) + i(-bv_1 + av_2)$
+    - notice that v1, v2 must be l.i.
+        - else the eigen value is real number
+- complex block is 
+$$
+\begin{pmatrix}
+a & -b\\ 
+b & a\\
+\end{pmatrix}
+$$
+    
+### analysis of othogonal matrix A
+- $\lambda_i = e^{-i\theta_i}=cos\theta_i-isin\theta_i$
+- complex block is 
+$$
+\begin{pmatrix}
+cos\theta & -sin\theta\\ 
+sin\theta & cos\theta\\
+\end{pmatrix}
+$$
+- thus we can see **orthogonal matrix** as **reflextions + 2D-rotations**
+- notice that $\beta$(change of basis) can be chosen to be orthonormal
+![](https://i.imgur.com/2hTaO28.png =70%x)
+
+---
+
+## next topic, quadatic form
+
+---
+
+## Week 7 - Quadratic Form
+
+### Quafratic Form 
+![](https://i.imgur.com/JKMcS6V.png)
+![](https://i.imgur.com/fpuD0wX.png)
+
+### Talor Series Revisited
+![](https://i.imgur.com/trVz6Wk.png)
+- k-th order approximation
+- 1st + 2nd-order can be used to detemine local max/min
+
+### Example
+![](https://i.imgur.com/xFH9JyZ.jpg)
+### Case: 2 variable, Binary Quadratic form
+![](https://i.imgur.com/MnaSQbW.jpg)
+### Case: Ternary
+calculation example
+### General Case: N 
+![](https://i.imgur.com/zwRHur7.png)
+![](https://i.imgur.com/vf4upzF.png)
+### Key
+- Quadratic form is Real Symmetric Matrix
+- Diagonizable(R) with orthogonal basis
+
+---
+
+## Week 7 - Conic Sections
+
+### Purpose of this chapter
+- zero set
+
+### Term
+- G: $ax^2 + bxy + cy^2 + dx + ey + f$
+- Q: $ax^2 + bxy + cy^2 + dxz + eyz + fz^2$
+- H: $ax^2 + bxy + cy^2$
+
+### Zero Sets of binary Quadratic Form
+- key: the signs of two eigenvalues
+    - $sign(\lambda_1) = sign(\lambda_2)$ => {0, 0}
+    - $sign(\lambda_1) \neq sign(\lambda_2)$ => two lines
+    - one of them zero => one line
+![](https://i.imgur.com/Y11DB2y.jpg)
+
+### deal with below quadratic terms
+![](https://i.imgur.com/3OtM6P5.jpg)
+
+### zero set of non-degenerate ternary quadratic form
+![](https://i.imgur.com/Ro4QVvm.jpg)
+
+#### Conix sections
+![](https://i.imgur.com/N4PAneN.png)
+
+### Conclusion
+![](https://i.imgur.com/GDVuxkN.jpg)
+- let H be $ax^2 + bxy + cy^2$
+- with $Z(G) = Z(Q)\cap Z(z-1)$ ~= $Z(Q)\cap Z(z=0) = Z(H)$
+- we can judge G by H if non-degenerate
+
+---
+
+## Week 7 - Equivalent Quadratic Forms, Signature
+
+### Equivalent Quadratic Form
+- def, two quadratic form is called Euivalent iff
+    - can obtain each other by change of basis
+    - but since we want signature => need not to be orthonormal
+- Diagonal Form
+- note the simbol usage
+    - $Q(\vec{x}^t)$
+    - more common to use row vector to repr. variable
+
+### Review, change of variable to diagonal form
+![](https://i.imgur.com/1MMbSdv.jpg)
+- note that $\vec{y}^tD\vec{y} = \sum_i\lambda_iy_i^2$
+
+#### use orthogonal instead of orthonormal basis 
+![](https://i.imgur.com/O13xj9G.png)
+
+#### Standard form : above is to change diagonal matrix to +-1
+![](https://i.imgur.com/JgFP6UQ.png)
+
+### Signature of Real Quadratic Forms
+![](https://i.imgur.com/P2gXonW.png)
+- Note: trace of standard form(i.e., signature) + rank can decide standard form
+
+### Signature <=>(1-to-1) Eq Quadratic Forms
+- pf: coming chapters 
+
+### Example is trivial
+
+Q: Why signature
+
+---
+
+## HW 7
+
+### Apllications of Quadratic Forms(binary and tenary)
+
+### Taylor expansion and extreme values
+
+### Zero set, discussion on degenerate form 
+
+---
+
+## Week 8 - Office hour 2020/4/21
+![](https://i.imgur.com/iZ55IXA.png =50%x)
+
+### Taylor Expansion for determining local min/max
+- terms of poly of $dx_i$
+- higher order terms are dominated by lower order ones
+    - multiply of infinity smalls
+- we use diagonalize technique to make thing easy
+    - chage of variable so that 
+    - only square terms is non-zero
+
+### about Trace
+- $tr(AB) = tr(BA)$ poof by direct calculation
+- for more, ex: ABC
+    - treat AB as D or BC as D and reduce to 2 matrix case
+    - $tr(ABC) \neq tr(BAC)$ in general
+- $tr(A) = PDP^{-1}) = tr(DP^{-1}P) = tr(D)$ in this case
+
+---
+
+## Weel 8 - Positive Definite Quadratic Form
+
+### Equivalences and proof
+- Q is positive definite()
+- A is positive definite(eigenvalue)
+- Q has has unique minimun at 0
+
+#### Case of semi
+
+### Theorem of n1 is 
+
+### Sylvester's critirien 
+
+#### Induction Proof
+
+### extreme values at 0?
+
+### Example
+- Q, not positive definite, by can be semi-positive definite?
+    - should check higher order?(the conclusion of not local extreme is too fast IMO)
+    - A(myself): bad Q, this is not discussion for derivatives(Hessian)
+
+---
+
+## Week 8 - Bilinear Form
+
+### Definition
+
+### Matrix Representation
+- Note taht tenary up has no matrix repr.
+
+### Coordinate-Free Quadratic Form
+- isomorphism between Quadratic form and symmetric bilinear form
+
+### Relation with Quadratic form and inner product
+
+### Non-degenerate
+
+### Multilinear form, Tensorproduct, Theorem(Extra)
+
+
+---
+
+## Week 9 - 2020/4/27 practice exam+ review
+
+### Midterm hint
+- True & False
+- Jordan Form
+    - calculations 
+    - mini poly and possible jordan forms
+- Quadratic form
+    - calculations
+    - tennary + binary
+    - local extreme
+    - zero set discussioni
+    - positive definite proof
+- Symmetric, Normal, etc.
+    - proof of diagonalizability
+    - proof of eigenvalues all real(by inner product and real symmetric)
+    - when have diagonal form(normal, poly with no repitive roots are zero)
+        - Q: poly
+
+### My Q
+- Quantum Computing learning path
+- proof of jordan form
+    - about nilpotent LT's cyclic decomposition
+    - about general eigenvalue direct sum
+
+---
+
+## Week 9 - individual office hour @ 2020/4/28 15:00-16:00
+
+### What does Quntum Computing study
+- Q: is lie Group/Algebra related?
+    - Yes, bried introduction
+- A: to make "good" universal gates
+    - traditional bit and gate($(1,0)^N \to (1,0)^M$)
+    - now want universal approximation for wave functions
+    - Me: and apply them efficiently is the algo part
+- Q: What should I study
+    - a variety of fields 
+    - dont need to be deep, but know the essential concepts
+    - cause there are many isomorphic realations between fields
+    - think of the problem on ball and design way to higher dimension
+
+### Main clairifications
+- Innerprodect space and basis
+- when is inner product well defined
+- minimal poly and relation with joran form
+    - eigenspace decomposition(multiply 0 of blocks)
+- restate some inportent fact
+- intuition about multilinear form
+
+### Summary Before Midterm
+
+#### Jordan Form
+- general eigenspace decomposition of LT
+    - T-invariant subspace
+- cyclic subspace decompositioin of Nilpotent LT
+    - nilpotent LT
+- Cayley-Hamilton Theorem Revisited
+- Real Canonical Form
+- Topic:
+    - Generalized kernel
+    - Eigen Space discussion
+    - minimal polinomial and possible jordan form
+
+#### Inner Product Space
+
+- Inner Product is defined on vector spaces that
+    - F is R or C(or non-finitem, to make >= 0 well defined)
+- $v^tw^{bar}$
+- 3 main concepts, their maxtrix representation, and theorems
+    - $A^*$, (inner product space)adjoint - (matrix) conjugate transpose
+    - Self-Adjoint - $A = A^*$
+    - Normal - $A, A^*$ commute
+    - Unitary - $A^*A = I$
+- Isometric 
+- Self-adjoint
+    - Real symmetric or hermitian
+    - implies:
+        - real eigenvalues
+        - diagonalizable under unitary basis
+    - existence and uniqueness
+- Normal
+    - A complex linear transformation is diagonalizable under some orthonormal basis if and only if it is normal
+    - proofs are important and interesting
+
+#### Bilinear Form
+
+- Quadratic from
+    - discussion of zero set
+        - conic cure
+    - discussion of extreme value
+        - Taylor, gradient, Hessian
+    - EQ quadratic form, signature
+- 1-to-1 relation of symmetric bilinear form with Quadratic form
+    - Inner product as "symmetric" and "positive-definite" "bilinear form" 
+    - Idendity if induced by basis
+- multilinear form and tensor product
+    - example illustration
+- positive definite bilinear form
+    - Sylvester’s critirien
+
+### Trick
+- proof v = 0 by <v,v>=0
+- proof u-w = 0
+- proof space V = W, $W \subset V$ and $dim~W = dim~V$
+    - proof of practice exam 5.a-b
+- induction on dimension
+- consider diagonal matrix first!
+
+### Pictures
+::: spoiler
+![](https://i.imgur.com/9hFd1sy.jpg)
+![](https://i.imgur.com/5lFLoGK.jpg)
+![](https://i.imgur.com/lx2wyKK.jpg)
+![](https://i.imgur.com/Pa4Mfsp.jpg)
+![](https://i.imgur.com/0wVySBq.jpg)
+![](https://i.imgur.com/7Qcghdg.jpg)
+![](https://i.imgur.com/Vuxy4hM.jpg)
+![](https://i.imgur.com/o1beFyz.jpg)
+![](https://i.imgur.com/ti5Q8bz.jpg)
+![](https://i.imgur.com/OJsx0n9.jpg)
+:::
+
+### self study + Q for night office hour
+- hermitian > normal 
+    * + eigenvalues all real?
+- [link: EQ def normal](https://en.wikipedia.org/wiki/Normal_matrix#Equivalent_definitions)
+    - normal := A* and A commute 
+    - normal <=> A* is poly of A
+    - normal <=> A and A∗ can be simultaneously diagonalized
+        - Actually, $A^* = P^tD^{bar}P$ by proof in pdf?
+- commute <=> Simultaneous Diagonalizability
+    - [Thm. 5.1](https://kconrad.math.uconn.edu/blurbs/linmultialg/minpolyandappns.pdf)
+    - also Thm. 4.11 for equivalence of diagonalizability
+
+### online TA hour
+- diagonal represent as poly <=> poly n->n need n-1 degree
+    - Lagrange construction
+- if A want to be represent as poly(B)
+    - if B position i, j is same, A pos i, j has to be same
+    - degree smaller
+- commute and both diagonalizable <=> Simultaneous Diagonalizability
+- + AB reltation stated can <=> A can be poly of B
+- T and T* commute iif T* is poly of T is true
+    - consider after diagonalized(always can do, normal)
+    - T* is just $T^{bar}$
+    - then use Lagrange construction
+- proof trick
+- 5-a
+![](https://i.imgur.com/MvWVGWc.png)
+- about projection
+    - pairwise product is zero transformation
+        - lecture note is wrong
+    - sum is idendity
+- matrix congruence, quadratic form change of variable
+    - https://en.wikipedia.org/wiki/Matrix_congruence
+    - is undser "orthogonal basis"
+
+### Remainning Q
+- taylor expansion for extreme value in genreal
+    - my guess, 0, +-, 0, +- ...
+
+---
+
+## Week 13 - SVD 
+
+### Best fit subspace
+
+#### motivation and eq defs
+
+### left singular values
+
+### best fit subspace and SVD
+- proof by induction on k
+
+### Note on details
+- $rank(A^tA) = rank(AA^t) = rank(A)$
+    - proof by definition  + norm def
+    - https://math.stackexchange.com/questions/349738/prove-operatornamerankata-operatornameranka-for-any-a-in-m-m-times-n
+- $A^tA$ is symmetic
+- $A^tA$ is semi-positive definite
+- $A^tA$ has **orthonormal eigen decomposition**
+ 
+### relation with right singular value
+- $Av_i = \sqrt{\lambda_i}u_i$
+- can proof this will be left eighebasis for A^t
+
+
+### SVD - the decoomposition
+- standard basis => alpha{v} => sinvular value diagonal matrix(m*n) => beta => standard basis
+- $U\sum V^t$
+- $Av_i = \sqrt{\lambda_i}u_i$
+- $A = \sum _{i=1}^r \sqrt{\lambda_i}u_iv_i^t$
+    - obs: sum of rank one matrices 
+
+
+### compact SVD
+- use only $m*r, r*r, r*n$
+
+### confusion
+- not famil
+
+### SVD view of best fit k-subspace
+
+### Compression with SVD
+
+### PCA - best fit affine subspace
+- max variance subspace
+
+### SVD vs PCA
+- care mean or not
+
+---
+
+## HW 9 @ Week 13
+- last week take a leaf
+- https://hackmd.io/Pcp80W3CT26eKqhUwIxzpw
+
+---
+
+## Week 13 - Spectral Drawing
+ - Vertex => n-dimensional e vectors
+- Now want to project to subspace W
+- Minimal "Edge Energy Function"
+    - define as the sum of square of distance of edges in subspace W
+- If want minimal => take eigenspaces of Laplance matrix
+    - can show by definition trivially
+        - want each c.c. has the same projection is best => eigenspaces
+    - used on similarity graph => spectral clustering
+- If want minimal + orthogonal to eigenspace of (connected) graph
+    - this is spectral drawing
+
+## HW 10 - Spectral Drawing
+- [LA HW 10 Spectral Drawing](/A0lGBNVlSQ-Ss7A5fluKsQ)
+
+---
+
+## Week 14 - Matrix Exponential
+
+### Motivation
+- differential equation solution
+
+### Definition
+- $exp(At) = lim_{n\to\infty} \sum_{m=1}^{n}\frac{A^mt^m}{m!}$
+
+### Matrix Limit
+- Convergence, Abs Convergence, Complex Convergence
+- Def: Matrix Limit is Entry-wise
+- Product of Matrix Limit 
+    - by elementwise discussion
+
+### Discussion of Jordan Block (exp(Jt))
+
+### Solution of linear system of DE
+
+---
+
+## Week 14 - Discrete-Time Markov Chain
+- the lecture
+    - capture the eigen-related features of transition matrix
+    - discuss the asymptotic trend when apply the same P infty time
+
+### Positive Matrix
+- defined by entry
+
+### P(Probability) vector and Transition Matrix
+- P-vector
+    - entry sum to 1
+- T-matrix
+    - each column is a P-vector
+
+
+### Eigenvalues of Transition Matrix abs "<= 1"
+- proof
+![](https://i.imgur.com/XNaGNfd.png)
+
+### The eigenvalue "1"
+
+#### Geometric Multiplicity = 1
+- reminder: geo multiplicity = how many Jordan block = rank of eigenspace
+- proof
+    - to make = 1
+    - required $|v_i| = |v_j|~\forall i,j$
+        - refer to last section(proof all eigen abs <= 1)
+        - for replace j with i
+    - since P is positive
+        - for take in the abs 
+        - all v_i have same sign
+        - HW explicitly proof this
+- conclusion
+    - $v = v_i(1,1,1,...,1) = v_i\vec{1}$ is the only eigenvector of abs 1 eigenvalue
+
+#### All Jordabn block of eigenvalue one is of size 1
+- reminder: dot diagram
+- proof by contradiction
+![](https://i.imgur.com/fRkDlL6.jpg)
+
+### Asymptotic behavior of $\vec{\pi}^{(k)}$
+
+#### $P^t~and~P$ share the same characteristic poly
+![](https://i.imgur.com/N2jPRIT.png)
+#### Decompose Space into Directsum with Jordan form result
+![](https://i.imgur.com/zNv82qv.png)
+#### abs(Eigenvalue) < 1 => go to 0
+![](https://i.imgur.com/GAoxLvu.jpg)
+#### conclusion
+![](https://i.imgur.com/24hm8JU.png)
+
+### Conclusion
+- take kernel of $P-I$, get the only stationary p-vector!
+
+---
