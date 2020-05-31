@@ -57,6 +57,8 @@ void solve()
 }
 
 
+//g++ -o out -std=c++11 A.cpp
+
 signed main()
 {
   fastIO();
