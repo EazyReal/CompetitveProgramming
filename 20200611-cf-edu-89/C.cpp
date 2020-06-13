@@ -45,15 +45,34 @@ inline ll read(){
 
 //------------------------------------------------------------------------//
 int T;
-const int maxn = 2e5+7;
-int n;
-//ll a[maxn];
+const int maxn = 30+7;
+int n, m;
+int a[maxn][maxn];
 
 //check T
 void solve()
 {
-    //cin >> n; rep(i, 0, n) cin >> a[i];
-    return;
+  //cin >> n; rep(i, 0, n) cin >> a[i];
+  cin >> n >> m;
+  rep(i, 0, n) rep(j, 0, m) cin >> a[i][j] ;
+  int ma = max(n,m);
+  int ss = n+m;
+
+  int ans = 0;
+  rep(s, 0, (n+m-1)/2) //?
+  {
+    int c0 = 0;
+    int c1 = 0;
+    rep(i, 0, n)rep(j, 0, m)
+    if(( i >= 0 && i < n && j >= 0 && j < m) && (i+j == s || i+j == n+m-2-s ))
+    {
+      c0 += a[i][j] == 0;
+      c1 += a[i][j] == 1;
+    }
+    ans += min(c0, c1);
+  }
+  cout << ans << endl;
+  return;
 }
 
 
@@ -61,13 +80,13 @@ void solve()
 
 signed main()
 {
-    fastIO();
-    T = 1;
-    cin >> T; //this
-    rep(tc, 1, T+1)
-    {
-        //cout << "Case #" << tc << ": ";
-        solve();
-    }
-    return 0;
+  fastIO();
+  T = 1;
+  cin >> T; //this
+  rep(tc, 1, T+1)
+  {
+    //cout << "Case #" << tc << ": ";
+    solve();
+  }
+  return 0;
 }

@@ -28,8 +28,9 @@ typedef long double ld;
 
 //mt19937 mrand(random_device{}());
 //mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
-const ll mod=1e9+7;
+//const ll mod=1e9+7;
 //int rnd(int x) { return mrand() % x;}
+const int mod = 998244353;
 ll powmod(ll a,ll b) {ll res=1;a%=mod; assert(b>=0); for(;b;b>>=1){if(b&1)res=res*a%mod;a=a*a%mod;}return res;}
 ll gcd(ll a,ll b) { return b?gcd(b,a%b):a;}
 pii operator+(const pii&x, const pii&y) { return mp(x.X+y.X, x.Y+y.Y);}
@@ -46,14 +47,43 @@ inline ll read(){
 //------------------------------------------------------------------------//
 int T;
 const int maxn = 2e5+7;
-int n;
-//ll a[maxn];
+int n, m;
+int a[maxn];
+int b[maxn];
 
 //check T
 void solve()
 {
-    //cin >> n; rep(i, 0, n) cin >> a[i];
-    return;
+  cin >> n >> m; 
+  rep(i, 0, n) cin >> a[n-i];
+  rep(i, 0, m) cin >> b[m-i];
+  int ca = 1;
+  int cb = 1;
+  int minv = 1e9+1069;
+  ll ans = 1ll;
+  while(cb <= m)
+  {
+    while(minv != b[cb] && ca <= n)
+    {
+      minv = min(minv, a[ca]);
+      ca++;
+    }
+    if(ca > n && minv != b[cb]) {cout << 0 << endl; return;}
+    int dup = 1; //ca is already +1
+    while(a[ca] >= b[cb] && ca <= n)
+    {
+      dup++;
+      ca++;
+    }
+   //debug(ca);
+    //debug(dup);
+    if(cb != m) ans = ans*dup%mod;
+    minv = 1e9+1069;
+    cb++;
+  }
+  if(ca != n+1) cout << 0 << endl;
+  else cout << ans << endl;
+  return;
 }
 
 
@@ -61,13 +91,13 @@ void solve()
 
 signed main()
 {
-    fastIO();
-    T = 1;
-    cin >> T; //this
-    rep(tc, 1, T+1)
-    {
-        //cout << "Case #" << tc << ": ";
-        solve();
-    }
-    return 0;
+  fastIO();
+  T = 1;
+  //cin >> T; //this
+  rep(tc, 1, T+1)
+  {
+    //cout << "Case #" << tc << ": ";
+    solve();
+  }
+  return 0;
 }

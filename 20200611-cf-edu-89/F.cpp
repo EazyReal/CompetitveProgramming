@@ -52,8 +52,8 @@ int n;
 //check T
 void solve()
 {
-    //cin >> n; rep(i, 0, n) cin >> a[i];
-    return;
+  //cin >> n; rep(i, 0, n) cin >> a[i];
+  return;
 }
 
 
@@ -61,13 +61,13 @@ void solve()
 
 signed main()
 {
-    fastIO();
-    T = 1;
-    cin >> T; //this
-    rep(tc, 1, T+1)
-    {
-        //cout << "Case #" << tc << ": ";
-        solve();
-    }
-    return 0;
+  fastIO();
+  T = 1;
+  cin >> T; //this
+  rep(tc, 1, T+1)
+  {
+    //cout << "Case #" << tc << ": ";
+    solve();
+  }
+  return 0;
 }

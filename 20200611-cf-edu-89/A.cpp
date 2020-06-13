@@ -52,8 +52,17 @@ int n;
 //check T
 void solve()
 {
-    //cin >> n; rep(i, 0, n) cin >> a[i];
-    return;
+  //cin >> n; rep(i, 0, n) cin >> a[i];
+  ll a, b;
+  cin >> a >> b;
+  /*
+  if( a < b) swap(a,b);
+  int toeq = min({a-b, b, a/2});
+  a -= toeq*2;
+  b -= toeq;
+  int rem = min(a, b)/3*2;*/
+  cout << min({(a+b)/3, min(a,b)})<< endl;
+  return;
 }
 
 
@@ -61,13 +70,13 @@ void solve()
 
 signed main()
 {
-    fastIO();
-    T = 1;
-    cin >> T; //this
-    rep(tc, 1, T+1)
-    {
-        //cout << "Case #" << tc << ": ";
-        solve();
-    }
-    return 0;
+  fastIO();
+  T = 1;
+  cin >> T; //this
+  rep(tc, 1, T+1)
+  {
+    //cout << "Case #" << tc << ": ";
+    solve();
+  }
+  return 0;
 }
