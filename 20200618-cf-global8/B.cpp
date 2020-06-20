@@ -44,12 +44,16 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
+#define int ll
 int T;
 const int maxn = 2e5+7;
 int n;
 //ll a[maxn];
 
 //check T
+
+ll pow(ll a,ll b) {ll res=1; assert(b>=0); for(;b;b>>=1){if(b&1)res=res*a;a=a*a;}return res;}
+
 void solve()
 {
     //cin >> n; rep(i, 0, n) cin >> a[i];

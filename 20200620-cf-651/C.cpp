@@ -44,27 +44,38 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
-#define int ll
 int T;
 const int maxn = 2e5+7;
 int n;
 //ll a[maxn];
 
+bool is_prime(int x)
+{
+    for(int d = 3; d*d <= x; d++) if(x%d == 0) return 0;
+    return 1;
+}
+
 //check T
 void solve()
 {
     //cin >> n; rep(i, 0, n) cin >> a[i];
-    int a, b, n;
-    cin >> a >> b >> n;
-    if(a < b) swap(a,b); 
+    cin >> n;
     int cnt = 0;
-    while(a <= n)
-    {
-        b += a;
-        swap(a, b);
-        cnt++;
+    int np = n;
+    while(n%2 == 0) n/=2, cnt++;
+    if(n == 1){
+        if(np == 2) cout << "Ashishgup"; //special judge 2
+        else cout << "FastestFinger";
+    } 
+    else{
+        if(cnt == 1) //if only have 1 2  => nxt is odd
+        {
+            if(is_prime(np/2)) cout << "FastestFinger"; //can only make to 2
+            else cout << "Ashishgup"; //can d max p*k and make left 2*p
+        }
+        else cout << "Ashishgup";
     }
-    cout << cnt << endl;
+    cout << endl;
     return;
 }
 

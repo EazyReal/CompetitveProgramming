@@ -44,15 +44,34 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
+#define int ll
 int T;
 const int maxn = 2e5+7;
 int n;
-//ll a[maxn];
+ll a[maxn];
 
 //check T
 void solve()
 {
-    //cin >> n; rep(i, 0, n) cin >> a[i];
+    int d = 22;
+    cin >> n; rep(i, 0, n) cin >> a[i];
+    //int andd = 0;
+    //int orr = (1<<25)-1;
+    int sum = 0;
+    vi cnt(d, 0);
+    rep(i, 0, n) rep(b, 0, d)
+    {
+        if( a[i]>>b & 1) cnt[b]++;
+    }
+    while(1)
+    {
+        int cur = 0;
+        rep(b, 0, d) if(cnt[b] >= 1) cnt[b]--, cur |= 1<<b;
+        if(cur == 0) break;
+        //debug(cur);
+        sum += cur*cur;
+    }
+    cout << sum << endl;
     return;
 }
 
@@ -63,7 +82,7 @@ signed main()
 {
     fastIO();
     T = 1;
-    cin >> T; //this
+    //cin >> T; //this
     rep(tc, 1, T+1)
     {
         //cout << "Case #" << tc << ": ";

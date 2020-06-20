@@ -44,7 +44,6 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
-#define int ll
 int T;
 const int maxn = 2e5+7;
 int n;
@@ -54,17 +53,14 @@ int n;
 void solve()
 {
     //cin >> n; rep(i, 0, n) cin >> a[i];
-    int a, b, n;
-    cin >> a >> b >> n;
-    if(a < b) swap(a,b); 
-    int cnt = 0;
-    while(a <= n)
+    int x, ans;
+    cin >> x;
+    rep(i, 1, 361)
     {
-        b += a;
-        swap(a, b);
-        cnt++;
+        if(i*x%360 == 0) {ans = i; break;}
     }
-    cout << cnt << endl;
+    cout << ans << endl;
+
     return;
 }
 
@@ -75,7 +71,8 @@ signed main()
 {
     fastIO();
     T = 1;
-    cin >> T; //this
+    //cin >> T; //this
+    //cin >> T; //this
     rep(tc, 1, T+1)
     {
         //cout << "Case #" << tc << ": ";

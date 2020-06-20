@@ -44,27 +44,40 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
-#define int ll
 int T;
 const int maxn = 2e5+7;
 int n;
-//ll a[maxn];
+//int a[maxn];
 
 //check T
 void solve()
 {
-    //cin >> n; rep(i, 0, n) cin >> a[i];
-    int a, b, n;
-    cin >> a >> b >> n;
-    if(a < b) swap(a,b); 
-    int cnt = 0;
-    while(a <= n)
-    {
-        b += a;
-        swap(a, b);
-        cnt++;
+    cin >> n;
+    vi odd, even;
+    int ai;
+    rep(i, 0, 2*n){
+        cin >> ai;
+        if(ai%2 == 1) odd.pb(i+1);
+        else even.pb(i+1);
     }
-    cout << cnt << endl;
+    if(odd.size()%2 == 1) { odd.pop_back(); even.pop_back();}
+    else if(even.size() >= 2) {even.pop_back();even.pop_back();}
+    else if(odd.size() >= 2) {odd.pop_back();odd.pop_back();}
+
+    while(odd.size() >= 2)
+    {
+        cout << odd[odd.size()-1] << " " << odd[odd.size()-2] << endl;
+        odd.pop_back();
+        odd.pop_back();
+    }
+    while(even.size() >= 2)
+    {
+        cout << even[even.size()-1] << " " << even[even.size()-2] << endl;
+        even.pop_back();
+        even.pop_back();
+    }
+    //cout << endl;
+
     return;
 }
 

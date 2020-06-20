@@ -46,13 +46,56 @@ inline ll read(){
 //------------------------------------------------------------------------//
 int T;
 const int maxn = 2e5+7;
-int n;
-//ll a[maxn];
+int n, m;
+vi G[maxn];
+set<int> Ginv[maxn]; //might dup
+int dp[3][maxn]; 
+int deg[maxn];
+int degup[maxn];
+const int inf = 2e5;
 
 //check T
 void solve()
 {
-    //cin >> n; rep(i, 0, n) cin >> a[i];
+    cin >> n >> m; //m = 2n
+    int a, b;
+    rep(i, 1, n+1)
+    {
+        G[i].clear();
+        Ginv[i].clear();
+        rep(ii, 0, 3) dp[ii][i] = inf;
+    }
+    rep(i, 0, m)
+    {
+        cin >> a >> b;
+        G[a].pb(b);
+        Ginv[b].insert(a);
+    }
+    queue<int> q;
+    rep(i, 1, n+1)
+    {
+        deg[i] = Ginv[i].size();
+        degup[i] = deg[i];
+        if(deg[i] == 0) q.push(i);
+    }
+    while(!q.empty())
+    {
+        int u = q.front(); q.pop();
+        if(Ginv[u].size() == 0) 
+        {
+            dp[0][u] = 1;
+            dp[1][u] = 0;
+            dp[2][u] = inf;
+        }else{
+            dp[0][u] = dp[1][u] = dp[2][u] = 0;
+            dp[0][u] = 1;
+            for(int v: Ginv[u])
+            {
+                //dp[0][u] += min({dp[0, v]);
+            }
+        }
+    }
+
     return;
 }
 

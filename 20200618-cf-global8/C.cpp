@@ -53,6 +53,15 @@ int n;
 void solve()
 {
     //cin >> n; rep(i, 0, n) cin >> a[i];
+    cin >> n;
+    cout << 1 + 3*(n+1) << endl;
+    cout << 0 << " " << 0  << endl;
+    rep(i, 1, n+2)
+    {
+        cout << i << " " << i  << endl;
+        cout << i-1 << " " << i  << endl;
+        cout << i << " " << i-1 << endl;
+    }
     return;
 }
 
@@ -63,7 +72,7 @@ signed main()
 {
     fastIO();
     T = 1;
-    cin >> T; //this
+    //cin >> T; //this
     rep(tc, 1, T+1)
     {
         //cout << "Case #" << tc << ": ";

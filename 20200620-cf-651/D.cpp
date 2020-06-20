@@ -44,27 +44,55 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
-#define int ll
 int T;
 const int maxn = 2e5+7;
-int n;
-//ll a[maxn];
+int n, k;
+int a[maxn];
+
+int C(int x)
+{
+    vector<bool> b(n);
+    rep(i, 0, n) b[i] = a[i]<=x; //can choose as part  
+    //rep(i, 0, n) debug(b[i]);
+    int ans = 0;
+    int pre = 1;
+    int cnt = 0;
+    int first = 1;
+    rep(i, 0, n)
+    {
+        if(b[i] == 1) cnt++, pre = 1;
+        else{
+            if(pre){
+                ans++;
+                if(first) ans += cnt;
+                else ans += (cnt-1)/2*2+1;
+            }
+            pre = 0;
+            cnt = 0;
+            first = 0;
+        }
+    }
+    ans += cnt;
+    //else ans += (cnt-1)/2*2+1;
+    //seg.pb(cnt);
+    //rep(i, 0, seg.size()) debug(seg[i]);
+    return ans;
+}
 
 //check T
 void solve()
 {
-    //cin >> n; rep(i, 0, n) cin >> a[i];
-    int a, b, n;
-    cin >> a >> b >> n;
-    if(a < b) swap(a,b); 
-    int cnt = 0;
-    while(a <= n)
+    cin >> n >> k; rep(i, 0, n) cin >> a[i];
+    int l = 0, r = 1e9+5, m; 
+    while(l+1 < r)
     {
-        b += a;
-        swap(a, b);
-        cnt++;
+        m = (l+r) >> 1;
+        //debug(m-1);
+        //debug(C(m-1));
+        if(C(m-1) >= k) r = m;
+        else l = m;
     }
-    cout << cnt << endl;
+    cout << l << endl;
     return;
 }
 
@@ -75,7 +103,7 @@ signed main()
 {
     fastIO();
     T = 1;
-    cin >> T; //this
+    //cin >> T; //this
     rep(tc, 1, T+1)
     {
         //cout << "Case #" << tc << ": ";

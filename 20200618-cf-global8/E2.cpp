@@ -44,27 +44,48 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
-#define int ll
 int T;
 const int maxn = 2e5+7;
-int n;
-//ll a[maxn];
+int n, m;
+vi G[maxn];
+int deg[maxn];
+int pre[maxn];
+int close[maxn];
+const int inf = 2e5;
 
 //check T
 void solve()
 {
-    //cin >> n; rep(i, 0, n) cin >> a[i];
-    int a, b, n;
-    cin >> a >> b >> n;
-    if(a < b) swap(a,b); 
-    int cnt = 0;
-    while(a <= n)
+    cin >> n >> m; //m = 2n
+    int a, b;
+    rep(i, 1, n+1) {G[i].clear(); pre[i] = 0;}
+    rep(i, 0, m)
     {
-        b += a;
-        swap(a, b);
-        cnt++;
+        cin >> a >> b;
+        G[a].pb(b);
     }
-    cout << cnt << endl;
+    rep(i, 1, n+1){
+        if(pre[i] > 1)
+        {
+            close[i] = 1, pre[i] = 0;
+        }
+        else {
+            close[i] = 0;
+            for(int v : G[i])  pre[v] = max(pre[v], pre[i]+1);
+        }
+    }
+    vi ans;
+    rep(i, 1, n+1) if(close[i] == 1) {ans.pb(i);} 
+    //debug(ans.size());
+    if(ans.size() <= 4*n/7)
+    {
+        cout << ans.size() << endl;
+        for(int ai : ans)  cout << ai << " ";
+        cout << endl;
+        return;
+    }
+    assert(0);
+
     return;
 }
 

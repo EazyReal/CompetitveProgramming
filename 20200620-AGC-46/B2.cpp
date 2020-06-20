@@ -46,25 +46,34 @@ inline ll read(){
 //------------------------------------------------------------------------//
 #define int ll
 int T;
-const int maxn = 2e5+7;
+const int maxn = 3e3+7;
 int n;
 //ll a[maxn];
+int dp[maxn][maxn];
 
 //check T
 void solve()
 {
     //cin >> n; rep(i, 0, n) cin >> a[i];
-    int a, b, n;
-    cin >> a >> b >> n;
-    if(a < b) swap(a,b); 
-    int cnt = 0;
-    while(a <= n)
+    int a, b, c, d;
+    cin >> a >> b >> c >> d;
+    const int mod = 998244353;
+    //rep(i, 1, c+1) rep(j, 1, d+1) dp[i][j] = 0;
+    rep(i, a, c+1) rep(j, b, d+1)
     {
-        b += a;
-        swap(a, b);
-        cnt++;
+        //if(i > a && j > b) { dp[i][j] += mod-dp[i-1][j-1]*(i+j-2); dp[i][j] %= mod;}
+        if(i == a && j == b) {dp[i][j] = 1; continue;}
+        dp[i][j] = 0;
+        if(i > a && j >= b){ dp[i][j] += dp[i-1][j]*(j); dp[i][j] %= mod; }
+        if(i >= a && j > b){ dp[i][j] += dp[i][j-1]*(i); dp[i][j] %= mod;}
+        if(i > a && j > b) { dp[i][j] += mod-dp[i-1][j-1]*(i-1)%mod*(j-1)%mod; dp[i][j] %= mod;}
+        //dp[]
     }
-    cout << cnt << endl;
+    /*rep(i, 1, c+1)rep(j, 1, d+1)
+    {
+        cerr << dp[i][j] << " \n"[j==d];
+    }*/
+    cout << dp[c][d] << endl;
     return;
 }
 
@@ -75,7 +84,7 @@ signed main()
 {
     fastIO();
     T = 1;
-    cin >> T; //this
+    //cin >> T; //this
     rep(tc, 1, T+1)
     {
         //cout << "Case #" << tc << ": ";
