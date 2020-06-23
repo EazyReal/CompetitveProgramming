@@ -1,0 +1,2887 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!-- saved from url=(0044)https://codeforces.com/contests/with/maxwill -->
+<html lang="en" class="js-focus-visible"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="X-Csrf-Token" content="75958f4cb357f79208c9b65bcb070575">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=0.01">
+
+    <script src="./Contests - Codeforces_files/sdk.js" async="" crossorigin="anonymous"></script><script type="text/javascript" async="" src="./Contests - Codeforces_files/ga.js"></script><script id="facebook-jssdk" src="./Contests - Codeforces_files/sdk(1).js"></script><script type="text/javascript" src="./Contests - Codeforces_files/jquery-1.8.3.js"></script>
+    <script type="application/javascript">
+        window.standaloneContest = false;
+        function adjustViewport() {
+            var screenWidthPx = Math.min($(window).width(), window.screen.width);
+            var siteWidthPx = 1100; // min width of site
+            var ratio = Math.min(screenWidthPx / siteWidthPx, 1.0);
+            var viewport = "width=device-width, initial-scale=" + ratio;
+            $('#viewport').attr('content', viewport);
+            var style = $('<style>html * { max-height: 1000000px; }</style>');
+            $('html > head').append(style);
+        }
+
+        if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+            adjustViewport();
+        }
+    </script>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <meta http-equiv="profileName" content="i3">
+    <meta name="google-site-verification" content="OTd2dN5x4nS4OPknPI9JFg36fKxjqY0i1PSfFPv_J90">
+    <meta property="fb:admins" content="100001352546622">
+    <meta property="og:image" content="//sta.codeforces.com/s/35976/images/codeforces-telegram-square.png">
+    <link rel="image_src" href="https://sta.codeforces.com/s/35976/images/codeforces-telegram-square.png">
+    <meta property="og:title" content="Contests - Codeforces">
+    <meta property="og:description" content="">
+    
+    <meta property="og:site_name" content="Codeforces">
+    <meta name="uc" content="a6d719be9e919e62672d8816f91b470a24b5d9ce">
+    <meta name="usmc" content="689f0701462a86b925e7ab75c078c6b701c05f92">
+    
+    
+    
+    
+    <meta name="utc_offset" content="+03:00">
+    <meta name="verify-reformal" content="f56f99fd7e087fb6ccb48ef2">
+    <title>Contests - Codeforces</title>
+        <meta name="description" content="Codeforces. Programming competitions and contests, programming community">
+        <meta name="keywords" content="programming algorithm contest competition informatics olympiads c++ java graphs vkcup">
+    <meta name="robots" content="index, follow">
+
+    <link rel="stylesheet" href="./Contests - Codeforces_files/font-awesome.min.css" type="text/css" charset="utf-8">
+
+        <link href="./Contests - Codeforces_files/css" rel="stylesheet" type="text/css">
+        <link href="./Contests - Codeforces_files/css(1)" rel="stylesheet" type="text/css">
+
+
+    <link rel="apple-touch-icon" sizes="57x57" href="https://sta.codeforces.com/s/35976/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://sta.codeforces.com/s/35976/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://sta.codeforces.com/s/35976/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://sta.codeforces.com/s/35976/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://sta.codeforces.com/s/35976/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://sta.codeforces.com/s/35976/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://sta.codeforces.com/s/35976/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://sta.codeforces.com/s/35976/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://sta.codeforces.com/s/35976/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://sta.codeforces.com/s/35976/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://sta.codeforces.com/s/35976/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://sta.codeforces.com/s/35976/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://sta.codeforces.com/s/35976/favicon-16x16.png">
+    <link rel="manifest" href="https://sta.codeforces.com/s/35976/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="//sta.codeforces.com/s/35976/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--CombineResourcesFilter-->
+    <link rel="stylesheet" href="./Contests - Codeforces_files/prettify.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Contests - Codeforces_files/clear.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Contests - Codeforces_files/style.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Contests - Codeforces_files/ttypography.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Contests - Codeforces_files/problem-statement.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Contests - Codeforces_files/second-level-menu.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Contests - Codeforces_files/roundbox.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Contests - Codeforces_files/datatable.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Contests - Codeforces_files/table-form.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Contests - Codeforces_files/topic.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Contests - Codeforces_files/jquery.jgrowl.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Contests - Codeforces_files/facebox.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Contests - Codeforces_files/jquery.wysiwyg.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Contests - Codeforces_files/jquery.autocomplete.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Contests - Codeforces_files/codeforces.datepick.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Contests - Codeforces_files/colorbox.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Contests - Codeforces_files/jquery.drafts.css" type="text/css" charset="utf-8">
+        <link rel="stylesheet" href="./Contests - Codeforces_files/tablesorter.css" type="text/css" charset="utf-8">
+        <link rel="stylesheet" href="./Contests - Codeforces_files/community.css" type="text/css" charset="utf-8">
+
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config;executed=true">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$$$','$$$']], displayMath: [['$$$$$$','$$$$$$']]}
+    });
+    </script>
+    <script type="text/javascript" async="" src="./Contests - Codeforces_files/MathJax.js">
+    </script>
+    <!-- /MathJax -->
+
+    <script type="text/javascript" src="./Contests - Codeforces_files/prettify.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/pushstream.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/jquery.lavalamp.min.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/jquery.jgrowl.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/jquery.swipe.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/facebox.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/jquery.wysiwyg.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/wysiwyg.colorpicker.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/wysiwyg.table.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/wysiwyg.image.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/wysiwyg.link.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/jquery.autocomplete.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/ua-parser.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/jquery.datepick.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/jquery.ie6blocker.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/jquery.ba-bbq.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/jquery.drafts.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/clipboard.min.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/autosize.min.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/sjcl.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/codeforces-options.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/codeforces.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/EventCatcher.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/preparedVerdictFormats-en.js"></script>
+    <!--/CombineResourcesFilter-->
+
+    <link rel="stylesheet" href="./Contests - Codeforces_files/style(1).css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Contests - Codeforces_files/style(2).css" type="text/css" charset="utf-8">
+
+
+    <script type="text/javascript" src="./Contests - Codeforces_files/jquery.markitup.js"></script>
+    <script type="text/javascript" src="./Contests - Codeforces_files/set.js"></script>
+
+    <!--[if IE]>
+    <style>
+        #sidebar {
+            padding-left: 1em;
+            margin: 1em 1em 1em 0;
+        }
+    </style>
+    <![endif]-->
+
+
+        <script id="nocomb.jquery.tablesorter.min.js" src="./Contests - Codeforces_files/jquery.tablesorter.min.js" type="text/javascript"></script>
+
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none; box-sizing: content-box}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_test {font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+.MathJax_test.mjx-test-display {display: table!important}
+.MathJax_test.mjx-test-inline {display: inline!important; margin-right: -1px}
+.MathJax_test.mjx-test-default {display: block!important; clear: both}
+.MathJax_ex_box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60ex}
+.MathJax_em_box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60em}
+.mjx-test-inline .MathJax_left_box {display: inline-block; width: 0; float: left}
+.mjx-test-inline .MathJax_right_box {display: inline-block; width: 0; float: right}
+.mjx-test-display .MathJax_right_box {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Blank; src: url('about:blank')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">
+@font-face {
+  font-weight: 400;
+  font-style:  normal;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-weight: 400;
+  font-style:  italic;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-Italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 500;
+  font-style:  normal;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-weight: 500;
+  font-style:  italic;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-MediumItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 700;
+  font-style:  normal;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-weight: 700;
+  font-style:  italic;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-BoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 900;
+  font-style:  normal;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-Black.woff2') format('woff2');
+}
+@font-face {
+  font-weight: 900;
+  font-style:  italic;
+  font-family: 'Inter-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/inter/Inter-UI-BlackItalic.woff2') format('woff2');
+}</style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style><script type="text/javascript" src="chrome-extension://dbjbempljhcmhlfpfacalomonjpalpko/scripts/inspector.js"></script><input type="hidden" id="_w_brink"></head>
+<body class=" " data-gr-c-s-loaded="true"><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div><span style="display:none;" class="csrf-token" data-csrf="75958f4cb357f79208c9b65bcb070575">&nbsp;</span>
+<!-- .notificationTextCleaner used in Codeforces.showAnnouncements() -->
+<div class="notificationTextCleaner" style="font-size: 0px"></div>
+<div class="button-up" style="opacity: 0.7; width: 50px; height: 100%; position: fixed; left: 0px; top: 0px; cursor: pointer; text-align: center; line-height: 35px; color: rgb(211, 219, 228); font-weight: bold; font-size: 3rem; display: none;"><i class="icon-circle-arrow-up"></i></div>
+<div class="verdictPrototypeDiv" style="display: none;"></div>
+
+<!-- Codeforces JavaScripts. -->
+<script type="text/javascript">
+    String.prototype.hashCode = function() {
+        var hash = 0, i, chr;
+        if (this.length === 0) return hash;
+        for (i = 0; i < this.length; i++) {
+            chr   = this.charCodeAt(i);
+            hash  = ((hash << 5) - hash) + chr;
+            hash |= 0; // Convert to 32bit integer
+        }
+        return hash;
+    };
+
+    var queryMobile = Codeforces.queryString.mobile;
+    if (queryMobile === "true" || queryMobile === "false") {
+        Codeforces.putToStorage("useMobile", queryMobile == "true");
+    } else {
+        var useMobile = Codeforces.getFromStorage("useMobile");
+        if (useMobile === true || useMobile === false) {
+            if (useMobile != false) {
+                Codeforces.redirect(Codeforces.updateUrlParameter(document.location.href, "mobile", useMobile));
+            }
+        }
+    }
+</script>
+<script type="text/javascript">
+    if (window.parent.frames.length > 0) {
+        window.stop();
+    }
+</script>
+
+
+<script type="text/javascript">
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '554666954583323',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+    (function () {
+        jQuery.expr[':'].containsCI = function(elem, index, match) {
+            return !match || !match.length || match.length < 4 || !match[3] || (
+                    elem.textContent || elem.innerText || jQuery(elem).text() || ''
+            ).toLowerCase().indexOf(match[3].toLowerCase()) >= 0;
+        }
+    }(jQuery));
+
+    $.ajaxPrefilter(function(options, originalOptions, xhr) {
+        var csrf = Codeforces.getCsrfToken();
+
+        if (csrf) {
+            var data = originalOptions.data;
+            if (originalOptions.data !== undefined) {
+                if (Object.prototype.toString.call(originalOptions.data) === '[object String]') {
+                    data = $.deparam(originalOptions.data);
+                }
+            } else {
+                data = {};
+            }
+            options.data = $.param($.extend(data, { csrf_token: csrf }));
+        }
+    });
+
+    window.getCodeforcesServerTime = function(callback) {
+        $.post("/data/time", {}, callback, "json");
+    }
+
+    window.updateTypography = function () {
+        $("div.ttypography code").addClass("tt");
+        $("div.ttypography pre>code").addClass("prettyprint").removeClass("tt");
+        $("div.ttypography table").addClass("bordertable");
+        prettyPrint();
+    }
+
+    $.ajaxSetup({ scriptCharset: "utf-8" ,contentType: "application/x-www-form-urlencoded; charset=UTF-8", headers: {
+        'X-Csrf-Token': Codeforces.getCsrfToken()
+    }});
+
+    window.updateTypography();
+
+    Codeforces.signForms();
+
+    setTimeout(function() {
+        $(".second-level-menu-list").lavaLamp({
+            fx: "backout",
+            speed: 700
+        });
+    }, 100);
+
+
+    Codeforces.countdown();
+    $("a[rel='photobox']").colorbox();
+
+        var count = 0;
+
+        function getDelay() {
+            var delay = 0;
+            var last = Codeforces.getFromStorage("LastOnlineTimeUpdaterMillis", 0);
+            if (last && last != null) {
+                var period = count < 20 ? 180 * 1000 : 360 * 1000;
+                delay = period - (new Date().getTime() - last);
+                if (delay < 0)
+                    delay = 0;
+            }
+            return delay;
+        }
+
+        window.setInterval(function () {
+            if (getDelay() <= 0 && count < 120) {
+                ++count;
+                Codeforces.ping("/data/update-online");
+            }
+        }, 5000);
+
+        var handle = "maxwill";
+        $("a.rated-user:contains(" + handle + "), span.participant:contains(" + handle + ")").each(function () {
+            if ($(this).text() == handle) {
+                var td = $(this).parent();
+                var tr = $(this).parent().parent();
+                if (td.is("td") && tr.is("tr")) {
+                    tr.addClass("highlighted-row");
+                }
+            }
+        });
+
+    function showAnnouncements(json) {
+        //info("j=" + JSON.stringify(json));
+
+        if (json.t != "a") {
+            return;
+        }
+        // console.log("Got announcement from channel");
+        setTimeout(function() {
+            Codeforces.showAnnouncements(json.d, "en");
+        }, Math.random() * 500);
+    }
+
+    function showEventCatcherUserMessage(json) {
+        if (json.t == "s") {
+            var points = json.d[5];
+            var passedTestCount = json.d[7];
+            var judgedTestCount = json.d[8];
+            var verdict = preparedVerdictFormats[json.d[12]];
+            var verdictPrototypeDiv = $(".verdictPrototypeDiv");
+            verdictPrototypeDiv.html(verdict);
+            if (judgedTestCount != null && judgedTestCount != undefined) {
+                verdictPrototypeDiv.find(".verdict-format-judged").text(judgedTestCount);
+            }
+            if (passedTestCount != null && passedTestCount != undefined) {
+                verdictPrototypeDiv.find(".verdict-format-passed").text(passedTestCount);
+            }
+            if (points != null && points != undefined) {
+                verdictPrototypeDiv.find(".verdict-format-points").text(points);
+            }
+            Codeforces.showMessage(verdictPrototypeDiv.text());
+        }
+    }
+
+    $(".clickable-title").each(function() {
+        var title = $(this).attr("data-title");
+        if (title) {
+            var tmp = document.createElement("DIV");
+            tmp.innerHTML = title;
+            $(this).attr("title", tmp.textContent || tmp.innerText || "");
+        }
+    });
+
+    $(".clickable-title").click(function() {
+        var title = $(this).attr("data-title");
+        if (title) {
+            Codeforces.alert(title);
+        } else {
+            Codeforces.alert($(this).attr("title"));
+        }
+    }).css("position", "relative").css("bottom", "3px");
+
+        Codeforces.showDelayedMessage();
+
+    Codeforces.reformatTimes();
+
+    //Codeforces.initializePubSub();
+    if (window.codeforcesOptions.subscribeServerUrl) {
+        window.eventCatcher = new EventCatcher(
+            window.codeforcesOptions.subscribeServerUrl,
+            [
+                Codeforces.getGlobalChannel(),
+                Codeforces.getUserChannel(),
+                Codeforces.getUserShowMessageChannel(),
+                Codeforces.getContestChannel(),
+                Codeforces.getParticipantChannel(),
+                Codeforces.getTalkChannel()
+            ]
+        );
+
+        if (Codeforces.getParticipantChannel()) {
+            window.eventCatcher.subscribe(Codeforces.getParticipantChannel(), function(json) {
+                showAnnouncements(json);
+            });
+        }
+
+        if (Codeforces.getContestChannel()) {
+            window.eventCatcher.subscribe(Codeforces.getContestChannel(), function(json) {
+                showAnnouncements(json);
+            });
+        }
+
+        if (Codeforces.getGlobalChannel()) {
+            window.eventCatcher.subscribe(Codeforces.getGlobalChannel(), function(json) {
+                showAnnouncements(json);
+            });
+        }
+
+        if (Codeforces.getUserChannel()) {
+            window.eventCatcher.subscribe(Codeforces.getUserChannel(), function(json) {
+                showAnnouncements(json);
+            });
+        }
+
+        if (Codeforces.getUserShowMessageChannel()) {
+            window.eventCatcher.subscribe(Codeforces.getUserShowMessageChannel(), function(json) {
+                showEventCatcherUserMessage(json);
+            });
+        }
+    }
+
+    Codeforces.setupContestTimes("/data/contests");
+    Codeforces.setupSpoilers();
+    Codeforces.setupTutorials("/data/problemTutorial");
+        });
+    </script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-743380-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = (document.location.protocol == 'https:' ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+<div id="body">
+        <script type="text/javascript">
+            $(function() {
+                window._ftaa = "2y9bhalotlasydna7g";
+            })
+        </script>
+
+        <script type="text/javascript">
+            $(function() {
+                window._bfaa = "b525eeed676fb324e9cfb5fda40eb3e4";
+            });
+        </script>
+            <script type="application/javascript">
+                window.setTimeout(function () {
+                    var url = location.href;
+                    var hashCode32 = Math.abs(url.hashCode()).toString();
+                    var hashCode = "p" + hashCode32 + Math.abs((hashCode32 + url).hashCode());
+                    var pvs = Codeforces.getFromStorage("pvs" + hashCode);
+                    if (!pvs) {
+                        $.post("/data/apv", {
+                            ftaa: window._ftaa,
+                            bfaa: window._bfaa,
+                            url: url
+                        }, function (json) {
+                            if (json["success"] === "true") {
+                                Codeforces.putToStorage("pvs" + hashCode, true);
+                            }
+                        }, "json");
+                    }
+                }, 5000);
+            </script>
+        
+
+<div class="side-bell" style="visibility: hidden; opacity: 0.7; width: 40px; position: fixed; right: 0px; top: 0px; cursor: pointer; text-align: center; line-height: 35px; color: rgb(211, 219, 228); font-weight: bold; font-size: 1.5rem; display: none;">
+    <span class="icon-stack" style="width: 100%;">
+        <i class="icon-circle icon-stack-base"></i>
+        <i class="icon-bell-alt icon-light"></i>
+    </span>
+    <br>
+    <span class="side-bell__count" style="position: relative; top: -10px;"></span>
+</div>
+
+
+
+
+<style>
+    .header-bell {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .header-bell__img {
+        opacity: 0.5;
+        background-image: url("//sta.codeforces.com/s/35976/images/icons/bell_inactive-20x20.png");
+        position: relative;
+        bottom: 1px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .header-bell__img-active  {
+        opacity: 1 !important;
+        background-image: url("//sta.codeforces.com/s/35976/images/icons/bell_active-20x20.png") !important;
+    }
+
+    .header-bell__count {
+        position: absolute;
+        top: 8px;
+        left: 18px;
+        font-weight: bold;
+        font-size: 10px;
+    }
+
+    .bell-details {
+        display: none;
+        z-index: 5;
+        border: 1px solid rgb(185, 185, 185);
+        width: 40rem;
+        max-height: 60rem;
+        padding: 0;
+        position: absolute;
+        top: 20px;
+        right: 0;
+        background-color: white;
+        overflow: scroll;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .bell-details.sidebar-bell {
+        position: fixed;
+        right: 50px;
+    }
+
+    .bell-details__no-new {
+        font-size: 1.3rem;
+        display: block;
+        text-align: center;
+        color: #888 !important;
+        padding: 1em;
+    }
+
+    .bell-details__recent-link {
+        margin: 0;
+        padding: 0.5em;
+        text-align: center;
+        border-top: 1px solid rgb(185, 185, 185);
+    }
+
+    .bell-details__recent-link a {
+        font-size: 1.2rem;
+    }
+
+    .bell-details__proto-row-comment {
+        display: none;
+    }
+
+    .bell-details__proto-row-blog-entry {
+        display: none;
+    }
+
+    .bell-details__proto-row-comment-reply {
+        display: none;
+    }
+
+    .bell-details__row {
+        text-align: left;
+        margin: 0.5em;
+        padding: 0.25em 0.25em 0.75em 0.25em;
+        clear: both;
+    }
+
+    .bell-details__row:hover {
+        cursor: pointer;
+        background-color: #def;
+    }
+
+    .bell-details__row-active {
+        background-color: #def;
+    }
+
+    .bell-details__thumbnail-a {
+        text-decoration: none;
+    }
+
+    .bell-details__row img {
+        zoom: 50%;
+        margin-right: 2em;
+        float: left;
+    }
+
+    .bell-details__comment {
+        padding-left: 45px;
+        font-size: 1.3rem;
+    }
+
+    .bell-details__blog-entry {
+        padding-left: 45px;
+        font-size: 1.3rem;
+    }
+
+    .bell-details__comment-reply {
+        padding-left: 45px;
+        font-size: 1.3rem;
+    }
+
+    .bell-details__time {
+        padding-left: 45px;
+        margin-top: 0.2em;
+        font-size: 1.1rem;
+        color: #888 !important;
+    }
+</style>
+
+<script>
+    $(function () {
+        if ($(window).width() < 1600) {
+            $('.side-bell').css('width', '30px').css('line-height', '30px').css('font-size', '10px');
+        }
+
+        if ($(window).width() >= 1200) {
+            $ (window).scroll (function () {
+                if ($ (this).scrollTop () > 100) {
+                    $(".bell-details").addClass("sidebar-bell");
+                    $ ('.side-bell').fadeIn();
+                } else {
+                    $(".bell-details").removeClass("sidebar-bell");
+                    $ ('.side-bell').fadeOut();
+                }
+            });
+
+            $('.side-bell').hover(function () {
+                $(this).animate({
+                    'opacity':'1'
+                }).css({'color':'#6a86a4'});
+            }, function () {
+                $(this).animate({
+                    'opacity':'0.7'
+                }).css({'color':'#d3dbe4'});
+            });
+        }
+
+        $(".lang-chooser>div:first-child").prepend($("<span style='position: relative; bottom: 8px; padding: 0 0.5em;'>|</span>")).prepend($(".header-bell").show());
+        function Bell() {
+            var bell = this;
+            var notifications = JSON.parse("[]");
+
+            bell.notifications = {};
+
+            for (var i in notifications) {
+                if (notifications.hasOwnProperty(i)) {
+                    bell.notifications[notifications[i].id] = notifications[i];
+                }
+            }
+
+            function onClick(notification) {
+                var notificationIds = [];
+                var reason = notification.data.reasonType + "#" + notification.reasonId;
+                for (id in bell.notifications) {
+                    if (bell.notifications.hasOwnProperty(id)) {
+                        var otherNotification = bell.notifications[id];
+                        var otherReason = otherNotification.data.reasonType + "#" + otherNotification.reasonId;
+                        if (otherReason == reason) {
+                            notificationIds.push(otherNotification.id);
+                        }
+                    }
+                }
+                $.post("/data/notification", {action: "markAsRead", notificationIds: notificationIds.join(",")}, function(result) {
+                    Codeforces.redirect(notification.data.url);
+                }, "json");
+            }
+
+            var $bellDetails = $(".bell-details");
+            bell.newCommentRow = function (notification) {
+                var row = $(".bell-details__proto-row-comment").clone();
+                row.addClass("bell-details__row").attr("data-notificationId", notification.id);
+                row.find(".bell-details__thumbnail-a").attr("href", notification.data.reasonUserUrl);
+                row.find("img").attr("src", notification.data.reasonUserThumbnailUrl);
+                row.find(".bell-details__comment").html(
+                        "ReasonUser mentioned you in a comment".replace("ReasonUser", notification.data.reasonUserHtml)
+                );
+                row.find(".bell-details__time").html(
+                        "<span class='format-systemtimewithseconds'>"
+                        + notification.creationTimeString
+                        + "</span>"
+                );
+                row.removeClass("bell-details__proto-row-comment");
+                row.click(function() {
+                    onClick(notification);
+                    return false;
+                });
+                return row;
+            };
+            bell.newFriendCommentRow = function (notification) {
+                var row = $(".bell-details__proto-row-comment").clone();
+                row.addClass("bell-details__row").attr("data-notificationId", notification.id);
+                row.find(".bell-details__thumbnail-a").attr("href", notification.data.reasonUserUrl);
+                row.find("img").attr("src", notification.data.reasonUserThumbnailUrl);
+                row.find(".bell-details__comment").html(
+                        "ReasonUser wrote a comment".replace("ReasonUser", notification.data.reasonUserHtml)
+                );
+                row.find(".bell-details__time").html(
+                        "<span class='format-systemtimewithseconds'>"
+                        + notification.creationTimeString
+                        + "</span>"
+                );
+                row.removeClass("bell-details__proto-row-comment");
+                row.click(function() {
+                    onClick(notification);
+                    return false;
+                });
+                return row;
+            };
+            bell.newCommentReplyRow = function (notification) {
+                var row = $(".bell-details__proto-row-comment-reply").clone();
+                row.addClass("bell-details__row").attr("data-notificationId", notification.id);
+                row.find(".bell-details__thumbnail-a").attr("href", notification.data.reasonUserUrl);
+                row.find("img").attr("src", notification.data.reasonUserThumbnailUrl);
+                row.find(".bell-details__comment-reply").html(
+                        "ReasonUser replied to your comment".replace("ReasonUser", notification.data.reasonUserHtml)
+                );
+                row.find(".bell-details__time").html(
+                        "<span class='format-systemtimewithseconds'>"
+                        + notification.creationTimeString
+                        + "</span>"
+                );
+                row.removeClass("bell-details__proto-row-comment-reply");
+                row.click(function() {
+                    onClick(notification);
+                    return false;
+                });
+                return row;
+            };
+            bell.newBlogEntryRow = function (notification) {
+                var row = $(".bell-details__proto-row-blog-entry").clone();
+                row.addClass("bell-details__row").attr("data-notificationId", notification.id);
+                row.find(".bell-details__thumbnail-a").attr("href", notification.data.reasonUserUrl);
+                row.find("img").attr("src", notification.data.reasonUserThumbnailUrl);
+                row.find(".bell-details__blog-entry").html(
+                        "ReasonUser mentioned you in a blog entry".replace("ReasonUser", notification.data.reasonUserHtml)
+                );
+                row.find(".bell-details__time").html(
+                        "<span class='format-systemtimewithseconds'>"
+                        + notification.creationTimeString
+                        + "</span>"
+                );
+                row.removeClass("bell-details__proto-row-blog-entry");
+                row.click(function() {
+                    onClick(notification);
+                    return false;
+                });
+                return row;
+            };
+            bell.newFriendBlogEntryRow = function (notification) {
+                var row = $(".bell-details__proto-row-blog-entry").clone();
+                row.addClass("bell-details__row").attr("data-notificationId", notification.id);
+                row.find(".bell-details__thumbnail-a").attr("href", notification.data.reasonUserUrl);
+                row.find("img").attr("src", notification.data.reasonUserThumbnailUrl);
+                row.find(".bell-details__blog-entry").html(
+                        "ReasonUser wrote a blog entry".replace("ReasonUser", notification.data.reasonUserHtml)
+                );
+                row.find(".bell-details__time").html(
+                        "<span class='format-systemtimewithseconds'>"
+                        + notification.creationTimeString
+                        + "</span>"
+                );
+                row.removeClass("bell-details__proto-row-blog-entry");
+                row.click(function() {
+                    onClick(notification);
+                    return false;
+                });
+                return row;
+            };
+            bell.newProposalCommentRow = function (notification) {
+                var row = $(".bell-details__proto-row-comment-reply").clone();
+                row.addClass("bell-details__row").attr("data-notificationId", notification.id);
+                row.find(".bell-details__thumbnail-a").attr("href", notification.data.reasonUserUrl);
+                row.find("img").attr("src", notification.data.reasonUserThumbnailUrl);
+                row.find(".bell-details__comment-reply").html(
+                        "ReasonUser commented on ProposalType Proposal".replace("ReasonUser", notification.data.reasonUserHtml)
+                                .replace("ProposalType", "Contest" == notification.data.proposalType ? "contest proposal" : "problem proposal")
+                                .replace("Proposal", $("<div/>").text(notification.data.proposalName).html())
+                );
+                row.find(".bell-details__time").html(
+                        "<span class='format-systemtimewithseconds'>"
+                        + notification.creationTimeString
+                        + "</span>"
+                );
+                row.removeClass("bell-details__proto-row-comment-reply");
+                row.click(function() {
+                    onClick(notification);
+                    return false;
+                });
+                return row;
+            };
+
+            bell.renderRow = function (notification) {
+                var $row = $(".bell-details__row[data-notificationId='" + notification.id + "']");
+
+                if ($bellDetails.css("display") != "block" && notification.read) {
+                    $row.hide();
+                    return;
+                }
+
+                notification.data = JSON.parse(notification.dataJson);
+
+                var reason = notification.data.reasonType + "#" + notification.reasonId;
+
+                var has = false;
+                $row.each(function () {
+                    has = true;
+                });
+                if ($(".bell-details__row[data-reason='" + reason + "']").length) {
+                    has = true;
+                }
+
+                if (!has) {
+                    $(".side-bell").css("visibility", "visible");
+                    var newRow;
+                    if (notification.type == "Comment") {
+                        newRow = bell.newCommentRow(notification);
+                    } else if (notification.type == "BlogEntry") {
+                        newRow = bell.newBlogEntryRow(notification);
+                    } else if (notification.type == "CommentReply") {
+                        newRow = bell.newCommentReplyRow(notification);
+                    } else if (notification.type == "FriendComment") {
+                        newRow = bell.newFriendCommentRow(notification);
+                    } else if (notification.type == "FriendBlogEntry") {
+                        newRow = bell.newFriendBlogEntryRow(notification);
+                    } else if (notification.type == "ProposalComment") {
+                        newRow = bell.newProposalCommentRow(notification)
+                    }
+                    if (newRow) {
+                        newRow.attr("data-reason", reason);
+                        $(".bell-details").prepend(newRow);
+                    }
+                }
+            };
+
+            var $count = $(".header-bell__count, .side-bell__count");
+            var $img = $(".header-bell__img");
+            var $noNew = $(".bell-details__no-new");
+
+            bell.renewCount = function () {
+                Codeforces.reformatTimes();
+                var count = 0;
+                var counted = {};
+                for (var id in bell.notifications)
+                    if (bell.notifications.hasOwnProperty(id)) {
+                        var notification = bell.notifications[id];
+                        if (notification) {
+                            var reason = notification.data.reasonType + "#" + notification.reasonId;
+                            if (!notification.read && !counted[reason]) {
+                                count++;
+                                counted[reason] = true;
+                            }
+                        }
+                    }
+                if (count > 0) {
+                    $count.text(count);
+                    $img.addClass("header-bell__img-active");
+                    $noNew.hide();
+                } else {
+                    $count.text("");
+                    $img.removeClass("header-bell__img-active");
+                    if ($bellDetails.css("display") != "block") {
+                        $noNew.show();
+                    }
+                }
+            };
+
+            for (var id in bell.notifications)
+                if (bell.notifications.hasOwnProperty(id))
+                    bell.renderRow(bell.notifications[id]);
+
+            if (window.eventCatcher) {
+                window.eventCatcher.subscribe(Codeforces.getUserChannel(), function(json) {
+                    if (json.t === "n") {
+                        for (var i in json.d)
+                            if (json.d.hasOwnProperty(i)) {
+                                var notification = json.d[i];
+                                notification.data = JSON.parse(notification.dataJson);
+                                bell.notifications[notification.id] = notification;
+                                bell.renderRow(notification);
+                                bell.renewCount();
+                            }
+                    }
+                });
+            }
+
+
+            $(".header-bell, .side-bell").click(function() {
+                if ($bellDetails.css("display") == "none") {
+                    for (var id in bell.notifications)
+                        if (bell.notifications.hasOwnProperty(id))
+                            if (bell.notifications[id].read)
+                                bell.renderRow(bell.notifications[id]);
+                    bell.renewCount();
+
+                    $bellDetails.css("display", "block");
+
+                    var notificationIds = [];
+                    for (id in bell.notifications)
+                        if (bell.notifications.hasOwnProperty(id))
+                            notificationIds.push(id);
+
+                    setTimeout(function() {
+                        if ($bellDetails.css("display") == "block") {
+                            $.post("/data/notification", {action: "markAsRead", notificationIds: notificationIds.join(",")}, function(result) {
+                                // No operations.
+                            }, "json");
+
+                            for (var i in notificationIds) {
+                                if (notificationIds.hasOwnProperty(i)) {
+                                    bell.notifications[notificationIds[i]].read = true;
+                                }
+                            }
+                            bell.renewCount();
+                        }
+                    }, 2000);
+                } else {
+                    var has = false;
+                    for (var id in bell.notifications) {
+                        if (bell.notifications.hasOwnProperty(id) && !bell.notifications[id].read) {
+                            has = true;
+                        }
+                    }
+                    if (!has) {
+                        $(".side-bell").css("visibility", "hidden");
+                    }
+                    $bellDetails.css("display", "none");
+                    bell.renewCount();
+                }
+            });
+        }
+
+        bell = new Bell();
+        bell.renewCount();
+    })
+</script>
+
+<div id="header" style="position: relative;">
+    <div style="float:left;">
+            <a href="https://codeforces.com/"><img style="height: 50px; margin-top: 10px;" title="Make Codeforces, not Coronaforces" alt="Make Codeforces not Coronaforces" src="./Contests - Codeforces_files/codeforces-vs-coronavirus-65.png"></a>
+    </div>
+    <div class="lang-chooser">
+        <div style="text-align: right;"><div class="header-bell" style="">
+    <div class="header-bell__img"><span class="header-bell__count"></span></div>
+
+    <div class="bell-details">
+        <div class="bell-details__proto-row-comment">
+            <a class="bell-details__thumbnail-a" href="https://codeforces.com/contests/with/maxwill#"><img src="https://codeforces.com/contests/with/maxwill"></a>
+            <div class="bell-details__comment"></div>
+            <div class="bell-details__time"></div>
+        </div>
+        <div class="bell-details__proto-row-blog-entry">
+            <a class="bell-details__thumbnail-a" href="https://codeforces.com/contests/with/maxwill#"><img src="https://codeforces.com/contests/with/maxwill"></a>
+            <div class="bell-details__blog-entry"></div>
+            <div class="bell-details__time"></div>
+        </div>
+        <div class="bell-details__proto-row-comment-reply">
+            <a class="bell-details__thumbnail-a" href="https://codeforces.com/contests/with/maxwill#"><img src="https://codeforces.com/contests/with/maxwill"></a>
+            <div class="bell-details__comment-reply"></div>
+        </div>
+
+        <div class="bell-details__no-new">
+            There are no new notifications
+        </div>
+
+        <div class="bell-details__recent-link">
+            <a href="https://codeforces.com/notifications">History (at most 100 notifications)</a>
+        </div>
+    </div>
+</div><span style="position: relative; bottom: 8px; padding: 0 0.5em;">|</span>
+            <a href="https://codeforces.com/contests/with/maxwill?locale=en"><img src="./Contests - Codeforces_files/gb.png" title="In English" alt="In English"></a>
+            <a href="https://codeforces.com/contests/with/maxwill?locale=ru"><img src="./Contests - Codeforces_files/ru.png" title="По-русски" alt="По-русски"></a>
+        </div>
+
+        <div>
+                        <a href="https://codeforces.com/profile/maxwill">maxwill</a>
+                     | 
+                        <a href="https://codeforces.com/930681c901d544964ece8f91818de6e5/logout">Logout</a>
+                    
+        </div>
+
+
+
+    </div>
+    <br style="clear: both;">
+</div>
+        
+
+    <div class="roundbox menu-box" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+            <div class="roundbox-lb">&nbsp;</div>
+            <div class="roundbox-rb">&nbsp;</div>
+    <div class="menu-list-container">
+    <ul class="menu-list main-menu-list">
+                <li class=""><a href="https://codeforces.com/">Home</a></li>
+                <li class=""><a href="https://codeforces.com/top">Top</a></li>
+                <li class=""><a href="https://codeforces.com/contests">Contests</a></li>
+                <li class=""><a href="https://codeforces.com/gyms">Gym</a></li>
+                <li class=""><a href="https://codeforces.com/problemset">Problemset</a></li>
+                <li class=""><a href="https://codeforces.com/groups">Groups</a></li>
+                <li class=""><a href="https://codeforces.com/ratings">Rating</a></li>
+                <li class=""><a href="https://codeforces.com/apiHelp">API</a></li>
+                <li class=""><a href="https://codeforces.com/calendar">Calendar</a></li>
+                <li class=""><a href="https://codeforces.com/help">Help</a></li>
+                <li class=""><a href="https://codeforces.com/10years"><span style="color:#ce2a2a;font-weight:bold;">10 years! <i style="font-size:100%" class="icon-gift"></i></span></a></li>
+    </ul>
+        <form method="post" action="https://codeforces.com/search"><input type="hidden" name="csrf_token" value="75958f4cb357f79208c9b65bcb070575">
+            <input class="search" name="query" data-isplaceholder="true" value="">
+        <input type="hidden" name="_tta" value="210"></form>
+    <br style="clear: both;">
+</div>
+
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("input.search").focus(function () {
+                if ($(this).attr("data-isPlaceholder") === "true") {
+                    $(this).val("");
+                    $(this).removeAttr("data-isPlaceholder");
+                }
+            });
+        });
+    </script>
+            <br style="height: 3em; clear: both;">
+
+        <div style="position: relative;">
+                        <div id="sidebar">
+    <div class="roundbox sidebox" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+        <div class="caption titled">→ Pay attention
+            <div class="top-links">
+            </div>
+        </div>
+<div style="padding: 0.5em;">
+        <div style="text-align:center;border-bottom: 1px solid rgb(185, 185, 185);margin:0 -0.5em 0.5em -0.5em;padding: 0 1em 0.5em 1em;">
+            <span class="contest-state-phase">Before contest</span><br><a href="https://codeforces.com/contests/1368">Codeforces Global Round 8</a><br><span class="countdown" home="//sta.codeforces.com/s/35976" noredirection="true" textbeforeredirect="Contest &quot;Codeforces Global Round 8&quot; has been started, you may click &lt;a href=&quot;/contest/1368/problem/0&quot;&gt;the link&lt;/a&gt; to enter into the contest area" cdid="i1">00:28:21</span>
+        </div>
+        <div style="text-align:center;">
+            <div class="socials" style="text-align: left;">
+                <div style="margin-top: 0.85em;position: relative;">
+
+        <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div>
+        <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_EN/all.js#appId=554666954583323&xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <div class="fb-like fb_iframe_widget" data-href="//codeforces.com/contests/1368" data-send="false" data-width="256" data-show-faces="false" data-font="arial" data-ref="1510500" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=554666954583323&amp;container_width=264&amp;font=arial&amp;href=https%3A%2F%2Fcodeforces.com%2Fcontests%2F1368&amp;locale=en_US&amp;ref=1510500&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=256"><span style="vertical-align: bottom; width: 256px; height: 28px;"><iframe name="f204fdc50441f1c" width="256px" height="1000px" data-testid="fb:like Facebook Social Plugin" title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./Contests - Codeforces_files/like.html" style="border: none; visibility: visible; width: 256px; height: 28px;" class=""></iframe></span></div>
+
+        </div>
+</div>
+
+        </div>
+</div>
+    </div>
+
+    <style>
+        .personal-sidebar {
+            margin: 1em;
+        }
+
+        .personal-sidebar .for-avatar {
+            float: right;
+        }
+
+        .personal-sidebar li {
+            font-size: 0.8em;
+        }
+
+        .personal-sidebar .nav-links {
+            margin-top: 0.5em;
+        }
+
+        .personal-sidebar .nav-links li {
+            list-style: disc;
+            list-style-position: inside;
+        }
+
+        .personal-sidebar .propertyLinks li img {
+            margin-right: 0.5em;
+        }
+    </style>
+
+    <div class="roundbox sidebox" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+        <div class="caption titled">→ maxwill
+            <div class="top-links">
+            </div>
+        </div>
+    <div class="personal-sidebar">
+<div class="for-avatar"><div class="avatar"><a href="https://codeforces.com/profile/maxwill" style="position: relative;"><img src="./Contests - Codeforces_files/a7730e0f92c07ed1.jpg"></a><div><a href="https://codeforces.com/profile/maxwill" title="Candidate Master maxwill" class="rated-user user-violet">maxwill</a></div></div></div><div><ul class="propertyLinks"><li><img style="vertical-align:middle;position:relative;top:-2px" src="./Contests - Codeforces_files/rating-16x16.png" alt="User&#39;&#39;s contest rating in Codeforces community" title="User&#39;&#39;s contest rating in Codeforces community">Rating:&nbsp;<span style="font-weight:bold;" class="user-violet">2035</span></li><li><img style="vertical-align:middle;position:relative;top:-2px" src="./Contests - Codeforces_files/star_blue_16.png" alt="User&#39;&#39;s contribution into Codeforces community" title="User&#39;&#39;s contribution into Codeforces community">Contribution:&nbsp;<span style="color:gray;font-weight:bold;">0</span></li></ul><ul class="nav-links"><li><a href="https://codeforces.com/settings/general">Settings</a></li><li><a href="https://codeforces.com/blog/maxwill">Blog</a></li><li><a href="https://codeforces.com/teams">Teams</a></li><li><a href="https://codeforces.com/submissions/maxwill">Submissions</a></li><li><a href="https://codeforces.com/favourite/problems">Favourites</a></li><li><a href="https://codeforces.com/contests/writer/maxwill">Problemsetting</a></li><li><a href="https://codeforces.com/proposals/contests">Propose a contest/problems</a></li><li><a href="https://codeforces.com/usertalk">Talks</a></li><li><a href="https://codeforces.com/contests/with/maxwill">Contests</a></li></ul></div><br style="clear:both;">    </div>
+    </div>
+<div class="roundbox sidebox top-contributed" style="">
+<div class="roundbox-lt">&nbsp;</div>
+<div class="roundbox-rt">&nbsp;</div>
+<div class="caption titled">→ Top rated
+<div class="top-links">
+</div>
+</div>
+<table class="rtable ">
+<tbody>
+<tr>
+<th class="left" style="width:2.25em;">#</th>
+<th class="">User</th>
+<th class="" style="width:5em;">Rating</th>
+</tr>
+<tr>
+<td class="left dark">1</td>
+<td class=" dark"><a href="https://codeforces.com/profile/MiFaFaOvO" title="Legendary Grandmaster MiFaFaOvO" class="rated-user user-legendary"><span class="legendary-user-first-letter">M</span>iFaFaOvO</a></td>
+<td class=" dark">3681</td>
+</tr>
+<tr>
+<td class="left ">2</td>
+<td class=""><a href="https://codeforces.com/profile/Um_nik" title="Legendary Grandmaster Um_nik" class="rated-user user-legendary"><span class="legendary-user-first-letter">U</span>m_nik</a></td>
+<td class="">3567</td>
+</tr>
+<tr>
+<td class="left dark">3</td>
+<td class=" dark"><a href="https://codeforces.com/profile/tourist" title="Legendary Grandmaster tourist" class="rated-user user-legendary"><span class="legendary-user-first-letter">t</span>ourist</a></td>
+<td class=" dark">3520</td>
+</tr>
+<tr>
+<td class="left ">4</td>
+<td class=""><a href="https://codeforces.com/profile/maroonrk" title="Legendary Grandmaster maroonrk" class="rated-user user-legendary"><span class="legendary-user-first-letter">m</span>aroonrk</a></td>
+<td class="">3421</td>
+</tr>
+<tr>
+<td class="left dark">5</td>
+<td class=" dark"><a href="https://codeforces.com/profile/apiadu" title="Legendary Grandmaster apiadu" class="rated-user user-legendary"><span class="legendary-user-first-letter">a</span>piadu</a></td>
+<td class=" dark">3397</td>
+</tr>
+<tr>
+<td class="left ">6</td>
+<td class=""><a href="https://codeforces.com/profile/300iq" title="Legendary Grandmaster 300iq" class="rated-user user-legendary"><span class="legendary-user-first-letter">3</span>00iq</a></td>
+<td class="">3317</td>
+</tr>
+<tr>
+<td class="left dark">7</td>
+<td class=" dark"><a href="https://codeforces.com/profile/ecnerwala" title="Legendary Grandmaster ecnerwala" class="rated-user user-legendary"><span class="legendary-user-first-letter">e</span>cnerwala</a></td>
+<td class=" dark">3309</td>
+</tr>
+<tr>
+<td class="left ">8</td>
+<td class=""><a href="https://codeforces.com/profile/Benq" title="Legendary Grandmaster Benq" class="rated-user user-legendary"><span class="legendary-user-first-letter">B</span>enq</a></td>
+<td class="">3283</td>
+</tr>
+<tr>
+<td class="left dark">9</td>
+<td class=" dark"><a href="https://codeforces.com/profile/LHiC" title="Legendary Grandmaster LHiC" class="rated-user user-legendary"><span class="legendary-user-first-letter">L</span>HiC</a></td>
+<td class=" dark">3229</td>
+</tr>
+<tr>
+<td class="left bottom">10</td>
+<td class="bottom"><a href="https://codeforces.com/profile/TLE" title="Legendary Grandmaster TLE" class="rated-user user-legendary"><span class="legendary-user-first-letter">T</span>LE</a></td>
+<td class="bottom">3223</td>
+</tr>
+</tbody>
+</table>
+<div class="bottom-links">
+<table style="width:100%;">
+<tbody>
+<tr>
+<td style="text-align:left;">
+<a href="https://codeforces.com/ratings/countries">Countries</a> |
+<a href="https://codeforces.com/ratings/cities">Cities</a> |
+<a href="https://codeforces.com/ratings/organizations">Organizations</a>
+</td>
+<td style="text-align:right;">
+<a href="https://codeforces.com/ratings">View all →</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="roundbox sidebox top-contributed" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+        <div class="caption titled">→ Top contributors
+            <div class="top-links">
+            </div>
+        </div>
+        <table class="rtable ">
+            <tbody>
+                <tr>
+                            <th class="left" style="width:2.25em;">#</th>
+                            <th class="">User</th>
+                            <th class="" style="width:5em;">Contrib.</th>
+                </tr>
+                    <tr>
+                                <td class="left  dark">1</td>
+                                <td class=" dark"><a href="https://codeforces.com/profile/Errichto" title="Grandmaster Errichto" class="rated-user user-red">Errichto</a></td>
+                                <td class=" dark">195</td>
+                    </tr>
+                    <tr>
+                                <td class="left ">2</td>
+                                <td class=""><a href="https://codeforces.com/profile/antontrygubO_o" title="Grandmaster antontrygubO_o" class="rated-user user-red">antontrygubO_o</a></td>
+                                <td class="">194</td>
+                    </tr>
+                    <tr>
+                                <td class="left  dark">3</td>
+                                <td class=" dark"><a href="https://codeforces.com/profile/pikmike" title="Grandmaster pikmike" class="rated-user user-red">pikmike</a></td>
+                                <td class=" dark">180</td>
+                    </tr>
+                    <tr>
+                                <td class="left ">4</td>
+                                <td class=""><a href="https://codeforces.com/profile/vovuh" title="Master vovuh" class="rated-user user-orange">vovuh</a></td>
+                                <td class="">177</td>
+                    </tr>
+                    <tr>
+                                <td class="left  dark">5</td>
+                                <td class=" dark"><a href="https://codeforces.com/profile/Ashishgup" title="Master Ashishgup" class="rated-user user-orange">Ashishgup</a></td>
+                                <td class=" dark">170</td>
+                    </tr>
+                    <tr>
+                                <td class="left ">6</td>
+                                <td class=""><a href="https://codeforces.com/profile/Radewoosh" title="Legendary Grandmaster Radewoosh" class="rated-user user-legendary"><span class="legendary-user-first-letter">R</span>adewoosh</a></td>
+                                <td class="">169</td>
+                    </tr>
+                    <tr>
+                                <td class="left  dark">7</td>
+                                <td class=" dark"><a href="https://codeforces.com/profile/Um_nik" title="Legendary Grandmaster Um_nik" class="rated-user user-legendary"><span class="legendary-user-first-letter">U</span>m_nik</a></td>
+                                <td class=" dark">166</td>
+                    </tr>
+                    <tr>
+                                <td class="left ">7</td>
+                                <td class=""><a href="https://codeforces.com/profile/tourist" title="Legendary Grandmaster tourist" class="rated-user user-legendary"><span class="legendary-user-first-letter">t</span>ourist</a></td>
+                                <td class="">166</td>
+                    </tr>
+                    <tr>
+                                <td class="left  dark">9</td>
+                                <td class=" dark"><a href="https://codeforces.com/profile/ko_osaga" title="Legendary Grandmaster ko_osaga" class="rated-user user-legendary"><span class="legendary-user-first-letter">k</span>o_osaga</a></td>
+                                <td class=" dark">163</td>
+                    </tr>
+                    <tr>
+                                <td class="left bottom">10</td>
+                                <td class="bottom"><a href="https://codeforces.com/profile/McDic" title="Candidate Master McDic" class="rated-user user-violet">McDic</a></td>
+                                <td class="bottom">162</td>
+                    </tr>
+            </tbody>
+        </table>
+            <div class="bottom-links">
+                <table style="width:100%;">
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left;">
+                            </td>
+                            <td style="text-align:right;">
+                                    <a href="https://codeforces.com/top-contributed">View all →</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+        });
+    </script>
+
+    <div class="roundbox sidebox" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+        <div class="caption titled">→ Find user
+            <div class="top-links">
+            </div>
+        </div>
+        <form class="handleForm" method="post" autocomplete="off"><input type="hidden" name="csrf_token" value="75958f4cb357f79208c9b65bcb070575">
+            <div style="padding:1em;text-align:right;">
+                <label style="padding-right:1em;">Handle:
+                    <input style="width:12em;" type="text" class="handleBox ac_input" autocomplete="off">
+                </label>
+            </div>
+            <div style="padding: 0 1em 1em 1em;text-align:right;">
+                <input style="height:1.65em;padding:0 0.75em;" type="submit" value="Find">
+            </div>
+        <input type="hidden" name="_tta" value="210"></form>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+    $(".handleBox").autocomplete("/data/handles", {
+        delay: 200,
+        width: 200,
+        selectFirst: false,
+        matchContains: true,
+        minChars: 3
+    });
+    $(".handleForm").attr("autocomplete", "off").submit(function () {
+        var link = "/profile/userHandle".replace(
+            "userHandle", $(this).find(".handleBox").val()
+        );
+        window.location = link;
+        return false;
+    });
+        });
+    </script>
+
+
+<div class="roundbox sidebox" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+        <div class="caption titled">→ Recent actions
+            <div class="top-links">
+            </div>
+        </div>
+        <div class="recent-actions">
+            <ul>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/MetB" title="Master MetB" class="rated-user user-orange">MetB</a>        →
+        <a href="https://codeforces.com/blog/entry/78652">Unified blog for all issues/bugs/requests considering codeforces</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/Supermagzzz" title="Master Supermagzzz" class="rated-user user-orange">Supermagzzz</a>        →
+        <a href="https://codeforces.com/blog/entry/78864">Codeforces Round #650 (Div. 3) Editorial</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/harishsanaka" title="Newbie harishsanaka" class="rated-user user-gray">harishsanaka</a>        →
+        <a href="https://codeforces.com/blog/entry/79014">why my rating is falling very rapidly...!??</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/smhh22" title="Master smhh22" class="rated-user user-orange">smhh22</a>        →
+        <a href="https://codeforces.com/blog/entry/78969">Is search broken in CF?</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/Kshetragya" title="Newbie Kshetragya" class="rated-user user-gray">Kshetragya</a>        →
+        <a href="https://codeforces.com/blog/entry/79015">Python Runtime Error (Exit Code=1)</a>
+&nbsp;&nbsp;<img alt="Text created or updated" title="Text created or updated" src="./Contests - Codeforces_files/x-update-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/Endagorion" title="Legendary Grandmaster Endagorion" class="rated-user user-legendary"><span class="legendary-user-first-letter">E</span>ndagorion</a>        →
+        <a href="https://codeforces.com/blog/entry/78987">Codeforces Global Round 8</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/MikeMirzayanov" title="Headquarters, MikeMirzayanov" class="rated-user user-admin">MikeMirzayanov</a>        →
+        <a href="https://codeforces.com/blog/entry/8790">Rule about third-party code is changing</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/badam_milk" title="Pupil badam_milk" class="rated-user user-green">badam_milk</a>        →
+        <a href="https://codeforces.com/blog/entry/79013">[Valid] Implementation of Rabin-Karp algorithm for string matching in C++?</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/jainnish98" title="Expert jainnish98" class="rated-user user-blue">jainnish98</a>        →
+        <a href="https://codeforces.com/blog/entry/79009">Ehab and the Big Finale</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/brunomont" title="Master brunomont" class="rated-user user-orange">brunomont</a>        →
+        <a href="https://codeforces.com/blog/entry/78931">Range mininum query in O(1) with linear time construction</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/ashk_21" title="Pupil ashk_21" class="rated-user user-green">ashk_21</a>        →
+        <a href="https://codeforces.com/blog/entry/78967">Top Competitive Programming Youtubers</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/Okrut" title="Master Okrut" class="rated-user user-orange">Okrut</a>        →
+        <a href="https://codeforces.com/blog/entry/78355">Codeforces Round #647 Editorial</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/Robbinb1993" title="Candidate Master Robbinb1993" class="rated-user user-violet">Robbinb1993</a>        →
+        <a href="https://codeforces.com/blog/entry/76015">uDebug Tool</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/MikeMirzayanov" title="Headquarters, MikeMirzayanov" class="rated-user user-admin">MikeMirzayanov</a>        →
+        <a href="https://codeforces.com/blog/entry/78127">SIT STAR Contest</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/kazuya" title="Pupil kazuya" class="rated-user user-green">kazuya</a>        →
+        <a href="https://codeforces.com/blog/entry/79008">Some Gourmet SHIT with .size() in C++ . Why ?</a>
+&nbsp;&nbsp;<img alt="Text created or updated" title="Text created or updated" src="./Contests - Codeforces_files/x-update-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/LoneFox" title="International Master LoneFox" class="rated-user user-orange">LoneFox</a>        →
+        <a href="https://codeforces.com/blog/entry/78994">Facebook Hacker Cup 2020 Schedule</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/AndrewLazarev" title="Candidate Master AndrewLazarev" class="rated-user user-violet">AndrewLazarev</a>        →
+        <a href="https://codeforces.com/blog/entry/109">Codeforces Beta Round #2 - Tutorial</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/cgy4ever" title="International Grandmaster cgy4ever" class="rated-user user-red">cgy4ever</a>        →
+        <a href="https://codeforces.com/blog/entry/10629">Codeforces Round #228 — Editorial</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/MikeMirzayanov" title="Headquarters, MikeMirzayanov" class="rated-user user-admin">MikeMirzayanov</a>        →
+        <a href="https://codeforces.com/blog/entry/4088">Codeforces Contest Rules</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/Puff_Puff_Pass" title="Expert Puff_Puff_Pass" class="rated-user user-blue">Puff_Puff_Pass</a>        →
+        <a href="https://codeforces.com/blog/entry/78942">Codeforces Round #650 Div 3 Unrated?</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/Everule" title="Expert Everule" class="rated-user user-blue">Everule</a>        →
+        <a href="https://codeforces.com/blog/entry/78981">What are your strong and weak topics?</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/sahildua2305" title="Specialist sahildua2305" class="rated-user user-cyan">sahildua2305</a>        →
+        <a href="https://codeforces.com/blog/entry/16142">Any way to sort the problems by their difficulty level ?</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/Hasv" title="Pupil Hasv" class="rated-user user-green">Hasv</a>        →
+        <a href="https://codeforces.com/blog/entry/78728">should I rage quit problem solving?</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/vovuh" title="Master vovuh" class="rated-user user-orange">vovuh</a>        →
+        <a href="https://codeforces.com/blog/entry/73274">Codeforces Round #615 (Div. 3) Editorial</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+                        <li><div style="font-size:0.9em;padding:0.5em 0;">
+<a href="https://codeforces.com/profile/mohammedehab2002" title="Master mohammedehab2002" class="rated-user user-orange">mohammedehab2002</a>        →
+        <a href="https://codeforces.com/blog/entry/78781">Codeforces round #649 editorial</a>
+&nbsp;&nbsp;<img alt="New comment(s)" title="New comment(s)" src="./Contests - Codeforces_files/comment-12x12.png" style="vertical-align:middle;">
+</div>
+</li>
+            </ul>
+        </div>
+            <div class="bottom-links">
+                <table style="width:100%;">
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left;">
+                            </td>
+                            <td style="text-align:right;">
+                                    <a href="https://codeforces.com/recent-actions">Detailed →</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div></div>
+                        <div id="pageContent" class="content-with-sidebar">
+                    <div class="second-level-menu">
+<ul class="second-level-menu-list"><li class="backLava" style="position: absolute; display: block; margin: 0px; padding: 0px; left: 386.504px; top: 0px; width: 61px; height: 20px;"><div class="leftLava"></div><div class="bottomLava"></div><div class="cornerLava"></div></li>
+        <li><a href="https://codeforces.com/profile/maxwill">maxwill</a></li>
+        <li><a href="https://codeforces.com/settings/general">Settings</a></li>
+        <li><a href="https://codeforces.com/lists">Lists</a></li>
+        <li><a href="https://codeforces.com/blog/maxwill">Blog</a></li>
+        <li><a href="https://codeforces.com/teams/with/maxwill">Teams</a></li>
+        <li><a href="https://codeforces.com/submissions/maxwill">Submissions</a></li>
+        <li><a href="https://codeforces.com/favourite/problems">Favourites</a></li>
+        <li class="current selectedLava"><a href="https://codeforces.com/contests/with/maxwill">Contests</a></li>
+</ul>
+</div>
+    <div style="margin: 0 auto; text-align: center; padding: 1.5em 0 0.5em 0; font-size: 1.25em;">Contests</div>
+<div class="datatable" style="background-color: #E1E1E1; padding-bottom: 3px;">
+            <div class="lt">&nbsp;</div>
+            <div class="rt">&nbsp;</div>
+            <div class="lb">&nbsp;</div>
+            <div class="rb">&nbsp;</div>
+
+            <div style="padding: 4px 0 0 6px;font-size:1.4rem;position:relative;">
+                Contests
+
+                <div style="position:absolute;right:0.25em;top:0.35em;">
+                    <span style="padding:0;position:relative;bottom:2px;" class="rowCount"></span>
+
+                    <img class="closed" src="./Contests - Codeforces_files/control.png">
+
+                    <span class="filter" style="display:none;">
+                        <img class="opened" src="./Contests - Codeforces_files/control-270.png">
+                        <input style="padding:0 0 0 20px;position:relative;bottom:2px;border:1px solid #aaa;height:17px;font-size:1.3rem;">
+                    </span>
+                </div>
+            </div>
+            <div style="background-color: white;margin:0.3em 3px 0 3px;position:relative;">
+            <div class="ilt">&nbsp;</div>
+            <div class="irt">&nbsp;</div>
+            <table class="tablesorter user-contests-table">
+    <thead>
+        <tr>
+            <th style="padding-right: 1.5em;" class="top left header">#</th>
+            <th class="top">Contest</th>
+            <th style="padding-right: 1.5em;" class="top header">Rank</th>
+            <th style="padding-right: 1.5em;" class="top header">Solved</th>
+            <th style="padding-right: 1.5em;" class="top header">Rating change</th>
+            <th style="padding-right: 1.5em;" class="top header">New rating</th>
+            <th class="top right"></th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td class="dark left">35</td>
+                <td class="dark">
+                    <a href="https://codeforces.com/contest/1364" title="Codeforces Round #649 (Div. 2)">
+Codeforces Round #649 (Div. 2)                    </a>
+                </td>
+                <td class="dark">
+                        <a href="https://codeforces.com/contest/1364/standings/participant/67136815#p67136815">
+                            194
+                        </a>
+                </td>
+                <td class="dark">
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1364">
+                        4
+                    </a>
+                </td>
+                <td class="dark">
+                    <span style="color:green;font-weight:bold;">+87</span>
+                </td>
+                <td class="dark">
+                    2035
+                </td>
+                <td class="dark right">
+                </td>
+            </tr>
+            <tr>
+                <td class="left">34</td>
+                <td>
+                    <a href="https://codeforces.com/contest/1365" title="Codeforces Round #648 (Div. 2)">
+Codeforces Round #648 (Div. 2)                    </a>
+                </td>
+                <td>
+                        <a href="https://codeforces.com/contest/1365/standings/participant/66808996#p66808996">
+                            954
+                        </a>
+                </td>
+                <td>
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1365">
+                        5
+                    </a>
+                </td>
+                <td>
+                    <span style="color:gray;font-weight:bold;">0</span>
+                </td>
+                <td>
+                    1948
+                </td>
+                <td class="right">
+                </td>
+            </tr>
+            <tr>
+                <td class="dark left">33</td>
+                <td class="dark">
+                    <a href="https://codeforces.com/contest/1361" title="Codeforces Round #647 (Div. 1) - Thanks, Algo Muse!">
+Codeforces Round #647 (Div. 1) - Thanks, Algo Muse!                    </a>
+                </td>
+                <td class="dark">
+                        <a href="https://codeforces.com/contest/1361/standings/participant/66637101#p66637101">
+                            711
+                        </a>
+                </td>
+                <td class="dark">
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1361">
+                        2
+                    </a>
+                </td>
+                <td class="dark">
+                    <span style="color:green;font-weight:bold;">+16</span>
+                </td>
+                <td class="dark">
+                    1948
+                </td>
+                <td class="dark right">
+                </td>
+            </tr>
+            <tr>
+                <td class="left">32</td>
+                <td>
+                    <a href="https://codeforces.com/contest/1363" title="Codeforces Round #646 (Div. 2)">
+Codeforces Round #646 (Div. 2)                    </a>
+                </td>
+                <td>
+                        <a href="https://codeforces.com/contest/1363/standings/participant/66442510#p66442510">
+                            389
+                        </a>
+                </td>
+                <td>
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1363">
+                        4
+                    </a>
+                </td>
+                <td>
+                    <span style="color:green;font-weight:bold;">+86</span>
+                </td>
+                <td>
+                    1932
+                </td>
+                <td class="right">
+                        <div>Became <span title="Candidate Master" class="rated-user user-violet">Candidate Master</span></div>
+                        <div><a href="https://codeforces.com/profile/maxwill" title="Expert maxwill" class="rated-user user-blue">maxwill</a> → <a href="https://codeforces.com/profile/maxwill" title="Candidate Master maxwill" class="rated-user user-violet">maxwill</a></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="dark left">31</td>
+                <td class="dark">
+                    <a href="https://codeforces.com/contest/1359" title="Educational Codeforces Round 88 (Rated for Div. 2)">
+Educational Codeforces Round 88 (Rated for Div. 2)                    </a>
+                </td>
+                <td class="dark">
+                        <a href="https://codeforces.com/contest/1359/standings/participant/66265013#p66265013">
+                            3565
+                        </a>
+                </td>
+                <td class="dark">
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1359">
+                        2
+                    </a>
+                </td>
+                <td class="dark">
+                    <span style="color:gray;font-weight:bold;">-86</span>
+                </td>
+                <td class="dark">
+                    1846
+                </td>
+                <td class="dark right">
+                        <div>Became <span title="Expert" class="rated-user user-blue">Expert</span></div>
+                        <div><a href="https://codeforces.com/profile/maxwill" title="Candidate Master maxwill" class="rated-user user-violet">maxwill</a> → <a href="https://codeforces.com/profile/maxwill" title="Expert maxwill" class="rated-user user-blue">maxwill</a></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">30</td>
+                <td>
+                    <a href="https://codeforces.com/contest/1342" title="Educational Codeforces Round 86 (Rated for Div. 2)">
+Educational Codeforces Round 86 (Rated for Div. 2)                    </a>
+                </td>
+                <td>
+                        <a href="https://codeforces.com/contest/1342/standings/participant/49922659#p49922659">
+                            298
+                        </a>
+                </td>
+                <td>
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1342">
+                        4
+                    </a>
+                </td>
+                <td>
+                    <span style="color:green;font-weight:bold;">+106</span>
+                </td>
+                <td>
+                    1932
+                </td>
+                <td class="right">
+                        <div>Became <span title="Candidate Master" class="rated-user user-violet">Candidate Master</span></div>
+                        <div><a href="https://codeforces.com/profile/maxwill" title="Expert maxwill" class="rated-user user-blue">maxwill</a> → <a href="https://codeforces.com/profile/maxwill" title="Candidate Master maxwill" class="rated-user user-violet">maxwill</a></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="dark left">29</td>
+                <td class="dark">
+                    <a href="https://codeforces.com/contest/1341" title="Codeforces Round #637 (Div. 2) - Thanks, Ivan Belonogov!">
+Codeforces Round #637 (Div. 2) - Thanks, Ivan Belonogov!                    </a>
+                </td>
+                <td class="dark">
+                        <a href="https://codeforces.com/contest/1341/standings/participant/49756044#p49756044">
+                            307
+                        </a>
+                </td>
+                <td class="dark">
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1341">
+                        4
+                    </a>
+                </td>
+                <td class="dark">
+                    <span style="color:green;font-weight:bold;">+114</span>
+                </td>
+                <td class="dark">
+                    1826
+                </td>
+                <td class="dark right">
+                </td>
+            </tr>
+            <tr>
+                <td class="left">28</td>
+                <td>
+                    <a href="https://codeforces.com/contest/1339" title="Codeforces Round #633 (Div. 2)">
+Codeforces Round #633 (Div. 2)                    </a>
+                </td>
+                <td>
+                        <a href="https://codeforces.com/contest/1339/standings/participant/49031932#p49031932">
+                            786
+                        </a>
+                </td>
+                <td>
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1339">
+                        4
+                    </a>
+                </td>
+                <td>
+                    <span style="color:green;font-weight:bold;">+67</span>
+                </td>
+                <td>
+                    1712
+                </td>
+                <td class="right">
+                </td>
+            </tr>
+            <tr>
+                <td class="dark left">27</td>
+                <td class="dark">
+                    <a href="https://codeforces.com/contest/1333" title="Codeforces Round #632 (Div. 2)">
+Codeforces Round #632 (Div. 2)                    </a>
+                </td>
+                <td class="dark">
+                        <a href="https://codeforces.com/contest/1333/standings/participant/48777653#p48777653">
+                            2571
+                        </a>
+                </td>
+                <td class="dark">
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1333">
+                        2
+                    </a>
+                </td>
+                <td class="dark">
+                    <span style="color:green;font-weight:bold;">+17</span>
+                </td>
+                <td class="dark">
+                    1645
+                </td>
+                <td class="dark right">
+                </td>
+            </tr>
+            <tr>
+                <td class="left">26</td>
+                <td>
+                    <a href="https://codeforces.com/contest/1330" title="Codeforces Round #631 (Div. 2) - Thanks, Denis aramis Shitov!">
+Codeforces Round #631 (Div. 2) - Thanks, Denis aramis Shitov!                    </a>
+                </td>
+                <td>
+                        <a href="https://codeforces.com/contest/1330/standings/participant/35028778#p35028778">
+                            4265
+                        </a>
+                </td>
+                <td>
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1330">
+                        2
+                    </a>
+                </td>
+                <td>
+                    <span style="color:gray;font-weight:bold;">-54</span>
+                </td>
+                <td>
+                    1628
+                </td>
+                <td class="right">
+                </td>
+            </tr>
+            <tr>
+                <td class="dark left">25</td>
+                <td class="dark">
+                    <a href="https://codeforces.com/contest/1332" title="Codeforces Round #630 (Div. 2)">
+Codeforces Round #630 (Div. 2)                    </a>
+                </td>
+                <td class="dark">
+                        <a href="https://codeforces.com/contest/1332/standings/participant/34809418#p34809418">
+                            4191
+                        </a>
+                </td>
+                <td class="dark">
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1332">
+                        2
+                    </a>
+                </td>
+                <td class="dark">
+                    <span style="color:gray;font-weight:bold;">-46</span>
+                </td>
+                <td class="dark">
+                    1682
+                </td>
+                <td class="dark right">
+                </td>
+            </tr>
+            <tr>
+                <td class="left">24</td>
+                <td>
+                    <a href="https://codeforces.com/contest/1327" title="Educational Codeforces Round 84 (Rated for Div. 2)">
+Educational Codeforces Round 84 (Rated for Div. 2)                    </a>
+                </td>
+                <td>
+                        <a href="https://codeforces.com/contest/1327/standings/participant/34375878#p34375878">
+                            1191
+                        </a>
+                </td>
+                <td>
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1327">
+                        4
+                    </a>
+                </td>
+                <td>
+                    <span style="color:green;font-weight:bold;">+60</span>
+                </td>
+                <td>
+                    1728
+                </td>
+                <td class="right">
+                </td>
+            </tr>
+            <tr>
+                <td class="dark left">23</td>
+                <td class="dark">
+                    <a href="https://codeforces.com/contest/1326" title="Codeforces Global Round 7">
+Codeforces Global Round 7                    </a>
+                </td>
+                <td class="dark">
+                        <a href="https://codeforces.com/contest/1326/standings/participant/34196953#p34196953">
+                            666
+                        </a>
+                </td>
+                <td class="dark">
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1326">
+                        5
+                    </a>
+                </td>
+                <td class="dark">
+                    <span style="color:green;font-weight:bold;">+204</span>
+                </td>
+                <td class="dark">
+                    1668
+                </td>
+                <td class="dark right">
+                        <div>Became <span title="Expert" class="rated-user user-blue">Expert</span></div>
+                        <div><a href="https://codeforces.com/profile/maxwill" title="Specialist maxwill" class="rated-user user-cyan">maxwill</a> → <a href="https://codeforces.com/profile/maxwill" title="Expert maxwill" class="rated-user user-blue">maxwill</a></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">22</td>
+                <td>
+                    <a href="https://codeforces.com/contest/1325" title="Codeforces Round #628 (Div. 2)">
+Codeforces Round #628 (Div. 2)                    </a>
+                </td>
+                <td>
+                        <a href="https://codeforces.com/contest/1325/standings/participant/34003755#p34003755">
+                            3887
+                        </a>
+                </td>
+                <td>
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1325">
+                        2
+                    </a>
+                </td>
+                <td>
+                    <span style="color:gray;font-weight:bold;">-14</span>
+                </td>
+                <td>
+                    1464
+                </td>
+                <td class="right">
+                </td>
+            </tr>
+            <tr>
+                <td class="dark left">21</td>
+                <td class="dark">
+                    <a href="https://codeforces.com/contest/1324" title="Codeforces Round #627 (Div. 3)">
+Codeforces Round #627 (Div. 3)                    </a>
+                </td>
+                <td class="dark">
+                        <a href="https://codeforces.com/contest/1324/standings/participant/33908052#p33908052">
+                            5691
+                        </a>
+                </td>
+                <td class="dark">
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1324">
+                        2
+                    </a>
+                </td>
+                <td class="dark">
+                    <span style="color:gray;font-weight:bold;">-104</span>
+                </td>
+                <td class="dark">
+                    1478
+                </td>
+                <td class="dark right">
+                </td>
+            </tr>
+            <tr>
+                <td class="left">20</td>
+                <td>
+                    <a href="https://codeforces.com/contest/1323" title="Codeforces Round #626 (Div. 2, based on Moscow Open Olympiad in Informatics)">
+Codeforces Round #626 (Div. 2, based on Moscow Open Olympiad in Informatics)                    </a>
+                </td>
+                <td>
+                        <a href="https://codeforces.com/contest/1323/standings/participant/33710102#p33710102">
+                            1730
+                        </a>
+                </td>
+                <td>
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1323">
+                        3
+                    </a>
+                </td>
+                <td>
+                    <span style="color:gray;font-weight:bold;">-25</span>
+                </td>
+                <td>
+                    1582
+                </td>
+                <td class="right">
+                        <div>Became <span title="Specialist" class="rated-user user-cyan">Specialist</span></div>
+                        <div><a href="https://codeforces.com/profile/maxwill" title="Expert maxwill" class="rated-user user-blue">maxwill</a> → <a href="https://codeforces.com/profile/maxwill" title="Specialist maxwill" class="rated-user user-cyan">maxwill</a></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="dark left">19</td>
+                <td class="dark">
+                    <a href="https://codeforces.com/contest/1316" title="CodeCraft-20 (Div. 2)">
+CodeCraft-20 (Div. 2)                    </a>
+                </td>
+                <td class="dark">
+                        <a href="https://codeforces.com/contest/1316/standings/participant/33606848#p33606848">
+                            1473
+                        </a>
+                </td>
+                <td class="dark">
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1316">
+                        3
+                    </a>
+                </td>
+                <td class="dark">
+                    <span style="color:green;font-weight:bold;">+25</span>
+                </td>
+                <td class="dark">
+                    1607
+                </td>
+                <td class="dark right">
+                        <div>Became <span title="Expert" class="rated-user user-blue">Expert</span></div>
+                        <div><a href="https://codeforces.com/profile/maxwill" title="Specialist maxwill" class="rated-user user-cyan">maxwill</a> → <a href="https://codeforces.com/profile/maxwill" title="Expert maxwill" class="rated-user user-blue">maxwill</a></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">18</td>
+                <td>
+                    <a href="https://codeforces.com/contest/1305" title="Ozon Tech Challenge 2020 (Div.1 + Div.2, Rated, T-shirts + prizes!)">
+Ozon Tech Challenge 2020 (Div.1 + Div.2, Rated, T-shirts + prizes!)                    </a>
+                </td>
+                <td>
+                        <a href="https://codeforces.com/contest/1305/standings/participant/33536432#p33536432">
+                            2859
+                        </a>
+                </td>
+                <td>
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1305">
+                        3
+                    </a>
+                </td>
+                <td>
+                    <span style="color:gray;font-weight:bold;">-7</span>
+                </td>
+                <td>
+                    1582
+                </td>
+                <td class="right">
+                </td>
+            </tr>
+            <tr>
+                <td class="dark left">17</td>
+                <td class="dark">
+                    <a href="https://codeforces.com/contest/1321" title="Codeforces Round #625 (Div. 2, based on Technocup 2020 Final Round)">
+Codeforces Round #625 (Div. 2, based on Technocup 2020 Final Round)                    </a>
+                </td>
+                <td class="dark">
+                        <a href="https://codeforces.com/contest/1321/standings/participant/33479837#p33479837">
+                            983
+                        </a>
+                </td>
+                <td class="dark">
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1321">
+                        3
+                    </a>
+                </td>
+                <td class="dark">
+                    <span style="color:green;font-weight:bold;">+43</span>
+                </td>
+                <td class="dark">
+                    1589
+                </td>
+                <td class="dark right">
+                </td>
+            </tr>
+            <tr>
+                <td class="left">16</td>
+                <td>
+                    <a href="https://codeforces.com/contest/1311" title="Codeforces Round #624 (Div. 3)">
+Codeforces Round #624 (Div. 3)                    </a>
+                </td>
+                <td>
+                        <a href="https://codeforces.com/contest/1311/standings/participant/33300930#p33300930">
+                            874
+                        </a>
+                </td>
+                <td>
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1311">
+                        3
+                    </a>
+                </td>
+                <td>
+                    <span style="color:green;font-weight:bold;">+30</span>
+                </td>
+                <td>
+                    1546
+                </td>
+                <td class="right">
+                </td>
+            </tr>
+            <tr>
+                <td class="dark left">15</td>
+                <td class="dark">
+                    <a href="https://codeforces.com/contest/1315" title="Codeforces Round #623 (Div. 2, based on VK Cup 2019-2020 - Elimination Round, Engine)">
+Codeforces Round #623 (Div. 2, based on VK Cup 2019-2020 - Elimination Round, Engine)                    </a>
+                </td>
+                <td class="dark">
+                        <a href="https://codeforces.com/contest/1315/standings/participant/33254354#p33254354">
+                            2127
+                        </a>
+                </td>
+                <td class="dark">
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1315">
+                        2
+                    </a>
+                </td>
+                <td class="dark">
+                    <span style="color:gray;font-weight:bold;">-73</span>
+                </td>
+                <td class="dark">
+                    1516
+                </td>
+                <td class="dark right">
+                </td>
+            </tr>
+            <tr>
+                <td class="left">14</td>
+                <td>
+                    <a href="https://codeforces.com/contest/1313" title="Codeforces Round #622 (Div. 2)">
+Codeforces Round #622 (Div. 2)                    </a>
+                </td>
+                <td>
+                        <a href="https://codeforces.com/contest/1313/standings/participant/33232707#p33232707">
+                            2791
+                        </a>
+                </td>
+                <td>
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1313">
+                        2
+                    </a>
+                </td>
+                <td>
+                    <span style="color:gray;font-weight:bold;">-51</span>
+                </td>
+                <td>
+                    1589
+                </td>
+                <td class="right">
+                        <div>Became <span title="Specialist" class="rated-user user-cyan">Specialist</span></div>
+                        <div><a href="https://codeforces.com/profile/maxwill" title="Expert maxwill" class="rated-user user-blue">maxwill</a> → <a href="https://codeforces.com/profile/maxwill" title="Specialist maxwill" class="rated-user user-cyan">maxwill</a></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="dark left">13</td>
+                <td class="dark">
+                    <a href="https://codeforces.com/contest/1304" title="Codeforces Round #620 (Div. 2)">
+Codeforces Round #620 (Div. 2)                    </a>
+                </td>
+                <td class="dark">
+                        <a href="https://codeforces.com/contest/1304/standings/participant/32922252#p32922252">
+                            2183
+                        </a>
+                </td>
+                <td class="dark">
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1304">
+                        3
+                    </a>
+                </td>
+                <td class="dark">
+                    <span style="color:gray;font-weight:bold;">-11</span>
+                </td>
+                <td class="dark">
+                    1640
+                </td>
+                <td class="dark right">
+                </td>
+            </tr>
+            <tr>
+                <td class="left">12</td>
+                <td>
+                    <a href="https://codeforces.com/contest/1301" title="Codeforces Round #619 (Div. 2)">
+Codeforces Round #619 (Div. 2)                    </a>
+                </td>
+                <td>
+                        <a href="https://codeforces.com/contest/1301/standings/participant/32864111#p32864111">
+                            4079
+                        </a>
+                </td>
+                <td>
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1301">
+                        2
+                    </a>
+                </td>
+                <td>
+                    <span style="color:gray;font-weight:bold;">-86</span>
+                </td>
+                <td>
+                    1651
+                </td>
+                <td class="right">
+                </td>
+            </tr>
+            <tr>
+                <td class="dark left">11</td>
+                <td class="dark">
+                    <a href="https://codeforces.com/contest/1303" title="Educational Codeforces Round 82 (Rated for Div. 2)">
+Educational Codeforces Round 82 (Rated for Div. 2)                    </a>
+                </td>
+                <td class="dark">
+                        <a href="https://codeforces.com/contest/1303/standings/participant/32776622#p32776622">
+                            918
+                        </a>
+                </td>
+                <td class="dark">
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1303">
+                        4
+                    </a>
+                </td>
+                <td class="dark">
+                    <span style="color:green;font-weight:bold;">+51</span>
+                </td>
+                <td class="dark">
+                    1737
+                </td>
+                <td class="dark right">
+                </td>
+            </tr>
+            <tr>
+                <td class="left">10</td>
+                <td>
+                    <a href="https://codeforces.com/contest/1300" title="Codeforces Round #618 (Div. 2)">
+Codeforces Round #618 (Div. 2)                    </a>
+                </td>
+                <td>
+                        <a href="https://codeforces.com/contest/1300/standings/participant/32703131#p32703131">
+                            1799
+                        </a>
+                </td>
+                <td>
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1300">
+                        3
+                    </a>
+                </td>
+                <td>
+                    <span style="color:gray;font-weight:bold;">-23</span>
+                </td>
+                <td>
+                    1686
+                </td>
+                <td class="right">
+                </td>
+            </tr>
+            <tr>
+                <td class="dark left">9</td>
+                <td class="dark">
+                    <a href="https://codeforces.com/contest/1291" title="Codeforces Round #616 (Div. 2)">
+Codeforces Round #616 (Div. 2)                    </a>
+                </td>
+                <td class="dark">
+                        <a href="https://codeforces.com/contest/1291/standings/participant/32472680#p32472680">
+                            402
+                        </a>
+                </td>
+                <td class="dark">
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1291">
+                        4
+                    </a>
+                </td>
+                <td class="dark">
+                    <span style="color:green;font-weight:bold;">+101</span>
+                </td>
+                <td class="dark">
+                    1709
+                </td>
+                <td class="dark right">
+                </td>
+            </tr>
+            <tr>
+                <td class="left">8</td>
+                <td>
+                    <a href="https://codeforces.com/contest/1295" title="Educational Codeforces Round 81 (Rated for Div. 2)">
+Educational Codeforces Round 81 (Rated for Div. 2)                    </a>
+                </td>
+                <td>
+                        <a href="https://codeforces.com/contest/1295/standings/participant/32340583#p32340583">
+                            2371
+                        </a>
+                </td>
+                <td>
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1295">
+                        2
+                    </a>
+                </td>
+                <td>
+                    <span style="color:gray;font-weight:bold;">-10</span>
+                </td>
+                <td>
+                    1608
+                </td>
+                <td class="right">
+                </td>
+            </tr>
+            <tr>
+                <td class="dark left">7</td>
+                <td class="dark">
+                    <a href="https://codeforces.com/contest/1294" title="Codeforces Round #615 (Div. 3)">
+Codeforces Round #615 (Div. 3)                    </a>
+                </td>
+                <td class="dark">
+                        <a href="https://codeforces.com/contest/1294/standings/participant/32145729#p32145729">
+                            353
+                        </a>
+                </td>
+                <td class="dark">
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1294">
+                        4
+                    </a>
+                </td>
+                <td class="dark">
+                    <span style="color:green;font-weight:bold;">+96</span>
+                </td>
+                <td class="dark">
+                    1618
+                </td>
+                <td class="dark right">
+                        <div>Became <span title="Expert" class="rated-user user-blue">Expert</span></div>
+                        <div><a href="https://codeforces.com/profile/maxwill" title="Specialist maxwill" class="rated-user user-cyan">maxwill</a> → <a href="https://codeforces.com/profile/maxwill" title="Expert maxwill" class="rated-user user-blue">maxwill</a></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">6</td>
+                <td>
+                    <a href="https://codeforces.com/contest/1288" title="Educational Codeforces Round 80 (Rated for Div. 2)">
+Educational Codeforces Round 80 (Rated for Div. 2)                    </a>
+                </td>
+                <td>
+                        <a href="https://codeforces.com/contest/1288/standings/participant/31891568#p31891568">
+                            2805
+                        </a>
+                </td>
+                <td>
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1288">
+                        2
+                    </a>
+                </td>
+                <td>
+                    <span style="color:gray;font-weight:bold;">-23</span>
+                </td>
+                <td>
+                    1522
+                </td>
+                <td class="right">
+                </td>
+            </tr>
+            <tr>
+                <td class="dark left">5</td>
+                <td class="dark">
+                    <a href="https://codeforces.com/contest/1285" title="Codeforces Round #613 (Div. 2)">
+Codeforces Round #613 (Div. 2)                    </a>
+                </td>
+                <td class="dark">
+                        <a href="https://codeforces.com/contest/1285/standings/participant/31767342#p31767342">
+                            1895
+                        </a>
+                </td>
+                <td class="dark">
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1285">
+                        3
+                    </a>
+                </td>
+                <td class="dark">
+                    <span style="color:green;font-weight:bold;">+20</span>
+                </td>
+                <td class="dark">
+                    1545
+                </td>
+                <td class="dark right">
+                </td>
+            </tr>
+            <tr>
+                <td class="left">4</td>
+                <td>
+                    <a href="https://codeforces.com/contest/1270" title="Good Bye 2019">
+Good Bye 2019                    </a>
+                </td>
+                <td>
+                        <a href="https://codeforces.com/contest/1270/standings/participant/31428297#p31428297">
+                            3369
+                        </a>
+                </td>
+                <td>
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1270">
+                        3
+                    </a>
+                </td>
+                <td>
+                    <span style="color:gray;font-weight:bold;">-11</span>
+                </td>
+                <td>
+                    1525
+                </td>
+                <td class="right">
+                </td>
+            </tr>
+            <tr>
+                <td class="dark left">3</td>
+                <td class="dark">
+                    <a href="https://codeforces.com/contest/1279" title="Educational Codeforces Round 79 (Rated for Div. 2)">
+Educational Codeforces Round 79 (Rated for Div. 2)                    </a>
+                </td>
+                <td class="dark">
+                        <a href="https://codeforces.com/contest/1279/standings/participant/31343451#p31343451">
+                            2562
+                        </a>
+                </td>
+                <td class="dark">
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1279">
+                        3
+                    </a>
+                </td>
+                <td class="dark">
+                    <span style="color:gray;font-weight:bold;">-22</span>
+                </td>
+                <td class="dark">
+                    1536
+                </td>
+                <td class="dark right">
+                </td>
+            </tr>
+            <tr>
+                <td class="left">2</td>
+                <td>
+                    <a href="https://codeforces.com/contest/1260" title="Educational Codeforces Round 77 (Rated for Div. 2)">
+Educational Codeforces Round 77 (Rated for Div. 2)                    </a>
+                </td>
+                <td>
+                        <a href="https://codeforces.com/contest/1260/standings/participant/30397474#p30397474">
+                            1542
+                        </a>
+                </td>
+                <td>
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1260">
+                        3
+                    </a>
+                </td>
+                <td>
+                    <span style="color:green;font-weight:bold;">+21</span>
+                </td>
+                <td>
+                    1558
+                </td>
+                <td class="right">
+                </td>
+            </tr>
+            <tr>
+                <td class="bottom dark left">1</td>
+                <td class="bottom dark">
+                    <a href="https://codeforces.com/contest/1251" title="Educational Codeforces Round 75 (Rated for Div. 2)">
+Educational Codeforces Round 75 (Rated for Div. 2)                    </a>
+                </td>
+                <td class="bottom dark">
+                        <a href="https://codeforces.com/contest/1251/standings/participant/29335445#p29335445">
+                            1427
+                        </a>
+                </td>
+                <td class="bottom dark">
+                    <a href="https://codeforces.com/submissions/maxwill/contest/1251">
+                        3
+                    </a>
+                </td>
+                <td class="bottom dark">
+                    <span style="color:green;font-weight:bold;">+37</span>
+                </td>
+                <td class="bottom dark">
+                    1537
+                </td>
+                <td class="bottom dark right">
+                        <div>Became <span title="Specialist" class="rated-user user-cyan">Specialist</span></div>
+                        <div><a href="https://codeforces.com/profile/maxwill" title="Unrated, maxwill" class="rated-user user-black">maxwill</a> → <a href="https://codeforces.com/profile/maxwill" title="Specialist maxwill" class="rated-user user-cyan">maxwill</a></div>
+                </td>
+            </tr>
+    </tbody>
+            </table>
+            </div>
+        </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+                // Create new ':containsIgnoreCase' selector for search
+                jQuery.expr[':'].containsIgnoreCase = function(a, i, m) {
+                    return jQuery(a).text().toUpperCase()
+                            .indexOf(m[3].toUpperCase()) >= 0;
+                };
+
+                if (window.updateDatatableFilter == undefined) {
+                    window.updateDatatableFilter = function(i) {
+                        var parent = $(i).parent().parent().parent().parent();
+                        $("tr.no-items", parent).remove();
+                        $("tr", parent).hide().removeClass('visible');
+                        var text = $(i).val();
+                        if (text) {
+                            $("tr" + ":containsIgnoreCase('" + text + "')", parent).show().addClass('visible');
+                        } else {
+                            parent.find(".rowCount").text("");
+                            $("tr", parent).show().addClass('visible');
+                        }
+
+                        var found = false;
+                        var visibleRowCount = 0;
+                        $("tr", parent).each(function () {
+                            if (!found) {
+                                if ($(this).find("th").size() > 0) {
+                                    $(this).show().addClass('visible');
+                                    found = true;
+                                }
+                            }
+                            if ($(this).hasClass('visible')) {
+                                visibleRowCount++;
+                            }
+                        });
+                        if (text) {
+                            parent.find(".rowCount").text("Matches: " + (visibleRowCount - (found ? 1 : 0)));
+                        }
+                        if (visibleRowCount == (found ? 1 : 0)) {
+                            $("<tr class='no-items visible'><td style=\"text-align:left;\"colspan=\"32\">No items<\/td><\/tr>").appendTo($(parent).find('table'));
+                        }
+                        $(parent).find("tr td").removeClass("dark");
+                        $(parent).find("tr.visible:odd td").addClass("dark");
+                    }
+
+                    $(".datatable .closed").click(function () {
+                        var parent = $(this).parent();
+                        $(this).hide();
+                        $(".filter", parent).fadeIn(function () {
+                            $("input", parent).val("").focus().css("border", "1px solid #aaa");
+                        });
+                    });
+
+                    $(".datatable .opened").click(function () {
+                        var parent = $(this).parent().parent();
+                        $(".filter", parent).fadeOut(function () {
+                            $(".closed", parent).show();
+                            $("input", parent).val("").each(function () {
+                                window.updateDatatableFilter(this);
+                            });
+                        });
+                    });
+
+                    $(".datatable .filter input").keyup(function(e) {
+                        window.updateDatatableFilter(this);
+                        e.preventDefault();
+                        e.stopPropagation();
+                    });
+
+                    $(".datatable table").each(function () {
+                        var found = false;
+                        $("tr", this).each(function () {
+                            if (!found && $(this).find("th").size() == 0) {
+                                found = true;
+                            }
+                        });
+                        if (!found) {
+                            $("<tr class='no-items visible'><td style=\"text-align:left;\"colspan=\"32\">No items<\/td><\/tr>").appendTo(this);
+                        }
+                    });
+
+                    // Applies styles to datatables.
+                    $(".datatable").each(function () {
+                        $(this).find("tr:first th").addClass("top");
+                        $(this).find("tr:last td").addClass("bottom");
+                        $(this).find("tr:odd td").addClass("dark");
+                        $(this).find("tr td:first-child, tr th:first-child").addClass("left");
+                        $(this).find("tr td:last-child, tr th:last-child").addClass("right");
+                    });
+
+                    $(".datatable table.tablesorter").each(function () {
+                        $(this).bind("sortEnd", function () {
+                            $(".datatable").each(function () {
+                                $(this).find("th, td")
+                                    .removeClass("top").removeClass("bottom")
+                                    .removeClass("left").removeClass("right")
+                                    .removeClass("dark");
+                                $(this).find("tr:first th").addClass("top");
+                                $(this).find("tr:last td").addClass("bottom");
+                                $(this).find("tr:odd td").addClass("dark");
+                                $(this).find("tr td:first-child, tr th:first-child").addClass("left");
+                                $(this).find("tr td:last-child, tr th:last-child").addClass("right");
+                            });
+                        });
+                    });
+                }
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+        $("table.user-contests-table").tablesorter({
+            headers: {
+                1: {
+                    sorter: false
+                },
+                6: {
+                    sorter: false
+                }
+            }
+        });
+        });
+    </script>
+                </div>
+        </div>
+            <br style="clear: both;">
+            <div id="footer">
+                <div><a href="https://codeforces.com/">Codeforces</a> (c) Copyright 2010-2020 Mike Mirzayanov</div>
+                <div>The only programming contests Web 2.0 platform</div>
+                    <div>Server time: Jun/18/2020 22:05:18<sup title="timezone offset" style="font-size:8px;">UTC+8</sup> (i3).</div>
+                    <div>Desktop version, switch to <a rel="nofollow" class="switchToMobile" href="https://codeforces.com/contests/with/maxwill?mobile=true">mobile version</a>.</div>
+                <div class="smaller"><a href="https://codeforces.com/privacy">Privacy Policy</a></div>
+
+                    <div style="margin-top: 25px;">
+                        Supported by
+                    </div>
+                    <div style="margin-top: 8px; padding-bottom: 20px; position: relative; left: 10px;">
+                        <a href="https://telegram.org/"><img style="margin-right: 2em; width: 60px;" src="./Contests - Codeforces_files/telegram-100x100.png" alt="Telegram" title="Telegram"></a>
+                        <a href="http://ifmo.ru/en/"><img style="width: 120px;" src="./Contests - Codeforces_files/itmo_small_en-logo.png" alt="ИТМО" title="ИТМО"></a>
+                    </div>
+            </div>
+        <script type="text/javascript">
+            $(function() {
+                $(".switchToMobile").click(function() {
+                    Codeforces.redirect(Codeforces.updateUrlParameter(document.location.href, "mobile", "true"));
+                    return false;
+                });
+                $(".switchToDesktop").click(function() {
+                    Codeforces.redirect(Codeforces.updateUrlParameter(document.location.href, "mobile", "false"));
+                    return false;
+                });
+            });
+        </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ($(window).width() < 1600) {
+                $('.button-up').css('width', '30px').css('line-height', '30px').css('font-size', '20px');
+            }
+
+            if ($(window).width() >= 1200) {
+                $ (window).scroll (function () {
+                    if ($ (this).scrollTop () > 100) {
+                        $ ('.button-up').fadeIn();
+                    } else {
+                        $ ('.button-up').fadeOut();
+                    }
+                });
+
+                $('.button-up').click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 500);
+                    return false;
+                });
+
+                $('.button-up').hover(function () {
+                    $(this).animate({
+                        'opacity':'1'
+                    }).css({'background-color':'#e7ebf0','color':'#6a86a4'});
+                }, function () {
+                    $(this).animate({
+                        'opacity':'0.7'
+                    }).css({'background':'none','color':'#d3dbe4'});;
+                });
+            }
+            Codeforces.focusOnError();
+        });
+    </script>
+
+        <div class="userListsFacebox" style="display:none;">
+            <div style="padding: 0.5em; width: 600px; max-height: 200px; overflow-y: auto">
+<div class="datatable" style="background-color: #E1E1E1; padding-bottom: 3px;">
+            <div class="lt">&nbsp;</div>
+            <div class="rt">&nbsp;</div>
+            <div class="lb">&nbsp;</div>
+            <div class="rb">&nbsp;</div>
+
+            <div style="padding: 4px 0 0 6px;font-size:1.4rem;position:relative;">
+                User lists
+
+                <div style="position:absolute;right:0.25em;top:0.35em;">
+                    <span style="padding:0;position:relative;bottom:2px;" class="rowCount"></span>
+
+                    <img class="closed" src="./Contests - Codeforces_files/control.png">
+
+                    <span class="filter" style="display:none;">
+                        <img class="opened" src="./Contests - Codeforces_files/control-270.png">
+                        <input style="padding:0 0 0 20px;position:relative;bottom:2px;border:1px solid #aaa;height:17px;font-size:1.3rem;">
+                    </span>
+                </div>
+            </div>
+            <div style="background-color: white;margin:0.3em 3px 0 3px;position:relative;">
+            <div class="ilt">&nbsp;</div>
+            <div class="irt">&nbsp;</div>
+            <table class="">
+                    <thead>
+                    <tr>
+                        <th class="top left right">Name</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="no-items visible"><td style="text-align:left;" colspan="32" class="bottom dark left right">No items</td></tr></tbody>
+            </table>
+            </div>
+        </div>
+            </div>
+        </div>
+        <script type="application/javascript">
+            $(function() {
+                $(".userListMarker").click(function() {
+                    $.post("/data/lists", {action: "findTouched"}, function(json) {
+                        Codeforces.facebox(".userListsFacebox");
+                        var tbody = $("#facebox tbody");
+                        tbody.empty();
+                        for (var i in json) {
+                            tbody.append(
+                                    $("<tr></tr>").append(
+                                            $("<td></td>").attr("data-readKey", json[i].readKey).text(json[i].name)
+                                    )
+                            );
+                        }
+                        Codeforces.updateDatatables();
+                        tbody.find("td").css("cursor", "pointer").click(function() {
+                            document.location = Codeforces.updateUrlParameter(document.location.href, "list", $(this).attr("data-readKey"));
+                        });
+                    }, "json");
+                });
+            });
+        </script>
+</div>
+    <script type="application/javascript">
+        if ('serviceWorker' in navigator && 'fetch' in window && 'caches' in window) {
+            var parser = new UAParser();
+            var browserName = parser.getBrowser().name;
+            var browserVersion = parser.getBrowser().version;
+
+            var supportedBrowser = false;
+            var supportedBrowsers = {
+                "Chrome": "76",
+                "Firefox": "68",
+                // "Edge": "18",
+                "Safari": "12.1",
+                "Opera": "63",
+                "Yandex": "19.9"
+            };
+
+            for (var name in supportedBrowsers) {
+                if (name === browserName && supportedBrowsers[name] <= browserVersion) {
+                    supportedBrowser = true;
+                }
+            }
+
+            if (supportedBrowser) {
+                navigator.serviceWorker.register('/service-worker-35976.js')
+                    .then(function (registration) {
+                        console.log('Service worker registered');
+                    })
+                    .catch(function (error) {
+                        console.log('Registration failed: ', error);
+                    });
+            } else {
+                navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                    for (var i = 0; i < registrations.length; i++) {
+                        registrations[i].unregister();
+                    }
+                });
+            }
+        }
+    </script>
+
+
+<div id="datepick-div" style="display: none;"></div><div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" style="display: none; padding-bottom: 42px; padding-right: 42px;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxLoadedContent" style="width: 0px; height: 0px; overflow: hidden; float: left;"></div><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><div id="cboxNext" style="float: left;"></div><div id="cboxPrevious" style="float: left;"></div><div id="cboxSlideshow" style="float: left;"></div><div id="cboxClose" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div></div><div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; min-width: 0px; max-width: none; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: STIXSizeOneSym, sans-serif;"></div></div></body><loom-container id="lo-engage-ext-container"><div></div><loom-shadow classname="resolved"></loom-shadow></loom-container></html>
