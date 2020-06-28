@@ -11,5 +11,5 @@ for _ in range(T):
     x, y, n = R()
     b = x*((n)//x)+y
     if(b > n):
-        b -= x;
+        b -= x
     print(b)
