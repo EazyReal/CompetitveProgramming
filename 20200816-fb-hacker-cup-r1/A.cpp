@@ -24,7 +24,7 @@ typedef vector<int> vi;
 typedef vector<ll> vll;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
-typedef long double ld;
+//typedef long double ld; maxwill lin for fc hacker cup 1
 
 //mt19937 mrand(random_device{}());
 //mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
@@ -44,15 +44,70 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
+#define int ll // 1e9*5e8 ok
 int T;
-const int maxn = 2e5+7;
-int n;
+const int maxn = 1e6+7;
+int n, k, w;
 //ll a[maxn];
+int L[maxn];
+int R[maxn]; // actually h
+int la, lb, lc, ld;
+int ra, rb, rc, rd;
 
 //check T
 void solve()
 {
-    //cin >> n; rep(i, 0, n) cin >> a[i];
+    cin >> n >> k >> w;
+    rep(i, 0, k) cin >> L[i];
+    cin >> la >> lb >> lc >> ld;
+    rep(i, k, n)
+    {
+        L[i] = (la*L[i-2]%ld+lb*L[i-1]%ld+lc+1)%ld;
+    }
+    rep(i, 0, k) cin >> R[i];
+    cin >> ra >> rb >> rc >> rd;
+    rep(i, k, n)
+    {
+        R[i] = (ra*R[i-2]%rd+rb*R[i-1]%rd+rc+1)%rd;
+    }
+    int sum = 0;
+    int mul = 1;
+    int last = -1;
+    queue<pair<ll, ll>> q;
+    multiset<ll> hs;
+    rep(i, 0, n)
+    {
+        /*
+        |  | |  |
+        ------
+         */
+        while(!q.empty() && q.front().first < L[i]) //< not <=
+        {
+            auto pos = hs.find(q.front().second);
+            hs.erase(pos);
+            q.pop();
+        }
+        if(L[i] > last)
+        {
+            sum += w*2 + R[i]*2;
+            sum %= mod;
+        }else{
+            //when i = 0, will not enter here
+            //wont have enclosed (w is the same)
+            //debug(*hs.rbegin());
+            if(!hs.empty()) sum += max(0ll, R[i]-*hs.rbegin())*2;
+            else sum += R[i]*2;
+            sum += (L[i]-L[i-1])*2; //w is same
+            sum %= mod;
+        }
+        mul *= sum;
+        mul %= mod;
+        last = L[i]+w;
+        q.push({L[i]+w, R[i]});
+        hs.insert(R[i]);
+    }
+    cout << mul << endl;
+
     return;
 }
 
@@ -62,11 +117,12 @@ void solve()
 signed main()
 {
     fastIO();
+    fileIO("perimetric_chapter_1_input.txt", "perimetric_chapter_1_output.txt");
     T = 1;
     cin >> T; //this
     rep(tc, 1, T+1)
     {
-        //cout << "Case #" << tc << ": ";
+        cout << "Case #" << tc << ": ";
         solve();
     }
     return 0;

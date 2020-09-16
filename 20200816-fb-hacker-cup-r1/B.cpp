@@ -24,7 +24,7 @@ typedef vector<int> vi;
 typedef vector<ll> vll;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
-typedef long double ld;
+//typedef long double ld; maxwill lin for fc hacker cup 1
 
 //mt19937 mrand(random_device{}());
 //mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
@@ -44,15 +44,55 @@ inline ll read(){
 }
 
 //------------------------------------------------------------------------//
+#define int ll // 1e9*5e8 ok
 int T;
-const int maxn = 2e5+7;
-int n;
+const int maxn = 1e6+7;
+int n, k;
 //ll a[maxn];
+int L[maxn];
+int H[maxn]; // actually h
+int W[maxn];
+int la, lb, lc, ld;
+int wa, wb, wc, wd;
+int ra, rb, rc, rd;
 
 //check T
 void solve()
 {
-    //cin >> n; rep(i, 0, n) cin >> a[i];
+    cin >> n >> k;
+    rep(i, 0, k) cin >> L[i];
+    cin >> la >> lb >> lc >> ld;
+    rep(i, k, n)
+    {
+        L[i] = (la*L[i-2]%ld+lb*L[i-1]%ld+lc+1)%ld;
+    }
+    rep(i, 0, k) cin >> W[i];
+    cin >> wa >> wb >> wc >> wd;
+    rep(i, k, n)
+    {
+        W[i] = (wa*W[i-2]%wd+wb*W[i-1]%wd+wc+1)%wd;
+    }
+    rep(i, 0, k) cin >> H[i];
+    cin >> ra >> rb >> rc >> rd;
+    rep(i, k, n)
+    {
+        H[i] = (ra*H[i-2]%rd+rb*H[i-1]%rd+rc+1)%rd;
+    }
+    //start
+    int sum = 0;
+    int mul = 1;
+    sum += (W[0]*2 + H[0]*2)%mod;
+    mul = (mul*sum)%mod;
+    multiset<pair<ll, ll>> segs;
+    segs.insert({L[0], L[0]+W[0]});
+    // calc first ed
+    rep(i, 1, n)
+    {
+        mul *= sum;
+        mul %= mod;
+    }
+    cout << mul << endl;
+
     return;
 }
 
@@ -62,11 +102,12 @@ void solve()
 signed main()
 {
     fastIO();
+    fileIO("perimetric_chapter_1_input.txt", "perimetric_chapter_1_output.txt");
     T = 1;
     cin >> T; //this
     rep(tc, 1, T+1)
     {
-        //cout << "Case #" << tc << ": ";
+        cout << "Case #" << tc << ": ";
         solve();
     }
     return 0;
