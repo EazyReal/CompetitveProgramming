@@ -30,12 +30,16 @@
 ---
 
 ## Projects and Works
+* [**A Survey: Exponential algorithmic speedup by quantum walk**](https://github.com/EazyReal/QCQI2020fall/blob/main/QCQI_final__Oral_Version_.pdf)
+    * Quantum Computation and Information 2020 fall final presentation
+    * [written report version](https://github.com/EazyReal/QCQI2020fall/blob/main/QCQI_final__Textual_Version_.pdf)
 * [**Integrating the proposed simulator to Qiskit Aer, NTU-IBMQ 2020 QCamp**](https://github.com/EazyReal/NTU-IBMQ-QCamp2020)
     * Best Presentation Award
     * [The hackathon issue link](https://github.com/qiskit-community/qiskit-hackathon-taiwan-20/issues/17)
 * [**Syntax-Aware Natural Language Inference with Graph Matching Networks, TAAI 2020**](https://github.com/EazyReal/2020-IIS-internship/tree/master/MNLI)
     * A work during his internship at NLU lab, Institute of Information Science, Academia Sinica lead by [Dr. Keh-Yih Su](https://www.iis.sinica.edu.tw/pages/kysu/index.html)
-    * Accepted as a oral [paper](https://github.com/EazyReal/2020-IIS-internship/blob/master/MNLI/Syntax_aware_Natural_Language_Inference_with_Graph_Matching_Network__YT_Lin_915final.pdf) in [TAAI 2020](https://taai2020.github.io/)
+    * Accepted as a oral [paper](https://github.com/EazyReal/2020-IIS-internship/blob/master/MNLI/Syntax_aware_Natural_Language_Inference_with_Graph_Matching_Network__YT_Lin_915final.pdf) in [TAAI 2020](https://taai2020.github.io/) International Track
+    * Among the 6 interns from UCSD(Halıcıoğlu Data Science Institute), U Michigan(Department of Computer Science), National Taiwan University(Department of Electrical Engineering), he get the highest score of the final evaluation (a test about NLP) given by Dr. Keh-Yih Su 
 * [**Solutioin to k-MaxVD for trees with time complexity $O(kn)$**](https://hackmd.io/@ytlin/kMaxVD-presentation)
     * 2020 spring, Individual Study with [Dr. Chiuyuan Chen](https://scholar.nctu.edu.tw/en/persons/chiuyuan-chen), co-advised with [Dr. Meng-Tsung Tsai](https://people.cs.nctu.edu.tw/~mtsai/index.html)
 * [**Competitive Programming Archives from 2019**](https://github.com/EazyReal/CompetitveProgramming)
@@ -81,9 +85,9 @@
 
 ## Programming Languages and Tools
 
-* fluent in C++ and Python
-* familiar with git, PyTorch, AllenNLP, LaTex
-* dependency injection coding style
+* Fluent in C++ and Python
+* Familiar with git, PyTorch, AllenNLP, LaTex
+* Dependency injection coding style
 
 ---
 
@@ -116,7 +120,7 @@ He entered NTU CSIE in 2015.
 Unfortunately, due to some relationship issues, he was unable to finish his studies at NTU for depression.  
 Afterward, he entered NCTU Department of Applied Mathematics with the highest admission score of College Entrance Examination in Specified Subjects.  
 
-He studied in both mathematics and computer science during the past two years.  
+He studied in both mathematics and computer science during the past two years (majors in applied mathematics in 2018-2019 and computer science in 2020).  
 In the 2019 fall semester, he joined NCTU PCCA(Programming Challenging Contest Association) and started to strike success in plenty of individual contests, including taking 541st place in Round 3 of Google Code Jam 2020.  
 
 Various studies have been conducted during his college time. For example, construction of an AI program for NoGo using MCTS(Monte Carlo tree search) with RAVE(rapid action value estimation) at CGI lab lead by Dr. I-Chen Wu, finding a solution to k-MaxVD (max vertex domination of k-vertex subset) for trees in time complexity $O(k|V|)$ with Dr. Chiuyuan Chen and Dr. Meng-Tsung Tsai, and building a natural language inference model with a graph neural network variant at NLU lab, Institute of Information Science, Academia Sinica lead by Dr. Keh-Yih Su.  
@@ -138,5 +142,6 @@ He is now enthusiastic about the field of theoretical computer science, especial
 
 ## Other Links
 - [NCTU Lecture Notes](https://hackmd.io/r-CG8R7xTZ2S3pRa6JD9FA)
+- [Transcripts Page](/uZOcVjC2TeG3o9igFWa-JA)
 
 ---
