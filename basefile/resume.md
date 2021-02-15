@@ -14,16 +14,25 @@
 ## Education and Exprerience
 - **National Chiao Tung University, Department of Computer Science**, Sep 2020 - June 2021(exp.)
     - Relevant course works
+        - Quantum Computation and Quantum Information 93
+        - Quantum Machine Learning (NTHU) A+
         - [Advanced Algorithm](https://timetable.nctu.edu.tw/?r=main/crsoutline&Acy=108&Sem=2&CrsNo=5903&lang=en-us) 98
+        - Advanced Linear Algebra (NTHU) 95
         - Linear Algebra I, II 98, 96
+        - Algebra 95
         - Probalistic Theory 90
         - Deep Learning 91
         - Formal Language and Computation Theory 97
         - Introduction to Analysis 85
         - **GPA 4.24/4.3 with 26 credits in 2020 spring semester**
+        - **GPA 4.04/4.3 with 26 credits in 2021 fall semester**
 - **Institute of Information Science, Academia Sinica**, Jul 2020 - Sep 2020
+    - Responsibilities: Paper Survey, NLP System Development, and Paper Publication
 - **National Chiao Tung University, Department of Applied Math**, Sep 2018 - June 2020
 - **National Taiwan University, CSIE**, Sep 2015 - Jan 2016, 2017
+    - Relevant course works
+        - Computer Programming A+
+        - Introduction to Computer A+
 - **CKHS 67th**, 2013 - June 2015
 - **CKHS Science Class 4th**, Sep 2012 - 2013
 
