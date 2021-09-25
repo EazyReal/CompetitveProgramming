@@ -119,7 +119,7 @@ void solve()
     rep(i, 0, n) G[i].clear();
     fsz.clear();
     fsd.clear();
-    rep(i, 1, n+1)
+    cnt = 0;
     rep(i, 0, n-1)
     {
         cin >> a >> b;
@@ -127,8 +127,9 @@ void solve()
         G[b].pb(a);
     }
     rep(i, 0, n) cin >> f[i];
-    auto res = dfs(0, -1);
-    cout << dfs(0, -1) << endl;
+    dfs1(0, -1);
+    dfs2(0, -1, 1);
+    cout << sd-cnt << endl;
     return;
 }
 
