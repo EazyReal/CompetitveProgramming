@@ -53,6 +53,17 @@ pii operator+(const pii &x, const pii &y) { return mp(x.X + y.X, x.Y + y.Y); }
 pii operator-(const pii &x, const pii &y) { return mp(x.X - y.X, x.Y - y.Y); }
 // INT_MAX, ULLONG_MAX, LLONG_MAX or numeric_limits<int>::min()
 
+inline ll read()
+{
+    char ch = getchar();
+    ll x = 0, f = 0;
+    while (ch < '0' || ch > '9')
+        f |= ch == '-', ch = getchar();
+    while (ch >= '0' && ch <= '9')
+        x = x * 10 + ch - '0', ch = getchar();
+    return f ? -x : x;
+}
+
 //------------------------------------------------------------------------//
 int T;
 const int maxn = 2e5 + 7;
@@ -62,8 +73,32 @@ int n;
 // check T
 void solve(int tc)
 {
-    // cin >> n; rep(i, 0, n) cin >> a[i];
-    // cout << "Case #" << tc << ": ";
+    string s;
+    cin >> s;
+    int n = s.length();
+    string ans;
+    int i = 0;
+    int cnt = 0;
+    while (i < n)
+    {
+        cnt++;
+        if (i == n - 1 || s[i] > s[i + 1])
+        {
+            ans += string(cnt, s[i]);
+            cnt = 0;
+        }
+        if (s[i] < s[i + 1])
+        {
+            ans += string(2 * cnt, s[i]);
+            cnt = 0;
+        }
+        if (s[i] == s[i + 1])
+        {
+            ;
+        }
+        i++;
+    }
+    cout << "Case #" << tc << ": " << ans << endl;
     return;
 }
 

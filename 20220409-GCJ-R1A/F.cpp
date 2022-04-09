@@ -53,6 +53,17 @@ pii operator+(const pii &x, const pii &y) { return mp(x.X + y.X, x.Y + y.Y); }
 pii operator-(const pii &x, const pii &y) { return mp(x.X - y.X, x.Y - y.Y); }
 // INT_MAX, ULLONG_MAX, LLONG_MAX or numeric_limits<int>::min()
 
+inline ll read()
+{
+    char ch = getchar();
+    ll x = 0, f = 0;
+    while (ch < '0' || ch > '9')
+        f |= ch == '-', ch = getchar();
+    while (ch >= '0' && ch <= '9')
+        x = x * 10 + ch - '0', ch = getchar();
+    return f ? -x : x;
+}
+
 //------------------------------------------------------------------------//
 int T;
 const int maxn = 2e5 + 7;

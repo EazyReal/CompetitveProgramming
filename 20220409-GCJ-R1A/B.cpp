@@ -51,9 +51,9 @@ ll powmod(ll a, ll b)
 ll gcd(ll a, ll b) { return b ? gcd(b, a % b) : a; }
 pii operator+(const pii &x, const pii &y) { return mp(x.X + y.X, x.Y + y.Y); }
 pii operator-(const pii &x, const pii &y) { return mp(x.X - y.X, x.Y - y.Y); }
-// INT_MAX, ULLONG_MAX, LLONG_MAX or numeric_limits<int>::min()
 
 //------------------------------------------------------------------------//
+
 int T;
 const int maxn = 2e5 + 7;
 int n;
@@ -62,8 +62,52 @@ int n;
 // check T
 void solve(int tc)
 {
-    // cin >> n; rep(i, 0, n) cin >> a[i];
-    // cout << "Case #" << tc << ": ";
+    cin >> n;
+    vi A, B;
+    rep(i, 7, 30)
+    {
+        int a = 1 << i;
+        cout << a << " ";
+        A.pb(a);
+    }
+    rep(i, 1, n - (30 - 7) + 1)
+    {
+        cout << i << " ";
+        A.pb(i);
+    }
+    cout << endl;
+    assert(A.size() == n);
+    rep(i, 0, n)
+    {
+        int b;
+        cin >> b;
+        B.pb(b);
+    }
+    sort(all(A));
+    reverse(all(A));
+    vi ans[2];
+    ll delta = 0;
+    auto f = [&](int x)
+    {
+        if (delta < 0)
+        {
+            delta += x;
+            ans[0].pb(x);
+        }
+        else
+        {
+            delta -= x;
+            ans[1].pb(x);
+        }
+    };
+    for (int &i : B)
+        f(i);
+    for (int &i : A)
+        f(i);
+    assert(delta == 0);
+    for (int &i : ans[0])
+        cout << i << " ";
+    cout << endl;
     return;
 }
 
