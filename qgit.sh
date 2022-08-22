@@ -5,10 +5,9 @@
 
 #!/bin/bash
 
-function sub()
-{
+sub() {
   git pull origin master
-  git add  .
+  git add -A
   git commit -m  $1
   git push origin master
 }

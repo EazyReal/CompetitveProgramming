@@ -5,8 +5,7 @@
 
 #!/bin/bash
 
-function sub()
-{
+function sub {
   mkdir $1
   cp basefile/basefile.cpp $1/A.cpp
   cp basefile/basefile.cpp $1/B.cpp
