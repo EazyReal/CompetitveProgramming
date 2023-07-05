@@ -1,33 +1,29 @@
 {
     "configurations": [
         {
-            "name": "Win32",
+            "name": "Mac",
             "includePath": [
-                "${workspaceRoot}",
-                "C:\\MinGW\\include",
-                "C:\\MinGW\\lib\\gcc\\mingw32\\6.3.0\\include",
-                "C:\\MinGW\\lib\\gcc\\mingw32\\6.3.0\\include\\c++"
+                "/Users/maxwill/Tech/CompetitveProgramming/**",
+                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1"
             ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "__GNUC__=5",
-                "__cdecl=__attribute__((__cdecl__))"
+            "defines": [],
+            "macFrameworkPath": [
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
             ],
-            "intelliSenseMode": "clang-x64",
+            "compilerPath": "/usr/bin/clang++",
+            "cStandard": "c23",
+            "cppStandard": "c++23",
+            "intelliSenseMode": "macos-clang-arm64",
+            "mergeConfigurations": false,
             "browse": {
                 "path": [
-                    "${workspaceRoot}",
-                    "C:\\MinGW\\include",
-                    "C:\\MinGW\\lib\\gcc\\mingw32\\6.3.0\\include",
-                    "C:\\MinGW\\lib\\gcc\\mingw32\\6.3.0\\include\\c++"
+                    "${workspaceFolder}/**"
                 ],
-                "limitSymbolsToIncludedHeaders": true,
-                "databaseFilename": ""
+                "limitSymbolsToIncludedHeaders": true
             },
-            "compilerPath": "C:\\MinGW\\bin\\gcc.exe",
-            "cStandard": "c11",
-            "cppStandard": "c++17"
+            "compilerArgs": [
+                "--std=c++2b"
+            ]
         }
     ],
     "version": 4
