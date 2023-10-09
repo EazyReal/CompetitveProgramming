@@ -1,6 +1,7 @@
 # compiled output
 *out
-
+*.txt
+*.zip
 
 # General
 */.DS_Store
