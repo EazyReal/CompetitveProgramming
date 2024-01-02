@@ -37,10 +37,10 @@ let rec cost_odd a taken =
         min take drop
       | _ -> 0
 
-let cost a taken = 
+let cost a = 
   match List.length a mod 2 with
     | 0 -> cost_even a
     | _ -> cost_odd a false
 
 let () = 
-    Printf.printf "%d\n" @@ cost a false
+    Printf.printf "%d\n" @@ cost a
