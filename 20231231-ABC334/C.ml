@@ -1,5 +1,3 @@
-open List
-
 let n, k = Scanf.sscanf (read_line ()) " %d %d" (fun a b  -> a, b)
 let a = List.init k @@ fun _ -> Scanf.scanf " %d" (fun a -> a)
 
