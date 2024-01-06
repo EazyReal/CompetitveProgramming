@@ -5,78 +5,71 @@ using namespace std;
 #define X first
 #define Y second
 #define pb push_back
-#define mp make_pair
-#define all(a) a.begin(), a.end()
-#define rep(i, st, n) for (int i = (st); i < (n); ++i)
-#define repinv(i, st, n) for (int i = ((n)-1); i >= (st); --i)
+#define REP(i, st, n) for (auto i : views::iota(st, n))
+#define PER(i, st, n) for (auto i : views::iota(st, n) | views::reverse)
 #define MEM(a, b) memset(a, b, sizeof(a));
 #ifdef LOCAL
 #define debug(x) std::cerr << #x << ": " << x << endl
 #else
 #define debug(x) 860111
 #endif
-#define fastIO()                      \
-    ios_base::sync_with_stdio(false); \
-    cin.tie(0);                       \
-    cout.tie(0)
-#define fileIO(in, out)      \
-    freopen(in, "r", stdin); \
-    freopen(out, "w", stdout)
+#define fastIO()               \
+  ios::sync_with_stdio(false); \
+  cin.tie(nullptr);            \
+  cout.tie(nullptr)
+#define fileIO(in, out)    \
+  freopen(in, "r", stdin); \
+  freopen(out, "w", stdout)
 
-typedef long long ll;
-typedef unsigned long long ull;
-typedef vector<int> vi;
-typedef vector<ll> vll;
-typedef pair<int, int> pii;
-typedef pair<ll, ll> pll;
-typedef long double ld;
+// type definition
+using i64 = long long;
+using u64 = unsigned long long;
+using vi = vector<int>;
+using pii = pair<int, int>;
+using ld = long double;
 
-// mt19937 mrand(random_device{}());
-// mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
-const ll mod = 1e9 + 7;
-// int rnd(int x) { return mrand() % x;}
-ll powmod(ll a, ll b)
-{
-    ll res = 1;
-    a %= mod;
-    assert(b >= 0);
-    for (; b; b >>= 1)
-    {
-        if (b & 1)
-            res = res * a % mod;
-        a = a * a % mod;
-    }
-    return res;
+// randomness
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+int randint(int a, int b) { return uniform_int_distribution<int>(a, b)(rng); }
+
+// modular arithmetic
+const i64 mod = 1e9 + 7;
+i64 powmod(i64 a, i64 b) {
+  i64 res = 1;
+  a %= mod;
+  assert(b >= 0);
+  for (; b; b >>= 1) {
+    if (b & 1) res = res * a % mod;
+    a = a * a % mod;
+  }
+  return res;
 }
-ll gcd(ll a, ll b) { return b ? gcd(b, a % b) : a; }
-pii operator+(const pii &x, const pii &y) { return mp(x.X + y.X, x.Y + y.Y); }
-pii operator-(const pii &x, const pii &y) { return mp(x.X - y.X, x.Y - y.Y); }
-// INT_MAX, ULLONG_MAX, LLONG_MAX or numeric_limits<int>::min()
+i64 gcd(i64 a, i64 b) { return b ? gcd(b, a % b) : a; }
+
+// coordinates
+pii operator+(const pii &x, const pii &y) { return {x.X + y.X, x.Y + y.Y}; }
+pii operator-(const pii &x, const pii &y) { return {x.X - y.X, x.Y - y.Y}; }
+
+// extreme values
+// INT_MAX, Ui64ONG_MAX, i64ONG_MAX or numeric_limits<int>::min()
 
 //------------------------------------------------------------------------//
 int T;
 const int maxn = 2e5 + 7;
 int n;
-// ll a[maxn];
 
 // check T
-void solve(int tc)
-{
-    // cin >> n; rep(i, 0, n) cin >> a[i];
-    // cout << "Case #" << tc << ": ";
-    return;
+void solve(int tc) {
+  // cin >> n; vi a(n); for(auto &x: a) cin >> x;
+  cout << "Case #" << tc << ": ";
+  return;
 }
 
 // g++ -o out -std=c++11 A.cpp
-
-signed main()
-{
-    fastIO();
-    T = 1;
-    cin >> T; // this
-    rep(tc, 1, T + 1)
-    {
-        solve(tc);
-    }
-    return 0;
+signed main() {
+  fastIO();
+  T = 1;
+  cin >> T;  // this if the problem do not input number of testcases
+  REP(tc, 0, T) { solve(tc); }
+  return 0;
 }
