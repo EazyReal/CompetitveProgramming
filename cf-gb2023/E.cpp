@@ -44,6 +44,7 @@ i64 powmod(i64 a, i64 b) {
   }
   return res;
 }
+i64 gcd(i64 a, i64 b) { return b ? gcd(b, a % b) : a; }
 
 // coordinates
 pii operator+(const pii &x, const pii &y) { return {x.X + y.X, x.Y + y.Y}; }

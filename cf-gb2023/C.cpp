@@ -44,6 +44,7 @@ i64 powmod(i64 a, i64 b) {
   }
   return res;
 }
+i64 gcd(i64 a, i64 b) { return b ? gcd(b, a % b) : a; }
 
 // coordinates
 pii operator+(const pii &x, const pii &y) { return {x.X + y.X, x.Y + y.Y}; }
@@ -59,9 +60,15 @@ int n;
 
 // check T
 void solve(int tc) {
-  // cin >> n; vi a(n); for(auto &x: a) cin >> x;
-  cout << "Case #" << tc << ": ";
-  return;
+  cin >> n;
+  i64 x{}, pre{0}, odd{0};
+  REP(i, 0, n) {
+    cin >> x;
+    pre += x;
+    odd += x & 1;
+    cout << (i ? pre - (odd / 3) - (odd % 3 == 1) : pre) << " ";
+  }
+  cout << endl;
 }
 
 // g++ -o out -std=c++11 A.cpp

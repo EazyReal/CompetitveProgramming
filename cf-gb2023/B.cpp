@@ -60,7 +60,11 @@ int n;
 // check T
 void solve(int tc) {
   // cin >> n; vi a(n); for(auto &x: a) cin >> x;
-  cout << "Case #" << tc << ": ";
+  // cout << "Case #" << tc << ": ";
+  i64 a, b;
+  cin >> a >> b;
+  auto lcm_ = lcm(a, b);
+  cout << (lcm_ == b ? b * b / a : lcm_) << endl;
   return;
 }
 
